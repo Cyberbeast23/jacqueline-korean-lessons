@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Math Day 1: Kimchi Kitchen Math Lab</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.6;margin:0;background:#fff5f0;color:#1d2a3a}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#c62828}
+  h1{color:#b71c1c;font-size:2em;margin:10px 0}
+  h2{color:#c62828;margin-top:36px;border-bottom:3px solid #ffcdd2;padding-bottom:4px}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .example{border-left:8px solid #ef6c00}
+  .example h3{margin:0 0 6px;color:#bf360c}
+  .step{margin:4px 0 4px 10px}
+  code,.mono{font-family:Consolas,"Courier New",monospace;background:#ffebee;padding:1px 6px;border-radius:5px}
+  .q{border-left:8px solid #90a4ae}
+  .q.right{border-left-color:#43a047;background:#f1f8e9}
+  .q.wrong{border-left-color:#e53935;background:#fff5f5}
+  .qnum{font-weight:bold;color:#b71c1c}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+  input[type=text]{font-size:1.05em;padding:8px 12px;border:2px solid #ef9a9a;border-radius:10px;width:190px}
+  input[type=text]:focus{outline:none;border-color:#c62828;box-shadow:0 0 0 3px #ffcdd2}
+  button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold}
+  .check{background:#c62828;color:#fff} .check:hover{background:#b71c1c}
+  .hint{background:#ffe082;color:#5d4037} .hint:hover{background:#ffd54f}
+  .sol{background:#90caf9;color:#0d47a1}
+  .unit{color:#546e7a}
+  .fb{margin-top:8px;font-weight:bold;min-height:1em}
+  .fb.good{color:#2e7d32} .fb.bad{color:#c62828}
+  .hints{margin-top:8px;color:#5d4037;background:#fff8e1;border-radius:10px;padding:0 12px}
+  .hints p{margin:6px 0;padding:6px 0}
+  .solution{margin-top:8px;background:#e3f2fd;border-radius:10px;padding:8px 12px;display:none}
+  #scoreBox{position:sticky;bottom:0;background:#b71c1c;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #scoreBox button{background:#ffca28;color:#3e2723}
+  #final{display:none;font-size:1.15em;text-align:center;border:4px solid #43a047}
+  .tipbox{background:#fff8e1;border-left:8px solid #ffb300}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>🧮 Math Day 1: Kimchi Kitchen Math Lab</h1>
+<p>Welcome to the kitchen, Jacqueline! Today you'll use <strong>fractions, ratios, percentages, unit rates, area/volume, mean/median/range, BEDMAS, and elapsed time</strong> — the same skills a restaurant cook or market vendor uses when scaling recipes for kimchi, bibimbap, and bulgogi.</p>
+
+<h2>Part 1: Learn the Moves</h2>
+
+<div class="box tipbox">
+  <strong>The 4-Step Problem Solver:</strong>
+  <ol>
+    <li><strong>Read</strong>: What is the question actually asking? Underline numbers and units.</li>
+    <li><strong>Plan</strong>: Which operations, and in what order?</li>
+    <li><strong>Solve</strong>: One step at a time; write each step down.</li>
+    <li><strong>Check</strong>: Is the answer reasonable? Did you answer the question asked?</li>
+  </ol>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 1: Scaling a kimchi recipe</h3>
+  <p>A recipe for 4 people uses <strong>800 g</strong> of napa cabbage. How much cabbage for <strong>10 people</strong>?</p>
+  <p class="step">Step 1: Unit rate = 800 ÷ 4 = 200 g per person.</p>
+  <p class="step">Step 2: 200 × 10 = <strong>2000 g</strong> (or 2 kg).</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 2: Fraction of rice bowls</h3>
+  <p>A restaurant cooked <strong>96 bowls</strong> of rice. Servers have plated <strong>5/8</strong> of them. How many bowls are plated?</p>
+  <p class="step">96 ÷ 8 = 12; 12 × 5 = <strong>60 bowls</strong>.</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 3: Percent of orders</h3>
+  <p>Out of 80 lunch orders, <strong>35%</strong> were bibimbap. How many were bibimbap?</p>
+  <p class="step">0.35 × 80 = <strong>28 orders</strong>.</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 4: Mean, median, range</h3>
+  <p>Five daily kimchi jar sales: 4, 9, 6, 5, 6. Find mean, median, and range.</p>
+  <p class="step">Mean = 30 ÷ 5 = <strong>6</strong>. Ordered: 4, 5, 6, 6, 9 → median <strong>6</strong>. Range = 9 − 4 = <strong>5</strong>.</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 5: Volume &amp; BEDMAS</h3>
+  <p>A sauce tray is 50 cm × 40 cm × 5 cm. Volume = 50 × 40 × 5 = <strong>10 000 cm³</strong>.</p>
+  <p><strong>BEDMAS:</strong> <span class="mono">(60 − 20) ÷ 5 × 3² + 6</span> → 40 ÷ 5 = 8; 3² = 9; 8 × 9 = 72; 72 + 6 = <strong>78</strong>.</p>
+</div>
+
+<h2>Part 2: The Challenge (16 problems)</h2>
+<p>Type your answer and press <strong>Check</strong> (or Enter). Fractions like <span class="mono">3/4</span>, mixed numbers like <span class="mono">1 3/4</span>, or decimals like <span class="mono">1.75</span> are fine. Don't type the units. Stuck? Press <strong>Hint</strong>. After 2 tries, you can see a full solution.</p>
+
+<div id="questions"></div>
+<div class="box" id="final"></div>
+<div id="scoreBox">
+  <span id="scoreText">Score: 0 / 16 correct</span>
+  <button id="finishBtn" type="button">I'm done! Show my final score</button>
+</div>
+</div>
+
+<script>
+var NAME = "Jacqueline";
+var QUESTIONS = [
+ {t:"A kimchi recipe for 4 people uses <strong>600 g</strong> of cabbage. How many grams for <strong>10 people</strong>?", a:"1500", u:"g",
+  h:["Find grams per person, then multiply by 10.","600 ÷ 4 = 150; 150 × 10 = ?"],
+  s:"600 ÷ 4 = 150 g per person; 150 × 10 = 1500 g."},
+ {t:"A kitchen cooked <strong>48 bowls</strong> of rice. They have served <strong>3/4</strong> of them. How many bowls have been served?", a:"36", u:"bowls",
+  h:["Find 3/4 of 48.","48 ÷ 4 = 12; then multiply by 3."],
+  s:"48 ÷ 4 = 12; 12 × 3 = 36 bowls."},
+ {t:"Out of 50 menu orders, <strong>40%</strong> were bulgogi. How many orders were bulgogi?", a:"20", u:"orders",
+  h:["40% = 0.40. Multiply by 50.","0.40 × 50 = ?"],
+  s:"0.40 × 50 = 20 orders."},
+ {t:"A large rice cooker held about <strong>24 cups</strong> of cooked rice. A small pot held <strong>1/4</strong> as much. How many cups did the small pot hold?", a:"6", u:"cups",
+  h:["Find 1/4 of 24.","24 ÷ 4 = ?"],
+  s:"24 ÷ 4 = 6 cups."},
+ {t:"Five daily bibimbap sales: 12, 18, 15, 14, 16. What is the <strong>mean</strong>?", a:"15", u:"bowls",
+  h:["Add all five, then divide by 5.","12 + 18 + 15 + 14 + 16 = 75."],
+  s:"Sum = 75. 75 ÷ 5 = 15 bowls."},
+ {t:"Using the same five sales (12, 18, 15, 14, 16), what is the <strong>range</strong>?", a:"6", u:"bowls",
+  h:["Range = largest − smallest.","Largest is 18, smallest is 12."],
+  s:"18 − 12 = 6 bowls."},
+ {t:"Using the same five sales (12, 18, 15, 14, 16), what is the <strong>median</strong>?", a:"15", u:"bowls",
+  h:["Order from smallest to largest.","Ordered: 12, 14, 15, 16, 18. The middle value is the median."],
+  s:"Ordered: 12, 14, 15, 16, 18. Median = 15 bowls."},
+ {t:"A delivery scooter travelled <strong>150 km in 5 hours</strong> at a steady rate. What is the unit rate in km/h?", a:"30", u:"km/h",
+  h:["Divide distance by time.","150 ÷ 5 = ?"],
+  s:"150 ÷ 5 = 30 km/h."},
+ {t:"Convert <strong>2800 mL</strong> of broth to litres.", a:"2.8", u:"L",
+  h:["1 L = 1000 mL. Divide by 1000.","2800 ÷ 1000 = ?"],
+  s:"2800 ÷ 1000 = 2.8 L."},
+ {t:"Use BEDMAS: <span class='mono'>(64 − 16) ÷ 8 × 2² + 5</span>", a:"29", u:"",
+  h:["Brackets first: 64 − 16 = 48. Exponent: 2² = 4.","48 ÷ 8 = 6; 6 × 4 = 24; 24 + 5 = ?"],
+  s:"(64 − 16) = 48; 2² = 4; 48 ÷ 8 = 6; 6 × 4 = 24; 24 + 5 = 29."},
+ {t:"Solve for <em>n</em>: <span class='mono'>4n + 18 = 58</span>", a:"10", u:"",
+  h:["Subtract 18 from both sides.","4n = 40. Divide by 4."],
+  s:"4n = 58 − 18 = 40, so n = 40 ÷ 4 = 10. Check: 4 × 10 + 18 = 58 ✔"},
+ {t:"A rectangular banchan (side-dish) tray is <strong>45 cm</strong> long and <strong>12 cm</strong> wide. What is its <strong>area</strong>?", a:"540", u:"cm²",
+  h:["Area of a rectangle = length × width.","45 × 12 = ?"],
+  s:"45 × 12 = 540 cm²."},
+ {t:"A takeout box measures 20 cm by 15 cm by 8 cm. What is its <strong>volume</strong>?", a:"2400", u:"cm³",
+  h:["Volume = length × width × height.","20 × 15 × 8 = ?"],
+  s:"20 × 15 = 300; 300 × 8 = 2400 cm³."},
+ {t:"Prep started at <strong>9:40</strong> and finished at <strong>11:15</strong>. How many <strong>minutes</strong> did prep last?", a:"95", u:"minutes",
+  h:["9:40 to 10:40 = 60 min. 10:40 to 11:15 = 35 min.","Add 60 + 35."],
+  s:"9:40 → 10:40 = 60 min; 10:40 → 11:15 = 35 min; total = 95 minutes."},
+ {t:"Gochujang sauce and sesame oil are mixed in a <strong>2 : 3</strong> ratio (2 parts sauce to 3 parts oil). Jacqueline needs 10 mL of sauce. What is the <strong>total volume</strong> of the finished mixture?", a:"25", u:"mL",
+  h:["Total parts = 2 + 3 = 5. Sauce is 2 of 5 parts.","If 2 parts = 10 mL, then 1 part = 5 mL, and 5 parts = 25 mL."],
+  s:"1 part = 10 ÷ 2 = 5 mL. Total = 5 × 5 = 25 mL (10 mL sauce + 15 mL oil)."},
+ {t:"Weekly kimchi sales rose from <strong>400 jars</strong> to <strong>500 jars</strong>. What was the <strong>percent increase</strong>?", a:"25", u:"%",
+  h:["Increase = 500 − 400 = 100.","Percent increase = (100 ÷ 400) × 100."],
+  s:"100 ÷ 400 = 0.25 = 25%."}
+];
+
+var PRAISE = ["Nice work, Jacqueline!","Correct! Kitchen math on point! 🍚","Yes!","Excellent. That was a solid puzzle!","Right on! 🎯","Brilliant thinking!","Spot on!"];
+var ENCOURAGE = ["Not quite. Check your steps and try again!","Close. Try again — maybe use a hint?","Hmm, not yet. Re-read the question carefully.","Keep going. Mistakes help your brain grow!"];
+
+function parseAnswer(str){
+  if(str===undefined||str===null) return NaN;
+  var s=String(str).trim().toLowerCase();
+  s=s.replace(/[\u2212\u2013]/g,"-");
+  s=s.replace(/(\d),(?=\d{3}(\D|$))/g,"$1");
+  s=s.replace(/[^0-9.\/\- ]/g," ").replace(/\s+/g," ").trim();
+  s=s.replace(/\s*\/\s*/g,"/");
+  var m;
+  if((m=s.match(/^(-?\d+) (\d+)\/(\d+)$/))){ var w=parseFloat(m[1]),n=parseFloat(m[2]),d=parseFloat(m[3]); if(d===0)return NaN; return w<0? w-n/d : w+n/d; }
+  if((m=s.match(/^(-?\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/))){ var d2=parseFloat(m[2]); if(d2===0)return NaN; return parseFloat(m[1])/d2; }
+  s=s.replace(/ /g,"");
+  if(/^-?(\d+\.?\d*|\.\d+)$/.test(s)) return parseFloat(s);
+  return NaN;
+}
+function isCorrect(input,key){
+  var a=parseAnswer(input), k=parseAnswer(key);
+  if(isNaN(a)) return false;
+  var isInt=Math.abs(k-Math.round(k))<1e-12;
+  var tol=isInt?1e-9:0.005;
+  return Math.abs(a-k)<=tol;
+}
+
+var state=[];
+function render(){
+  var box=document.getElementById("questions");
+  QUESTIONS.forEach(function(q,i){
+    state.push({correct:false,tries:0,hints:0});
+    var d=document.createElement("div");
+    d.className="box q"; d.id="q"+i;
+    d.innerHTML='<div><span class="qnum">'+(i+1)+'.</span> '+q.t+'</div>'+
+      '<div class="row"><input type="text" id="in'+i+'" aria-label="Answer to question '+(i+1)+'" autocomplete="off"> <span class="unit">'+q.u+'</span>'+
+      '<button type="button" class="check" data-i="'+i+'">Check</button>'+
+      '<button type="button" class="hint" data-i="'+i+'">Hint 💡</button>'+
+      '<button type="button" class="sol" data-i="'+i+'" style="display:none">Show solution</button></div>'+
+      '<div class="fb" id="fb'+i+'"></div><div class="hints" id="hints'+i+'"></div>'+
+      '<div class="solution" id="sol'+i+'"><strong>Solution:</strong> '+q.s+'</div>';
+    box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target; if(b.tagName!=="BUTTON")return;
+    var i=+b.getAttribute("data-i");
+    if(b.className==="check") check(i);
+    else if(b.className==="hint") hint(i);
+    else if(b.className==="sol") document.getElementById("sol"+i).style.display="block";
+  });
+  box.addEventListener("keydown",function(e){
+    if(e.key==="Enter"&&e.target.tagName==="INPUT"){ check(+e.target.id.slice(2)); }
+  });
+}
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)];}
+function check(i){
+  var val=document.getElementById("in"+i).value;
+  var fb=document.getElementById("fb"+i), card=document.getElementById("q"+i);
+  if(val.trim()===""){fb.className="fb bad";fb.textContent="Type an answer first!";return;}
+  if(isNaN(parseAnswer(val))){fb.className="fb bad";fb.textContent="I can't read that as a number. Try something like 42, 3.5, 3/4 or 1 3/4.";return;}
+  state[i].tries++;
+  if(isCorrect(val,QUESTIONS[i].a)){
+    state[i].correct=true; card.className="box q right"; fb.className="fb good";
+    fb.textContent="✅ "+pick(PRAISE)+(state[i].tries===1?" (first try!)":"");
+  } else {
+    state[i].correct=false; card.className="box q wrong"; fb.className="fb bad";
+    fb.textContent="❌ "+pick(ENCOURAGE);
+    if(state[i].tries>=2) card.querySelector(".sol").style.display="inline-block";
+  }
+  updateScore();
+}
+function hint(i){
+  var q=QUESTIONS[i], s=state[i], hb=document.getElementById("hints"+i);
+  if(s.hints<q.h.length){
+    var p=document.createElement("p"); p.textContent="💡 Hint "+(s.hints+1)+": "+q.h[s.hints]; hb.appendChild(p); s.hints++;
+  }
+  if(s.hints>=q.h.length) document.querySelector("#q"+i+" .hint").disabled=true;
+  updateScore();
+}
+function counts(){
+  var c=0,first=0,h=0;
+  state.forEach(function(s){ if(s.correct){c++; if(s.tries===1)first++;} h+=s.hints; });
+  return {correct:c,first:first,hints:h};
+}
+function updateScore(){
+  var k=counts();
+  document.getElementById("scoreText").textContent="Score: "+k.correct+" / "+QUESTIONS.length+" correct · hints used: "+k.hints;
+}
+function finish(){
+  var k=counts(), n=QUESTIONS.length, pct=Math.round(100*k.correct/n);
+  var msg;
+  if(pct===100) msg="🏆 PERFECT SCORE! Your Kimchi Kitchen math is restaurant-ready!";
+  else if(pct>=85) msg="🌟 Outstanding! That's a strong Grade 6–8 performance.";
+  else if(pct>=65) msg="💪 Great effort! Review the ones you missed and try them again.";
+  else if(pct>=40) msg="👍 Good start. These problems are challenging — use the hints and solutions, then retry.";
+  else msg="🌱 Challenge problems take practice. Go through the worked examples and try again!";
+  var f=document.getElementById("final");
+  f.style.display="block";
+  f.innerHTML="<h2 style='border:none;margin-top:0'>Final Score: "+k.correct+" / "+n+" ("+pct+"%)</h2>"+
+    "<p>Correct on the first try: "+k.first+" · Hints used: "+k.hints+"</p><p>"+msg+"</p>"+
+    "<p style='font-size:.85em;color:#546e7a'>Finished on "+new Date().toLocaleString("en-CA")+"</p>";
+  f.scrollIntoView({behavior:"smooth"});
+}
+render();
+updateScore();
+document.getElementById("finishBtn").addEventListener("click",finish);
+</script>
+</body>
+</html>

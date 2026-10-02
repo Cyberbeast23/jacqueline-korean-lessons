@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading Day 1: A Table Full of Stories</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.65;margin:0;background:#fef6f0;color:#1a2b2e}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#c62828}
+  h1{color:#b71c1c;font-size:2em;margin:10px 0}
+  h2{color:#c62828;margin-top:36px;border-bottom:3px solid #ffcdd2;padding-bottom:4px}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .passage{font-family:Georgia,"Times New Roman",serif;font-size:1.1em;line-height:1.8}
+  .passage h3{text-align:center;font-family:"Segoe UI",Verdana,sans-serif;color:#b71c1c;font-size:1.4em;margin:4px 0 14px}
+  .passage p{text-indent:1.5em;margin:0 0 14px}
+  mark.v{background:#fff59d;padding:0 3px;border-radius:4px;font-weight:bold}
+  .tipbox{background:#fff8e1;border-left:8px solid #ffb300}
+  .q{border-left:8px solid #bcaaa4}
+  .q.right{border-left-color:#43a047;background:#f1f8e9}
+  .q.wrong{border-left-color:#e53935;background:#fff5f5}
+  .tag{display:inline-block;font-size:.7em;background:#c62828;color:#fff;border-radius:8px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+  .opt{display:block;width:100%;text-align:left;font-size:.95em;background:#fafafa;border:2px solid #e0e0e0;border-radius:10px;padding:8px 14px;margin:8px 0;cursor:pointer;font-family:inherit}
+  .opt:hover{border-color:#ef9a9a;background:#fff}
+  .opt.sel-right{background:#c8e6c9;border-color:#43a047}
+  .opt.sel-wrong{background:#ffcdd2;border-color:#e53935}
+  .fb{margin-top:6px;font-weight:bold}
+  .fb.good{color:#2e7d32} .fb.bad{color:#c62828}
+  .explain{color:#3e2723;font-weight:normal}
+  select{font-size:.95em;padding:6px 8px;border-radius:8px;border:2px solid #ef9a9a;max-width:100%;font-family:inherit}
+  .vrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:8px 6px;border-bottom:1px dashed #eee}
+  .vrow .w{font-weight:bold;min-width:140px}
+  .vrow.right{background:#f1f8e9} .vrow.wrong{background:#fff5f5}
+  .mark{font-size:1.2em;min-width:30px}
+  button.main{font-size:1em;padding:10px 20px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#c62828;color:#fff;margin-top:10px}
+  button.main:hover{background:#b71c1c}
+  button.sec{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#ffe082;color:#5d4037}
+  textarea{width:100%;box-sizing:border-box;font-size:1em;font-family:inherit;padding:10px;border:2px solid #ef9a9a;border-radius:10px;min-height:120px}
+  #model{display:none;background:#ffebee;border-radius:10px;padding:10px 14px;margin-top:10px}
+  #scoreBox{position:sticky;bottom:0;background:#b71c1c;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #scoreBox button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#ffca28;color:#3e2723}
+  #final{display:none;text-align:center;border:4px solid #43a047;font-size:1.1em}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>📖 Reading Day 1: A Table Full of Stories</h1>
+
+<div class="box tipbox">
+  <strong>Before you read:</strong> Good readers dig for clues.
+  <ul>
+    <li><strong>Preview:</strong> Read the title. What do you expect the passage to cover?</li>
+    <li><strong>Pause:</strong> After each paragraph, say its main idea in one sentence.</li>
+    <li><strong>Words in <mark class="v">yellow</mark></strong> are vocabulary. Use context to figure out their meaning.</li>
+  </ul>
+</div>
+
+<div class="box passage" id="passage">
+<h3>A Table Full of Stories</h3>
+<p>In Korea, a meal is rarely just fuel. It is a small stage where history, geography, and family habits meet. At the centre of many tables sits a bowl of steamed white rice — <em>bap</em> — surrounded by colourful side dishes called <mark class="v">banchan</mark>. Kimchi, a fermented cabbage (or radish) seasoned with chilli, garlic, and salt, appears so often that many Koreans say a meal without it feels incomplete. Fermentation is not a trend here; it is a practical <mark class="v">tradition</mark> that preserved vegetables through long winters and still shapes flavours today.</p>
+<p>Korean cooking also celebrates balance. A classic bowl of <mark class="v">bibimbap</mark> — mixed rice with vegetables, egg, and often a little beef — invites you to stir everything together so each bite carries colour, crunch, and spice. Bulgogi, thinly sliced marinated beef grilled until tender and slightly sweet, shows how soy sauce, sesame, and pear or sugar can turn simple ingredients into something memorable. These dishes travel well: Korean restaurants from Vancouver to Nairobi now serve them, and home cooks adapt recipes with local produce.</p>
+<p>Food and manners travel together. Saying <em>annyeonghaseyo</em> (hello) when you enter a restaurant, and <em>gamsahamnida</em> (thank you) when you leave, is part of everyday <mark class="v">etiquette</mark>. Sharing dishes from the centre of the table encourages conversation. Elders are often served first. These habits are not rigid rules for tourists to fear; they are clues to values: respect, togetherness, and attention to others.</p>
+<p>Geography left its mark too. Mountains, coastline, and four sharp seasons pushed cooks toward pickling, drying fish, and making spicy stews that warm the body in winter. Markets still overflow with seaweed, tofu, chilli paste (<em>gochujang</em>), and sesame oil. Street food — from crispy hotteok (sweet pancakes) to bubbling tteokbokki (rice cakes in spicy sauce) — turns a city sidewalk into a kitchen. Food is public culture as much as private comfort.</p>
+<p>Why does this matter for a language learner? Because vocabulary sticks better when it sits inside a story. Words like rice, water, kimchi, and "it's delicious" are not random flashcards; they are tools you will actually use at a table. Understanding a little about fermentation, sharing, and respect helps you notice more when you watch a Korean drama, visit a restaurant, or try a recipe at home. Culture is the context that makes the words mean something.</p>
+<p>So when you sit down to a Korean meal — or even imagine one — look past the steam rising from the rice. Notice the colours of the banchan, the careful balance of spice and sweetness, and the quiet rituals of greeting and thanks. A table full of stories is waiting. Your job as a reader (and a beginner Korean speaker) is to taste carefully, ask good questions, and remember that every dish is also a lesson in history and care.</p>
+<p style="text-indent:0;font-size:.8em;color:#546e7a;text-align:right">About 520 words</p>
+</div>
+
+<h2>Part 1: Comprehension</h2>
+<p>Click the best answer. Only your <strong>first click</strong> counts toward your score, but you can keep trying to find the right answer.</p>
+<div id="mc"></div>
+
+<h2>Part 2: Think Deeper (not scored)</h2>
+<div class="box">
+  <p><strong>In 2 to 4 sentences, explain why Korean food is described as more than "just fuel." Use at least two ideas from the passage (for example: <em>banchan, fermentation, sharing, etiquette, geography</em>).</strong></p>
+  <textarea id="openAns" placeholder="Write your answer here..."></textarea>
+  <p><button type="button" class="sec" id="showModel">Compare with a model answer</button></p>
+  <div id="model"><strong>Model answer:</strong> Korean meals bring history and family habits to the table through shared banchan and fermented foods like kimchi that once preserved vegetables through winter. Etiquette — greeting, thanking, and serving elders first — shows values of respect and togetherness. Geography also shaped pickling, spicy stews, and street food, so a meal is culture as much as calories.<br><em>Did you mention sharing/etiquette and fermentation/geography (or banchan)? Strong work if so!</em></div>
+</div>
+
+<h2>Part 3: Vocabulary</h2>
+<div class="box">
+  <h3 style="margin-top:0">A. Match each word to its meaning</h3>
+  <p>Choose the meaning that fits how the word is used in the passage.</p>
+  <div id="vmatch"></div>
+  <h3>B. Fill in the blank</h3>
+  <p>Choose the vocabulary word that best completes each sentence.</p>
+  <div id="vfill"></div>
+  <button type="button" class="main" id="checkVocab">Check my vocabulary</button>
+  <div class="fb" id="vocabFb"></div>
+</div>
+
+<div class="box" id="final"></div>
+<div id="scoreBox">
+  <span id="scoreText"></span>
+  <button type="button" id="finishBtn">I'm done! Show my final score</button>
+</div>
+</div>
+
+<script>
+var MC = [
+ {q:"Which sentence best states the <strong>main idea</strong> of the whole passage?",
+  o:["Bibimbap always includes pear juice.",
+     "Korean food connects history, geography, manners, and shared dishes — so learning about meals helps language and culture stick.",
+     "Kimchi is only cabbage with salt.",
+     "Street food is illegal in Seoul."],
+  a:1, e:"The other choices are details or false; only this one sums up the whole passage."},
+ {q:"According to the passage, what are <strong>banchan</strong>?",
+  o:["Main dessert courses.","Colourful side dishes around the rice.","Only grilled beef.","Restaurant greeting phrases."],
+  a:1, e:"Banchan are the side dishes surrounding the rice at the centre of the table."},
+ {q:"Why was fermentation historically useful in Korea?",
+  o:["It made food glow in the dark.","It preserved vegetables through long winters.","It replaced rice completely.","It was invented for tourists."],
+  a:1, e:"The passage says fermentation preserved vegetables through long winters."},
+ {q:"What does the passage say about <strong>bibimbap</strong>?",
+  o:["It is never mixed.","It is mixed rice with vegetables, egg, and often beef, stirred so each bite has colour and spice.","It is only soup.","It contains no rice."],
+  a:1, e:"Bibimbap is described as mixed rice with vegetables, egg, and often beef."},
+ {q:"Which pair of Korean phrases does the passage connect to restaurant manners?",
+  o:["Hello and thank you (annyeonghaseyo / gamsahamnida).","Goodbye and sorry only.","Numbers and colours only.","Only the word for water."],
+  a:1, e:"Greeting on entry and thanking on exit are named as everyday etiquette."},
+ {q:"How did geography shape Korean cooking, according to the passage?",
+  o:["It forced everyone to eat only dessert.","Mountains, coast, and seasons encouraged pickling, drying fish, and warming spicy stews.","It banned markets.","It made fermentation impossible."],
+  a:1, e:"Geography and seasons pushed cooks toward preserving and warming dishes."},
+ {q:"A student says, \"Korean food is only about spice.\" Based on the passage, what is the <strong>best</strong> reply?", tag:"Inference",
+  o:["True — nothing else matters.","Incomplete — the passage also stresses balance, fermentation, sharing, etiquette, and geography.","True — rice never appears.","False — because Korea has no restaurants."],
+  a:1, e:"Spice appears, but balance, culture, and history are equally central."},
+ {q:"Why does the author say vocabulary sticks better inside a story?", tag:"Author's purpose",
+  o:["To argue flashcards are useless forever.","To show that food words become tools you use at a real table, supported by cultural context.","To advertise a cruise.","To scare readers about chilli."],
+  a:1, e:"Context and useful words at a meal help memory and meaning."},
+ {q:"What value is suggested by serving elders first and sharing centre dishes?", tag:"Inference",
+  o:["Competition and secrecy.","Respect and togetherness.","Avoiding conversation.","Eating as fast as possible."],
+  a:1, e:"The passage links these habits to respect and togetherness."},
+ {q:"Why might street food matter in the author's picture of culture?", tag:"Inference",
+  o:["It proves food is only private and hidden.","It shows food is public culture as well as private comfort.","It replaces all home cooking forever.","It has no connection to cities."],
+  a:1, e:"The passage says street food turns sidewalks into kitchens — public culture."}
+];
+
+var VOCAB = ["banchan","tradition","bibimbap","etiquette"];
+var DEFS = {
+ banchan:"small side dishes served with a Korean meal",
+ tradition:"a practice handed down over time",
+ bibimbap:"a mixed-rice dish with vegetables, egg, and often beef",
+ etiquette:"accepted polite behaviour in a social setting"
+};
+var FILL = [
+ {s:"Sharing dishes from the centre of the table is part of Korean meal ____.", a:"etiquette"},
+ {s:"Colourful ____ surround the bowl of rice.", a:"banchan"},
+ {s:"Fermentation is a practical ____ that preserved vegetables through winter.", a:"tradition"},
+ {s:"A bowl of ____ invites you to stir rice, vegetables, and egg together.", a:"bibimbap"}
+];
+var FILL_OPTIONS = ["banchan","tradition","bibimbap","etiquette","fermentation","geography"];
+
+var PRAISE=["Nice work!","Correct! Sharp reading!","Yes! You found the evidence!","Excellent thinking!","Right!"];
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function shuffled(arr,seed){var a=arr.slice(),s=seed;for(var i=a.length-1;i>0;i--){s=(s*9301+49297)%233280;var j=Math.floor(s/233280*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+var mcState=MC.map(function(){return {answered:false,firstRight:false,done:false};});
+var vocabScore=0, vocabChecked=false;
+var VOCAB_TOTAL=VOCAB.length+FILL.length;
+
+function buildMC(){
+  var box=document.getElementById("mc");
+  MC.forEach(function(item,i){
+    var d=document.createElement("div"); d.className="box q"; d.id="mc"+i;
+    var html="<div><strong>"+(i+1)+".</strong> "+item.q+(item.tag?'<span class="tag">'+item.tag+'</span>':"")+"</div>";
+    item.o.forEach(function(opt,j){ html+='<button type="button" class="opt" data-i="'+i+'" data-j="'+j+'">'+String.fromCharCode(65+j)+". "+opt+"</button>"; });
+    html+='<div class="fb" id="mcfb'+i+'"></div>';
+    d.innerHTML=html; box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".opt"):e.target; if(!b||!b.classList.contains("opt"))return;
+    answerMC(+b.getAttribute("data-i"),+b.getAttribute("data-j"),b);
+  });
+}
+function answerMC(i,j,btn){
+  var st=mcState[i], item=MC[i], fb=document.getElementById("mcfb"+i), card=document.getElementById("mc"+i);
+  if(st.done) return;
+  var right=(j===item.a);
+  if(!st.answered){ st.answered=true; st.firstRight=right; }
+  if(right){
+    st.done=true; btn.classList.add("sel-right"); card.className="box q right";
+    fb.className="fb good"; fb.innerHTML="✅ "+pick(PRAISE)+' <span class="explain">'+item.e+"</span>";
+  } else {
+    btn.classList.add("sel-wrong"); card.className="box q wrong";
+    fb.className="fb bad"; fb.innerHTML="❌ Not quite. Look back at the passage and try another answer.";
+  }
+  updateScore();
+}
+function buildVocab(){
+  var m=document.getElementById("vmatch");
+  var defOrder=shuffled(VOCAB,22);
+  VOCAB.forEach(function(w,i){
+    var row=document.createElement("div"); row.className="vrow"; row.id="vm"+i;
+    var sel='<select id="vsel'+i+'" aria-label="Meaning of '+w+'"><option value="">- choose a meaning -</option>';
+    defOrder.forEach(function(k){ sel+='<option value="'+k+'">'+DEFS[k]+'</option>'; });
+    sel+="</select>";
+    row.innerHTML='<span class="mark" id="vmk'+i+'"></span><span class="w">'+w+'</span>'+sel;
+    m.appendChild(row);
+  });
+  var f=document.getElementById("vfill");
+  FILL.forEach(function(item,i){
+    var row=document.createElement("div"); row.className="vrow"; row.id="vf"+i;
+    var sel='<select id="fsel'+i+'" aria-label="Blank '+(i+1)+'"><option value="">- choose -</option>';
+    FILL_OPTIONS.forEach(function(w){ sel+='<option value="'+w+'">'+w+'</option>'; });
+    sel+="</select>";
+    var parts=item.s.split("____");
+    row.innerHTML='<span class="mark" id="vfk'+i+'"></span><span>'+(i+1)+'. '+parts[0]+sel+parts[1]+'</span>';
+    f.appendChild(row);
+  });
+}
+function checkVocab(){
+  var score=0, blank=0;
+  VOCAB.forEach(function(w,i){
+    var v=document.getElementById("vsel"+i).value, ok=(v===w);
+    if(!v) blank++;
+    if(ok) score++;
+    document.getElementById("vm"+i).className="vrow "+(ok?"right":"wrong");
+    document.getElementById("vmk"+i).textContent=ok?"✅":"❌";
+  });
+  FILL.forEach(function(item,i){
+    var v=document.getElementById("fsel"+i).value, ok=(v===item.a);
+    if(!v) blank++;
+    if(ok) score++;
+    document.getElementById("vf"+i).className="vrow "+(ok?"right":"wrong");
+    document.getElementById("vfk"+i).textContent=ok?"✅":"❌";
+  });
+  vocabScore=score; vocabChecked=true;
+  var fb=document.getElementById("vocabFb");
+  if(score===VOCAB_TOTAL){ fb.className="fb good"; fb.textContent="🌟 "+score+" / "+VOCAB_TOTAL+". Perfect! Your culture vocabulary is table-ready!"; }
+  else { fb.className="fb bad"; fb.textContent=score+" / "+VOCAB_TOTAL+" correct"+(blank?" ("+blank+" left blank)":"")+". Fix the ❌ ones and check again."; }
+  updateScore();
+}
+function scores(){
+  var mc=0,answered=0; mcState.forEach(function(s){ if(s.firstRight) mc++; if(s.answered) answered++; });
+  return {mc:mc,answered:answered,vocab:vocabScore};
+}
+function updateScore(){
+  var s=scores();
+  document.getElementById("scoreText").textContent="Comprehension: "+s.mc+" / "+MC.length+" · Vocabulary: "+(vocabChecked?s.vocab:"-")+" / "+VOCAB_TOTAL;
+}
+function finish(){
+  if(!vocabChecked) checkVocab();
+  var s=scores(), total=MC.length+VOCAB_TOTAL, got=s.mc+s.vocab, pct=Math.round(100*got/total);
+  var msg = pct===100 ? "🏆 A perfect score! Outstanding reading!" :
+            pct>=80 ? "🌟 Fantastic work! You read carefully and used evidence." :
+            pct>=60 ? "💪 Solid effort! Reread the paragraphs for the questions you missed." :
+                      "🌱 Challenging passage. Read it once more, slowly, and try again.";
+  var f=document.getElementById("final"); f.style.display="block";
+  f.innerHTML="<h2 style='border:none;margin-top:0'>Final Score: "+got+" / "+total+" ("+pct+"%)</h2>"+
+    "<p>Comprehension (first tries): "+s.mc+" / "+MC.length+(s.answered<MC.length?" (you skipped "+(MC.length-s.answered)+")":"")+"<br>Vocabulary: "+s.vocab+" / "+VOCAB_TOTAL+"</p><p>"+msg+"</p>"+
+    "<p style='font-size:.85em;color:#546e7a'>Finished on "+new Date().toLocaleString("en-CA")+"</p>";
+  f.scrollIntoView({behavior:"smooth"});
+}
+buildMC(); buildVocab(); updateScore();
+document.getElementById("checkVocab").addEventListener("click",checkVocab);
+document.getElementById("finishBtn").addEventListener("click",finish);
+document.getElementById("showModel").addEventListener("click",function(){document.getElementById("model").style.display="block";});
+</script>
+</body>
+</html>
