@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Korean Day 2: Family &amp; Chuseok</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.6;margin:0;background:#fff5f5;color:#1d1a2a}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#c62828}
+  h1{color:#b71c1c;font-size:2em;margin:10px 0}
+  h2{color:#c62828;margin-top:36px;border-bottom:3px solid #ffcdd2;padding-bottom:4px}
+  h3{color:#c62828}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .tipbox{background:#fff8e1;border-left:8px solid #ffb300}
+  .char{font-size:2.2em;font-weight:bold;color:#b71c1c;line-height:1.2}
+  .rom{font-family:Consolas,"Courier New",monospace;background:#ffebee;padding:2px 8px;border-radius:8px;font-size:1.05em}
+  .card{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;align-items:center;border-left:8px solid #e53935;padding-left:14px}
+  .card .meta{grid-column:2}
+  .ex{margin-top:8px;background:#fff8f8;border-radius:10px;padding:8px 12px;font-size:.95em}
+  .q{border-left:8px solid #b0bec5}
+  .q.right{border-left-color:#43a047;background:#f1f8e9}
+  .q.wrong{border-left-color:#e53935;background:#fff5f5}
+  .opt{display:block;width:100%;text-align:left;font-size:.95em;background:#fafafa;border:2px solid #e0e0e0;border-radius:10px;padding:8px 14px;margin:8px 0;cursor:pointer;font-family:inherit}
+  .opt:hover{border-color:#ef9a9a;background:#fff}
+  .opt.sel-right{background:#c8e6c9;border-color:#43a047}
+  .opt.sel-wrong{background:#ffcdd2;border-color:#e53935}
+  .fb{margin-top:6px;font-weight:bold}
+  .fb.good{color:#2e7d32} .fb.bad{color:#c62828}
+  .explain{font-weight:normal;color:#b71c1c}
+  .vrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:8px 6px;border-bottom:1px dashed #eee}
+  .vrow .w{font-weight:bold;min-width:120px;font-size:1.3em}
+  .vrow.right{background:#f1f8e9} .vrow.wrong{background:#fff5f5}
+  select{font-size:.95em;padding:6px 8px;border-radius:8px;border:2px solid #ef9a9a;max-width:100%;font-family:inherit}
+  .mark{font-size:1.2em;min-width:30px}
+  button.main{font-size:1em;padding:10px 20px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#c62828;color:#fff;margin-top:10px}
+  button.main:hover{background:#b71c1c}
+  input[type=text]{font-size:1.05em;padding:8px 12px;border:2px solid #ef9a9a;border-radius:10px;width:240px;font-family:inherit}
+  button.check{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#c62828;color:#fff}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+  #scoreBox{position:sticky;bottom:0;background:#b71c1c;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #scoreBox button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#ffca28;color:#3e2723}
+  #final{display:none;text-align:center;border:4px solid #43a047;font-size:1.1em}
+  .tone{font-size:.85em;color:#c62828}
+  .reveal-box{margin-top:10px}
+  .reveal-btn{font-size:.95em;padding:8px 14px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#0047a0;color:#fff}
+  .reveal-ans{display:none;margin-top:8px;background:#e3f2fd;border-radius:10px;padding:10px 14px}
+
+  .audio-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:12px 0 4px}
+  button.speak,button.record,button.play-mine,button.play-model,button.audio-ctrl{
+    font-size:1.05em;padding:14px 18px;min-height:52px;min-width:52px;
+    border:none;border-radius:14px;cursor:pointer;font-weight:bold;font-family:inherit;
+    touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+  }
+  button.speak,button.play-model,button.audio-ctrl.hear{background:#c62828;color:#fff}
+  button.speak:hover,button.play-model:hover,button.audio-ctrl.hear:hover{background:#b71c1c}
+  button.speak.playing{background:#43a047}
+  button.record{background:#e53935;color:#fff}
+  button.record:hover{background:#c62828}
+  button.record.recording{background:#ffca28;color:#3e2723;animation:pulse 1s infinite}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+  button.play-mine{background:#00897b;color:#fff}
+  button.play-mine:hover{background:#00695c}
+  button.play-mine:disabled{opacity:.45;cursor:not-allowed}
+  button.audio-ctrl.stop{background:#546e7a;color:#fff}
+  button.audio-ctrl.stop:hover{background:#37474f}
+  .practice{margin-top:14px;padding-top:12px;border-top:2px dashed #ffcdd2}
+  .practice-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .rec-status{margin-top:8px;font-weight:bold;color:#c62828;font-size:.95em}
+  .rec-status.rec-on{color:#c62828}
+  .mic-msg{margin-top:8px;background:#fff3e0;border-left:6px solid #ef6c00;border-radius:10px;padding:10px 14px;font-size:.95em;color:#e65100}
+  .box[data-audio]{position:relative}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>🇰🇷 Korean Day 2: Family &amp; Chuseok</h1>
+<p>Welcome back, Jacqueline! This week your English lessons explore <strong>Chuseok</strong>, Korea's autumn harvest festival, and how Korean families talk to each other. You'll learn <strong>10 new family words</strong> with <strong>Hangul</strong>, <strong>Revised Romanization</strong>, English meaning, and listen-and-say practice for <em>every</em> word. Some example sentences reuse Day 1 words (밥, 주세요, 안녕하세요, 감사합니다, 맛있어요) so you keep them fresh.</p>
+
+<div class="box tipbox">
+  <strong>How to read Revised Romanization:</strong>
+  <ul>
+    <li>Letters approximate the sound in English. Korean does not use tone numbers like Cantonese.</li>
+    <li>Example: <span class="rom">harabeoji</span> — roughly <em>ha-ra-buh-jee</em>. The letters <span class="rom">eo</span> sound like the "u" in <em>up</em>.</li>
+    <li><strong>Listening tip:</strong> Tap <em>Hear model</em>, say the word out loud three times, then <em>Record</em> and compare.</li>
+  </ul>
+</div>
+
+<h2>Part 1: Learn Today's Words (all 10 have audio)</h2>
+<div class="box tipbox" style="background:#ffebee;border-left-color:#c62828"><strong>Listen &amp; practise:</strong> Tap <em>Hear model</em> to hear Korean (voice: ko-KR-SunHiNeural). Then tap <em>Record</em>, say it out loud, and compare with <em>Play my try</em> + <em>Play model</em>. Recordings stay on this device only for this visit — nothing is uploaded.</div>
+<div class="audio-bar">
+  <button type="button" class="audio-ctrl hear" id="playAll">🔊 Play all words</button>
+  <button type="button" class="audio-ctrl stop" id="stopAudio">⏹️ Stop</button>
+  <span class="tone">Plays English then Korean for every word.</span>
+</div>
+<div id="cards"></div>
+
+<div class="box tipbox">
+  <strong>Culture tip:</strong> Korean family words depend on <em>who is speaking</em>. A girl calls her older sister <span class="rom">언니 (eonni)</span>, but a boy says <span class="rom">누나 (nuna)</span>. <span class="rom">동생 (dongsaeng)</span> works for any younger sibling. <span class="rom">엄마 / 아빠</span> are warm, everyday words (like "Mom" and "Dad").
+</div>
+
+<h2>Part 2: Match the Meaning</h2>
+<div class="box">
+  <p>Match each Korean word to its English meaning.</p>
+  <div id="vmatch"></div>
+  <button type="button" class="main" id="checkMatch">Check my matching</button>
+  <div class="fb" id="matchFb"></div>
+</div>
+
+<h2>Part 3: What Would You Say?</h2>
+<p>Click the best Korean phrase for each situation. Only your <strong>first click</strong> counts toward your score.</p>
+<div id="mc"></div>
+
+<h2>Part 4: Type the Romanization</h2>
+<p>Look at the Hangul and type the Revised Romanization (lowercase is fine). Example: <span class="rom">gajok</span></p>
+<div id="fill"></div>
+
+<h2>Part 5: Click-to-reveal (self-check)</h2>
+<div class="box" id="reveals"></div>
+
+<div class="box" id="final"></div>
+<div id="scoreBox">
+  <span id="scoreText"></span>
+  <button type="button" id="finishBtn">I'm done! Show my final score</button>
+</div>
+</div>
+
+<script src="../../audio/korean/player.js"></script>
+<script>
+var WORDS = [
+ {zh:"가족", jy:"gajok", audio:"day2-01-gajok-family.mp3", en:"family",
+  ex_zh:"우리 가족이에요.", ex_jy:"Uri gajogieyo.", ex_en:"This is my family."},
+ {zh:"엄마", jy:"eomma", audio:"day2-02-eomma-mom.mp3", en:"mom",
+  ex_zh:"엄마, 밥 주세요.", ex_jy:"Eomma, bap juseyo.", ex_en:"Mom, rice please."},
+ {zh:"아빠", jy:"appa", audio:"day2-03-appa-dad.mp3", en:"dad",
+  ex_zh:"아빠 어디 있어요?", ex_jy:"Appa eodi isseoyo?", ex_en:"Where is Dad?"},
+ {zh:"할머니", jy:"halmeoni", audio:"day2-04-halmeoni-grandmother.mp3", en:"grandmother",
+  ex_zh:"할머니, 안녕하세요!", ex_jy:"Halmeoni, annyeonghaseyo!", ex_en:"Hello, Grandma!"},
+ {zh:"할아버지", jy:"harabeoji", audio:"day2-05-harabeoji-grandfather.mp3", en:"grandfather",
+  ex_zh:"할아버지, 감사합니다.", ex_jy:"Harabeoji, gamsahamnida.", ex_en:"Thank you, Grandpa."},
+ {zh:"언니", jy:"eonni", audio:"day2-06-eonni-older-sister.mp3", en:"older sister (said by a girl or woman)",
+  ex_zh:"언니, 같이 가요!", ex_jy:"Eonni, gachi gayo!", ex_en:"Sis, let's go together!"},
+ {zh:"동생", jy:"dongsaeng", audio:"day2-07-dongsaeng-younger-sibling.mp3", en:"younger sibling",
+  ex_zh:"제 동생이에요.", ex_jy:"Je dongsaengieyo.", ex_en:"This is my younger sibling."},
+ {zh:"추석", jy:"chuseok", audio:"day2-08-chuseok-harvest-festival.mp3", en:"Chuseok (Korean harvest festival)",
+  ex_zh:"추석 잘 보내세요!", ex_jy:"Chuseok jal bonaeseyo!", ex_en:"Have a great Chuseok!"},
+ {zh:"송편", jy:"songpyeon", audio:"day2-09-songpyeon-rice-cakes.mp3", en:"songpyeon (half-moon rice cakes)",
+  ex_zh:"송편 맛있어요!", ex_jy:"Songpyeon masisseoyo!", ex_en:"The songpyeon is delicious!"},
+ {zh:"사랑해요", jy:"saranghaeyo", audio:"day2-10-saranghaeyo-i-love-you.mp3", en:"I love you",
+  ex_zh:"엄마, 아빠, 사랑해요.", ex_jy:"Eomma, appa, saranghaeyo.", ex_en:"Mom, Dad, I love you."}
+];
+
+var PRAISE=["Nice work!","정확해요! Correct!","Yes! Your Korean is sharp!","Excellent!","Right!"];
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function shuffled(arr,seed){var a=arr.slice(),s=seed;for(var i=a.length-1;i>0;i--){s=(s*9301+49297)%233280;var j=Math.floor(s/233280*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+function buildCards(){
+  var box=document.getElementById("cards");
+  WORDS.forEach(function(w,i){
+    var d=document.createElement("div"); d.className="box";
+    if(w.audio){ d.setAttribute("data-audio", w.audio); d.setAttribute("data-audio-label", w.zh+" "+w.jy); }
+    d.innerHTML='<div class="card">'+
+      '<div class="char">'+(i+1)+'. '+w.zh+'</div>'+
+      '<div class="meta"><div><span class="rom">'+w.jy+'</span> <span class="tone">← Hear model, then Record</span></div>'+
+      '<div><strong>'+w.en+'</strong></div></div></div>'+
+      '<div class="ex"><strong>Example:</strong> '+w.ex_zh+'<br><span class="rom">'+w.ex_jy+'</span><br><em>'+w.ex_en+'</em></div>'+
+      '<div class="practice"></div>';
+    box.appendChild(d);
+  });
+}
+
+var matchScore=0, matchChecked=false;
+function buildMatch(){
+  var m=document.getElementById("vmatch");
+  var order=shuffled(WORDS.map(function(w){return w.jy;}),12);
+  WORDS.forEach(function(w,i){
+    var row=document.createElement("div"); row.className="vrow"; row.id="vm"+i;
+    var sel='<select id="vsel'+i+'" aria-label="Meaning of '+w.zh+'"><option value="">- choose English -</option>';
+    order.forEach(function(jy){
+      var en=WORDS.find(function(x){return x.jy===jy;}).en;
+      sel+='<option value="'+jy+'">'+en+'</option>';
+    });
+    sel+='</select>';
+    row.innerHTML='<span class="mark" id="vmk'+i+'"></span><span class="w">'+w.zh+'</span><span class="rom">'+w.jy+'</span>'+sel;
+    m.appendChild(row);
+  });
+}
+function checkMatch(){
+  var score=0, blank=0;
+  WORDS.forEach(function(w,i){
+    var v=document.getElementById("vsel"+i).value, ok=(v===w.jy);
+    if(!v) blank++;
+    if(ok) score++;
+    document.getElementById("vm"+i).className="vrow "+(ok?"right":"wrong");
+    document.getElementById("vmk"+i).textContent=ok?"✅":"❌";
+  });
+  matchScore=score; matchChecked=true;
+  var fb=document.getElementById("matchFb");
+  if(score===WORDS.length){ fb.className="fb good"; fb.textContent="🌟 "+score+" / "+WORDS.length+". Perfect matching!"; }
+  else { fb.className="fb bad"; fb.textContent=score+" / "+WORDS.length+" correct"+(blank?" ("+blank+" blank)":"")+". Fix the ❌ ones and check again."; }
+  updateScore();
+}
+
+var MC = [
+ {q:"You visit your grandmother. Which word means grandmother?",
+  o:["할아버지 harabeoji","할머니 halmeoni","동생 dongsaeng","언니 eonni"], a:1,
+  e:"할머니 (halmeoni) means grandmother. 할아버지 (harabeoji) is grandfather."},
+ {q:"Which word means the whole family?",
+  o:["가족 gajok","추석 chuseok","송편 songpyeon","아빠 appa"], a:0,
+  e:"가족 (gajok) means family."},
+ {q:"A girl wants to call her older sister. What does she say?",
+  o:["동생 dongsaeng","엄마 eomma","언니 eonni","할머니 halmeoni"], a:2,
+  e:"언니 (eonni) is what a girl or woman calls an older sister (or a close older female friend)."},
+ {q:"Which word is used for a younger brother OR younger sister?",
+  o:["언니 eonni","동생 dongsaeng","아빠 appa","가족 gajok"], a:1,
+  e:"동생 (dongsaeng) means younger sibling — boy or girl."},
+ {q:"It's the harvest full-moon holiday. What is it called in Korean?",
+  o:["송편 songpyeon","추석 chuseok","식당 sikdang","김치 kimchi"], a:1,
+  e:"추석 (chuseok) is the autumn harvest festival."},
+ {q:"Your family is shaping little half-moon rice cakes. What are they?",
+  o:["비빔밥 bibimbap","불고기 bulgogi","송편 songpyeon","밥 bap"], a:2,
+  e:"송편 (songpyeon) are half-moon rice cakes made for Chuseok."},
+ {q:"You want to tell your parents \"I love you.\" Which phrase?",
+  o:["감사합니다 gamsahamnida","사랑해요 saranghaeyo","주세요 juseyo","맛있어요 masisseoyo"], a:1,
+  e:"사랑해요 (saranghaeyo) means I love you."},
+ {q:"How would you ask your mom for rice? (Day 1 review!)",
+  o:["엄마, 밥 주세요 (eomma, bap juseyo)","아빠, 사랑해요","할아버지, 안녕하세요","추석 잘 보내세요"], a:0,
+  e:"엄마 = mom, 밥 = rice/meal, 주세요 = please give me."},
+ {q:"Which greeting wishes someone a great Chuseok?",
+  o:["추석 잘 보내세요! (Chuseok jal bonaeseyo)","물 주세요! (Mul juseyo)","제 동생이에요 (Je dongsaengieyo)","아빠 어디 있어요? (Appa eodi isseoyo?)"], a:0,
+  e:"추석 잘 보내세요 = Have a great Chuseok!"},
+ {q:"Why do Koreans often call an older sister 언니 instead of her first name?",
+  o:["Names are illegal in Korea","Family titles show respect for age and closeness","언니 means \"hey you\"","It is only used for teachers"], a:1,
+  e:"Korean uses relationship titles to show respect for age and relationships."}
+];
+
+var mcState=MC.map(function(){return{answered:false,firstRight:false,done:false};});
+function buildMC(){
+  var box=document.getElementById("mc");
+  MC.forEach(function(item,i){
+    var d=document.createElement("div"); d.className="box q"; d.id="mc"+i;
+    var html="<div><strong>"+(i+1)+".</strong> "+item.q+"</div>";
+    item.o.forEach(function(opt,j){ html+='<button type="button" class="opt" data-i="'+i+'" data-j="'+j+'">'+String.fromCharCode(65+j)+". "+opt+"</button>"; });
+    html+='<div class="fb" id="mcfb'+i+'"></div>';
+    d.innerHTML=html; box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".opt"):e.target; if(!b||!b.classList.contains("opt"))return;
+    var i=+b.getAttribute("data-i"), j=+b.getAttribute("data-j"), st=mcState[i], item=MC[i];
+    if(st.done) return;
+    var right=(j===item.a);
+    if(!st.answered){ st.answered=true; st.firstRight=right; }
+    var fb=document.getElementById("mcfb"+i), card=document.getElementById("mc"+i);
+    if(right){
+      st.done=true; b.classList.add("sel-right"); card.className="box q right";
+      fb.className="fb good"; fb.innerHTML="✅ "+pick(PRAISE)+' <span class="explain">'+item.e+"</span>";
+    } else {
+      b.classList.add("sel-wrong"); card.className="box q wrong";
+      fb.className="fb bad"; fb.innerHTML="❌ Not quite. Try again.";
+    }
+    updateScore();
+  });
+}
+
+var fillScore=0, fillChecked={};
+function buildFill(){
+  var box=document.getElementById("fill");
+  WORDS.forEach(function(w,i){
+    fillChecked[i]=false;
+    var d=document.createElement("div"); d.className="box q"; d.id="fq"+i;
+    d.innerHTML='<div><strong>'+(i+1)+'.</strong> <span class="char" style="font-size:1.6em">'+w.zh+'</span> → type romanization</div>'+
+      '<div class="row"><input type="text" id="fin'+i+'" autocomplete="off" spellcheck="false" aria-label="Romanization for '+w.zh+'">'+
+      '<button type="button" class="check" data-i="'+i+'">Check</button></div>'+
+      '<div class="fb" id="ffb'+i+'"></div>';
+    box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target; if(b.tagName!=="BUTTON"||!b.classList.contains("check"))return;
+    checkFill(+b.getAttribute("data-i"));
+  });
+  box.addEventListener("keydown",function(e){
+    if(e.key==="Enter"&&e.target.tagName==="INPUT"){ checkFill(+e.target.id.slice(3)); }
+  });
+}
+function checkFill(i){
+  var val=document.getElementById("fin"+i).value.trim().toLowerCase().replace(/\s+/g,"");
+  var key=WORDS[i].jy.toLowerCase().replace(/\s+/g,"");
+  var fb=document.getElementById("ffb"+i), card=document.getElementById("fq"+i);
+  if(!val){ fb.className="fb bad"; fb.textContent="Type the romanization first."; return; }
+  var ok=(val===key);
+  fillChecked[i]=ok;
+  if(ok){ card.className="box q right"; fb.className="fb good"; fb.textContent="✅ "+pick(PRAISE); }
+  else { card.className="box q wrong"; fb.className="fb bad"; fb.textContent="❌ Not quite. Hint: "+WORDS[i].jy; }
+  fillScore=Object.keys(fillChecked).filter(function(k){return fillChecked[k];}).length;
+  updateScore();
+}
+
+function buildReveals(){
+  var box=document.getElementById("reveals");
+  WORDS.forEach(function(w,i){
+    var d=document.createElement("div"); d.className="reveal-box";
+    d.innerHTML='<button type="button" class="reveal-btn" data-i="'+i+'">Reveal '+(i+1)+': '+w.en+' → ?</button>'+
+      '<div class="reveal-ans" id="rev'+i+'"><span class="char" style="font-size:1.5em">'+w.zh+'</span> · <span class="rom">'+w.jy+'</span> · '+w.en+'</div>';
+    box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".reveal-btn"):null; if(!b)return;
+    var el=document.getElementById("rev"+b.getAttribute("data-i"));
+    el.style.display = el.style.display==="block"?"none":"block";
+  });
+}
+
+function updateScore(){
+  var mc=0; mcState.forEach(function(s){ if(s.firstRight) mc++; });
+  document.getElementById("scoreText").textContent=
+    "Match: "+(matchChecked?matchScore:"-")+" / "+WORDS.length+
+    " · Situations: "+mc+" / "+MC.length+
+    " · Romanization: "+fillScore+" / "+WORDS.length;
+}
+function finish(){
+  if(!matchChecked) checkMatch();
+  var mc=0; mcState.forEach(function(s){ if(s.firstRight) mc++; });
+  var total=WORDS.length+MC.length+WORDS.length;
+  var got=matchScore+mc+fillScore;
+  var pct=Math.round(100*got/total);
+  var msg = pct===100 ? "🏆 Perfect! All 10 family words — listening, matching, and romanization — mastered! 추석 잘 보내세요!" :
+            pct>=80 ? "🌟 Fantastic work! Keep practising Hear model + Record for every word." :
+            pct>=60 ? "💪 Solid start. Revisit the cards and listen again." :
+                      "🌱 Take your time with Hear model on each word, then retry the quizzes.";
+  var f=document.getElementById("final"); f.style.display="block";
+  f.innerHTML="<h2 style='border:none;margin-top:0'>Final Score: "+got+" / "+total+" ("+pct+"%)</h2>"+
+    "<p>Matching: "+matchScore+" / "+WORDS.length+" · Situations: "+mc+" / "+MC.length+" · Romanization: "+fillScore+" / "+WORDS.length+"</p>"+
+    "<p><strong>Audio coverage:</strong> all "+WORDS.length+" vocabulary words have Hear model + Record / compare.</p>"+
+    "<p>"+msg+"</p>"+
+    "<p style='font-size:.85em;color:#546e7a'>Finished on "+new Date().toLocaleString("en-CA")+"</p>";
+  f.scrollIntoView({behavior:"smooth"});
+}
+
+buildCards();
+buildMatch();
+buildMC();
+buildFill();
+buildReveals();
+updateScore();
+document.getElementById("checkMatch").addEventListener("click",checkMatch);
+document.getElementById("finishBtn").addEventListener("click",finish);
+if(window.JacquelineKoreanAudio){
+  JacquelineKoreanAudio.wireLesson({playAllBtn:"#playAll",stopBtn:"#stopAudio",allFile:"day2-ALL-words.mp3"});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Math Day 2: Chuseok Family Math</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.6;margin:0;background:#fff5f0;color:#1d2a3a}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#c62828}
+  h1{color:#b71c1c;font-size:2em;margin:10px 0}
+  h2{color:#c62828;margin-top:36px;border-bottom:3px solid #ffcdd2;padding-bottom:4px}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .example{border-left:8px solid #ef6c00}
+  .example h3{margin:0 0 6px;color:#bf360c}
+  .step{margin:4px 0 4px 10px}
+  code,.mono{font-family:Consolas,"Courier New",monospace;background:#ffebee;padding:1px 6px;border-radius:5px}
+  .q{border-left:8px solid #90a4ae}
+  .q.right{border-left-color:#43a047;background:#f1f8e9}
+  .q.wrong{border-left-color:#e53935;background:#fff5f5}
+  .qnum{font-weight:bold;color:#b71c1c}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+  input[type=text]{font-size:1.05em;padding:8px 12px;border:2px solid #ef9a9a;border-radius:10px;width:190px}
+  input[type=text]:focus{outline:none;border-color:#c62828;box-shadow:0 0 0 3px #ffcdd2}
+  button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold}
+  .check{background:#c62828;color:#fff} .check:hover{background:#b71c1c}
+  .hint{background:#ffe082;color:#5d4037} .hint:hover{background:#ffd54f}
+  .sol{background:#90caf9;color:#0d47a1}
+  .unit{color:#546e7a}
+  .fb{margin-top:8px;font-weight:bold;min-height:1em}
+  .fb.good{color:#2e7d32} .fb.bad{color:#c62828}
+  .hints{margin-top:8px;color:#5d4037;background:#fff8e1;border-radius:10px;padding:0 12px}
+  .hints p{margin:6px 0;padding:6px 0}
+  .solution{margin-top:8px;background:#e3f2fd;border-radius:10px;padding:8px 12px;display:none}
+  #scoreBox{position:sticky;bottom:0;background:#b71c1c;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #scoreBox button{background:#ffca28;color:#3e2723}
+  #final{display:none;font-size:1.15em;text-align:center;border:4px solid #43a047}
+  .tipbox{background:#fff8e1;border-left:8px solid #ffb300}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>🧮 Math Day 2: Chuseok Family Math</h1>
+<p>This week, Jacqueline, the whole family is heading home for <strong>Chuseok</strong>! You'll use <strong>unit rates, fractions, percentages (including percent decrease), three-part ratios, circle area, map scales, mean/median/range, equations, BEDMAS, money, and elapsed time</strong> to plan travel, bake songpyeon, and figure out family ages.</p>
+
+<h2>Part 1: Learn the Moves</h2>
+
+<div class="box tipbox">
+  <strong>The 4-Step Problem Solver:</strong>
+  <ol>
+    <li><strong>Read</strong>: What is the question actually asking? Underline numbers and units.</li>
+    <li><strong>Plan</strong>: Which operations, and in what order?</li>
+    <li><strong>Solve</strong>: One step at a time; write each step down.</li>
+    <li><strong>Check</strong>: Is the answer reasonable? Did you answer the question asked?</li>
+  </ol>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 1: Songpyeon unit rate</h3>
+  <p>2 cups of rice flour make <strong>30 songpyeon</strong>. How many cups for <strong>75 songpyeon</strong>?</p>
+  <p class="step">Step 1: Unit rate = 30 ÷ 2 = 15 songpyeon per cup.</p>
+  <p class="step">Step 2: 75 ÷ 15 = <strong>5 cups</strong>.</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 2: A three-part ratio</h3>
+  <p>Fillings of sesame, chestnut, and red bean are in a <strong>4 : 3 : 1</strong> ratio. The family makes <strong>48 songpyeon</strong>. How many are red bean?</p>
+  <p class="step">Total parts = 4 + 3 + 1 = 8. One part = 48 ÷ 8 = 6.</p>
+  <p class="step">Red bean = 1 part = <strong>6 songpyeon</strong> (sesame 24, chestnut 18).</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 3: Percent decrease</h3>
+  <p>A gift box of Korean pears drops from <strong>$50</strong> to <strong>$40</strong> after the holiday. What is the percent decrease?</p>
+  <p class="step">Decrease = 50 − 40 = 10. Percent decrease = 10 ÷ <em>original</em> 50 = 0.20 = <strong>20%</strong>.</p>
+  <p class="step">Key idea: always divide by the <em>starting</em> amount.</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 4: Area of a circle (the full moon!)</h3>
+  <p>A round serving tray has a radius of <strong>10 cm</strong>. Use π ≈ 3.14.</p>
+  <p class="step">Area = π × r² = 3.14 × 10 × 10 = <strong>314 cm²</strong>.</p>
+  <p class="step">Careful: if you're given the <em>diameter</em>, halve it first to get the radius.</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 5: Ages as an equation</h3>
+  <p>Halmeoni is <strong>84</strong>. Her age is 4 more than twice Eomma's age. Write it as an equation with Eomma's age <em>m</em>: <span class="mono">2m + 4 = 84</span>.</p>
+  <p class="step">Subtract 4: 2m = 80. Divide by 2: m = <strong>40</strong>. Check: 2 × 40 + 4 = 84 ✔</p>
+</div>
+
+<h2>Part 2: The Challenge (16 problems)</h2>
+<p>Type your answer and press <strong>Check</strong> (or Enter). Fractions like <span class="mono">3/4</span>, mixed numbers like <span class="mono">1 3/4</span>, or decimals like <span class="mono">1.75</span> are fine. Don't type the units. Stuck? Press <strong>Hint</strong>. After 2 tries, you can see a full solution.</p>
+
+<div id="questions"></div>
+<div class="box" id="final"></div>
+<div id="scoreBox">
+  <span id="scoreText">Score: 0 / 16 correct</span>
+  <button id="finishBtn" type="button">I'm done! Show my final score</button>
+</div>
+</div>
+
+<script>
+var NAME = "Jacqueline";
+var QUESTIONS = [
+ {t:"3 cups of rice flour make <strong>36 songpyeon</strong>. How many cups are needed for <strong>90 songpyeon</strong>?", a:"7.5", u:"cups",
+  h:["Find how many songpyeon one cup makes.","36 ÷ 3 = 12 per cup; 90 ÷ 12 = ?"],
+  s:"36 ÷ 3 = 12 songpyeon per cup; 90 ÷ 12 = 7.5 cups."},
+ {t:"Halmeoni is <strong>72</strong>. That is <strong>6 times</strong> the age of her youngest grandchild. How old is the grandchild?", a:"12", u:"years",
+  h:["6 × (grandchild's age) = 72.","72 ÷ 6 = ?"],
+  s:"72 ÷ 6 = 12 years old."},
+ {t:"Of the <strong>40 relatives</strong> coming home for Chuseok, <strong>35%</strong> travelled by train. How many came by train?", a:"14", u:"relatives",
+  h:["35% = 0.35.","0.35 × 40 = ?"],
+  s:"0.35 × 40 = 14 relatives."},
+ {t:"In holiday traffic, the drive from Seoul to Busan (<strong>325 km</strong>) took <strong>6.5 hours</strong>. What was the average speed?", a:"50", u:"km/h",
+  h:["Speed = distance ÷ time.","325 ÷ 6.5 = ? (Try 3250 ÷ 65.)"],
+  s:"325 ÷ 6.5 = 50 km/h — much slower than normal because of the Chuseok rush!"},
+ {t:"Five cousins are aged 7, 10, 15, 9, and 14. What is their <strong>mean</strong> age?", a:"11", u:"years",
+  h:["Add the ages, then divide by 5.","7 + 10 + 15 + 9 + 14 = 55."],
+  s:"55 ÷ 5 = 11 years."},
+ {t:"Using the same ages (7, 10, 15, 9, 14), what is the <strong>median</strong>?", a:"10", u:"years",
+  h:["Put them in order first.","Ordered: 7, 9, 10, 14, 15. The middle one is…"],
+  s:"Ordered: 7, 9, 10, 14, 15 → median = 10 years. (Notice the mean and median are different!)"},
+ {t:"Using the same ages (7, 10, 15, 9, 14), what is the <strong>range</strong>?", a:"8", u:"years",
+  h:["Range = oldest − youngest.","15 − 7 = ?"],
+  s:"15 − 7 = 8 years."},
+ {t:"A round rice-cake tray has a radius of <strong>20 cm</strong>. Using π ≈ 3.14, what is its <strong>area</strong>?", a:"1256", u:"cm²",
+  h:["Area = π × r².","20 × 20 = 400; 3.14 × 400 = ?"],
+  s:"3.14 × 20² = 3.14 × 400 = 1256 cm²."},
+ {t:"On a map, <strong>1 cm represents 25 km</strong>. Grandpa's hometown is <strong>13 cm</strong> from Seoul on the map. How far is it in real life?", a:"325", u:"km",
+  h:["Each centimetre stands for 25 km.","13 × 25 = ?"],
+  s:"13 × 25 = 325 km."},
+ {t:"Harabeoji is 80. His age is 6 more than twice Appa's age: <span class='mono'>2d + 6 = 80</span>. How old is Appa (<em>d</em>)?", a:"37", u:"years",
+  h:["Subtract 6 from both sides first.","2d = 74. Now divide by 2."],
+  s:"2d = 80 − 6 = 74, so d = 37. Check: 2 × 37 + 6 = 80 ✔"},
+ {t:"Use BEDMAS: <span class='mono'>(45 + 27) ÷ 8 × 3² − 11</span>", a:"70", u:"",
+  h:["Brackets: 45 + 27 = 72. Exponent: 3² = 9.","72 ÷ 8 = 9; 9 × 9 = 81; 81 − 11 = ?"],
+  s:"72 ÷ 8 = 9; 9 × 9 = 81; 81 − 11 = 70."},
+ {t:"Train tickets cost <strong>$59.80</strong> per adult, and children ride for <strong>half price</strong>. What is the total for <strong>2 adults and 3 children</strong>?", a:"209.30", u:"$",
+  h:["Adults: 2 × 59.80. Child ticket = 59.80 ÷ 2 = 29.90.","119.60 + 3 × 29.90 = ?"],
+  s:"2 × 59.80 = 119.60; 3 × 29.90 = 89.70; total = $209.30."},
+ {t:"The family left at <strong>6:45 a.m.</strong> and arrived at <strong>11:20 a.m.</strong> How many <strong>minutes</strong> was the trip?", a:"275", u:"minutes",
+  h:["6:45 → 10:45 is 4 hours = 240 minutes.","10:45 → 11:20 is 35 minutes. Add them."],
+  s:"240 + 35 = 275 minutes (4 h 35 min)."},
+ {t:"Songpyeon fillings — sesame, chestnut, and red bean — are in a <strong>5 : 3 : 2</strong> ratio. Out of <strong>60 songpyeon</strong>, how many have <strong>chestnut</strong>?", a:"18", u:"songpyeon",
+  h:["Total parts = 5 + 3 + 2 = 10. One part = 60 ÷ 10.","Chestnut is 3 parts: 3 × 6 = ?"],
+  s:"One part = 6. Chestnut = 3 × 6 = 18 songpyeon."},
+ {t:"A box of Korean pears cost <strong>$40</strong> before Chuseok and <strong>$34</strong> after. What was the <strong>percent decrease</strong>?", a:"15", u:"%",
+  h:["Decrease = 40 − 34 = 6.","Divide by the ORIGINAL price: 6 ÷ 40 = ?"],
+  s:"6 ÷ 40 = 0.15 = 15% decrease."},
+ {t:"The family made <strong>54 songpyeon</strong>. They ate <strong>2/3</strong> on the first day, then <strong>half of what was left</strong> on the second day. How many are left?", a:"9", u:"songpyeon",
+  h:["After day 1, 1/3 is left: 54 ÷ 3 = 18.","Half of 18 is eaten on day 2. How many remain?"],
+  s:"Day 1 leaves 54 × 1/3 = 18. Day 2 eats 9, leaving 9 songpyeon."}
+];
+
+var PRAISE = ["Nice work, Jacqueline!","Correct! Chuseok math on point! 🌕","Yes!","Excellent. That was a solid puzzle!","Right on! 🎯","Brilliant thinking!","Spot on!"];
+var ENCOURAGE = ["Not quite. Check your steps and try again!","Close. Try again — maybe use a hint?","Hmm, not yet. Re-read the question carefully.","Keep going. Mistakes help your brain grow!"];
+
+function parseAnswer(str){
+  if(str===undefined||str===null) return NaN;
+  var s=String(str).trim().toLowerCase();
+  s=s.replace(/[\u2212\u2013]/g,"-");
+  s=s.replace(/(\d),(?=\d{3}(\D|$))/g,"$1");
+  s=s.replace(/[^0-9.\/\- ]/g," ").replace(/\s+/g," ").trim();
+  s=s.replace(/\s*\/\s*/g,"/");
+  var m;
+  if((m=s.match(/^(-?\d+) (\d+)\/(\d+)$/))){ var w=parseFloat(m[1]),n=parseFloat(m[2]),d=parseFloat(m[3]); if(d===0)return NaN; return w<0? w-n/d : w+n/d; }
+  if((m=s.match(/^(-?\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/))){ var d2=parseFloat(m[2]); if(d2===0)return NaN; return parseFloat(m[1])/d2; }
+  s=s.replace(/ /g,"");
+  if(/^-?(\d+\.?\d*|\.\d+)$/.test(s)) return parseFloat(s);
+  return NaN;
+}
+function isCorrect(input,key){
+  var a=parseAnswer(input), k=parseAnswer(key);
+  if(isNaN(a)) return false;
+  var isInt=Math.abs(k-Math.round(k))<1e-12;
+  var tol=isInt?1e-9:0.005;
+  return Math.abs(a-k)<=tol;
+}
+
+var state=[];
+function render(){
+  var box=document.getElementById("questions");
+  QUESTIONS.forEach(function(q,i){
+    state.push({correct:false,tries:0,hints:0});
+    var d=document.createElement("div");
+    d.className="box q"; d.id="q"+i;
+    d.innerHTML='<div><span class="qnum">'+(i+1)+'.</span> '+q.t+'</div>'+
+      '<div class="row"><input type="text" id="in'+i+'" aria-label="Answer to question '+(i+1)+'" autocomplete="off"> <span class="unit">'+q.u+'</span>'+
+      '<button type="button" class="check" data-i="'+i+'">Check</button>'+
+      '<button type="button" class="hint" data-i="'+i+'">Hint 💡</button>'+
+      '<button type="button" class="sol" data-i="'+i+'" style="display:none">Show solution</button></div>'+
+      '<div class="fb" id="fb'+i+'"></div><div class="hints" id="hints'+i+'"></div>'+
+      '<div class="solution" id="sol'+i+'"><strong>Solution:</strong> '+q.s+'</div>';
+    box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target; if(b.tagName!=="BUTTON")return;
+    var i=+b.getAttribute("data-i");
+    if(b.className==="check") check(i);
+    else if(b.className==="hint") hint(i);
+    else if(b.className==="sol") document.getElementById("sol"+i).style.display="block";
+  });
+  box.addEventListener("keydown",function(e){
+    if(e.key==="Enter"&&e.target.tagName==="INPUT"){ check(+e.target.id.slice(2)); }
+  });
+}
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)];}
+function check(i){
+  var val=document.getElementById("in"+i).value;
+  var fb=document.getElementById("fb"+i), card=document.getElementById("q"+i);
+  if(val.trim()===""){fb.className="fb bad";fb.textContent="Type an answer first!";return;}
+  if(isNaN(parseAnswer(val))){fb.className="fb bad";fb.textContent="I can't read that as a number. Try something like 42, 3.5, 3/4 or 1 3/4.";return;}
+  state[i].tries++;
+  if(isCorrect(val,QUESTIONS[i].a)){
+    state[i].correct=true; card.className="box q right"; fb.className="fb good";
+    fb.textContent="✅ "+pick(PRAISE)+(state[i].tries===1?" (first try!)":"");
+  } else {
+    state[i].correct=false; card.className="box q wrong"; fb.className="fb bad";
+    fb.textContent="❌ "+pick(ENCOURAGE);
+    if(state[i].tries>=2) card.querySelector(".sol").style.display="inline-block";
+  }
+  updateScore();
+}
+function hint(i){
+  var q=QUESTIONS[i], s=state[i], hb=document.getElementById("hints"+i);
+  if(s.hints<q.h.length){
+    var p=document.createElement("p"); p.textContent="💡 Hint "+(s.hints+1)+": "+q.h[s.hints]; hb.appendChild(p); s.hints++;
+  }
+  if(s.hints>=q.h.length) document.querySelector("#q"+i+" .hint").disabled=true;
+  updateScore();
+}
+function counts(){
+  var c=0,first=0,h=0;
+  state.forEach(function(s){ if(s.correct){c++; if(s.tries===1)first++;} h+=s.hints; });
+  return {correct:c,first:first,hints:h};
+}
+function updateScore(){
+  var k=counts();
+  document.getElementById("scoreText").textContent="Score: "+k.correct+" / "+QUESTIONS.length+" correct · hints used: "+k.hints;
+}
+function finish(){
+  var k=counts(), n=QUESTIONS.length, pct=Math.round(100*k.correct/n);
+  var msg;
+  if(pct===100) msg="🏆 PERFECT SCORE! Your Chuseok family math is holiday-ready!";
+  else if(pct>=85) msg="🌟 Outstanding! That's a strong Grade 6–8 performance.";
+  else if(pct>=65) msg="💪 Great effort! Review the ones you missed and try them again.";
+  else if(pct>=40) msg="👍 Good start. These problems are challenging — use the hints and solutions, then retry.";
+  else msg="🌱 Challenge problems take practice. Go through the worked examples and try again!";
+  var f=document.getElementById("final");
+  f.style.display="block";
+  f.innerHTML="<h2 style='border:none;margin-top:0'>Final Score: "+k.correct+" / "+n+" ("+pct+"%)</h2>"+
+    "<p>Correct on the first try: "+k.first+" · Hints used: "+k.hints+"</p><p>"+msg+"</p>"+
+    "<p style='font-size:.85em;color:#546e7a'>Finished on "+new Date().toLocaleString("en-CA")+"</p>";
+  f.scrollIntoView({behavior:"smooth"});
+}
+render();
+updateScore();
+document.getElementById("finishBtn").addEventListener("click",finish);
+</script>
+</body>
+</html>

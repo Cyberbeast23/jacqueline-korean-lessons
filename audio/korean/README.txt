@@ -24,3 +24,19 @@ Individual files (all 10 Day-1 words)
 10-juseyo-please.mp3            주세요      juseyo          please (give me)
 
 ALL-words.mp3 — English then Korean for every word above.
+
+
+Day 2 (Family & Chuseok) — files prefixed day2-
+---------------------------------------------
+day2-01-gajok-family.mp3                가족      gajok         family
+day2-02-eomma-mom.mp3                   엄마      eomma         mom
+day2-03-appa-dad.mp3                    아빠      appa          dad
+day2-04-halmeoni-grandmother.mp3        할머니     halmeoni      grandmother
+day2-05-harabeoji-grandfather.mp3       할아버지    harabeoji     grandfather
+day2-06-eonni-older-sister.mp3          언니      eonni         older sister (said by a girl or woman)
+day2-07-dongsaeng-younger-sibling.mp3   동생      dongsaeng     younger sibling
+day2-08-chuseok-harvest-festival.mp3    추석      chuseok       Chuseok (Korean harvest festival)
+day2-09-songpyeon-rice-cakes.mp3        송편      songpyeon     songpyeon (half-moon rice cakes)
+day2-10-saranghaeyo-i-love-you.mp3      사랑해요    saranghaeyo   I love you
+
+day2-ALL-words.mp3 — English then Korean for every Day 2 word.
