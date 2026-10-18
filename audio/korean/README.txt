@@ -40,3 +40,20 @@ day2-09-songpyeon-rice-cakes.mp3        송편      songpyeon     songpyeon (hal
 day2-10-saranghaeyo-i-love-you.mp3      사랑해요    saranghaeyo   I love you
 
 day2-ALL-words.mp3 — English then Korean for every Day 2 word.
+
+
+Day 4 (Travel & Getting Around Seoul) — files prefixed day4-
+TTS: gTTS (Google Translate TTS, lang ko; English prompts lang en) — Edge TTS returned 403.
+------------------------------------------------------------
+day4-01-yeohaeng-travel.mp3         여행       yeohaeng     travel / trip
+day4-02-jihacheol-subway.mp3        지하철      jihacheol    subway
+day4-03-beoseu-bus.mp3              버스       beoseu       bus
+day4-04-gicha-train.mp3             기차       gicha        train
+day4-05-bihaenggi-airplane.mp3      비행기      bihaenggi    airplane
+day4-06-yeok-station.mp3            역        yeok         station
+day4-07-pyo-ticket.mp3              표        pyo          ticket
+day4-08-eodiyeyo-where-is-it.mp3    어디예요?    eodiyeyo     where is it?
+day4-09-oenjjok-left.mp3            왼쪽       oenjjok      left
+day4-10-oreunjjok-right.mp3         오른쪽      oreunjjok    right (direction)
+
+day4-ALL-words.mp3 — English then Korean for every Day 4 word.

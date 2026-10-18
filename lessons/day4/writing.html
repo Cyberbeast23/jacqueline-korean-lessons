@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Writing Day 4: Problem-Solution + Grammar Clinic</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.6;margin:0;background:#eef7ee;color:#1b2b1b}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#2e7d32}
+  h1{color:#1b5e20;font-size:2em;margin:10px 0}
+  h2{color:#2e7d32;margin-top:36px;border-bottom:3px solid #a5d6a7;padding-bottom:4px}
+  h3{color:#2e7d32}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .tipbox{background:#fff8e1;border-left:8px solid #ffb300}
+  .senses{display:grid;gap:8px;margin:10px 0;grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+  .senses .side{border-radius:14px;padding:10px 16px;background:#fff9c4}
+  .ts{background:#bbdefb;border-radius:5px;padding:1px 3px}
+  .ev{background:#c8e6c9;border-radius:5px;padding:1px 3px}
+  .ex{background:#ffe0b2;border-radius:5px;padding:1px 3px}
+  .cs{background:#e1bee7;border-radius:5px;padding:1px 3px}
+  .legend span{display:inline-block;margin:4px 8px 4px 0;font-size:.85em}
+  .model{font-family:Georgia,"Times New Roman",serif;font-size:1.05em;line-height:1.9}
+  .row{padding:10px 6px;border-bottom:1px dashed #ddd}
+  .row.right{background:#f1f8e9} .row.wrong{background:#fff5f5}
+  select{font-size:.9em;padding:5px 8px;border-radius:8px;border:2px solid #aed581;font-family:inherit}
+  .q{border-left:8px solid #b0bec5}
+  .q.right{border-left-color:#43a047;background:#f1f8e9}
+  .q.wrong{border-left-color:#e53935;background:#fff5f5}
+  .opt{display:block;width:100%;text-align:left;font-size:.95em;background:#fafafa;border:2px solid #e0e0e0;border-radius:10px;padding:8px 14px;margin:8px 0;cursor:pointer;font-family:inherit}
+  .opt:hover{border-color:#9ccc65;background:#fff}
+  .opt.sel-right{background:#c8e6c9;border-color:#43a047}
+  .opt.sel-wrong{background:#ffcdd2;border-color:#e53935}
+  .fb{margin-top:6px;font-weight:bold}
+  .fb.good{color:#2e7d32} .fb.bad{color:#c62828}
+  .explain{font-weight:normal;color:#1b5e20}
+  .bad-sent{font-family:Consolas,"Courier New",monospace;background:#ffebee;padding:6px 10px;border-radius:8px;display:inline-block;margin:6px 0}
+  input.fix{width:100%;box-sizing:border-box;font-size:1em;padding:8px 12px;border:2px solid #aed581;border-radius:10px;font-family:inherit}
+  button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;font-family:inherit}
+  .go{background:#2e7d32;color:#fff} .go:hover{background:#1b5e20}
+  .hint{background:#ffe082;color:#5d4037}
+  .blue{background:#1e88e5;color:#fff}
+  .purple{background:#8e24aa;color:#fff}
+  .grey{background:#cfd8dc;color:#263238}
+  .btnrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+  textarea{width:100%;box-sizing:border-box;min-height:300px;font-size:1.05em;line-height:1.7;font-family:Georgia,"Times New Roman",serif;padding:14px;border:3px solid #aed581;border-radius:12px}
+  textarea:focus{outline:none;border-color:#2e7d32}
+  .counter{display:flex;flex-wrap:wrap;gap:20px;align-items:center;margin:8px 0;font-weight:bold}
+  .meter{flex:1;min-width:200px;height:18px;background:#e0e0e0;border-radius:9px;overflow:hidden}
+  .meter div{height:100%;width:0;background:#ffb300;transition:width .2s}
+  .checklist label{display:block;padding:6px 4px;cursor:pointer}
+  .checklist input{transform:scale(1.4);margin-right:10px}
+  .prompts label{display:block;background:#f1f8e9;border-radius:10px;padding:10px 14px;margin:8px 0;cursor:pointer}
+  .prompts input{transform:scale(1.3);margin-right:8px}
+  #scoreBox{position:sticky;bottom:0;background:#1b5e20;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #printArea{display:none}
+  @media print{
+    body{background:#fff;font-size:14pt}
+    .wrap,#scoreBox{display:none !important}
+    #printArea{display:block;font-family:Georgia,serif;line-height:1.8}
+    #printArea h1{font-size:18pt;margin:0 0 6pt}
+    #printArea .meta{font-size:11pt;color:#444}
+    #printArea .text{white-space:pre-wrap;border-top:1px solid #999;padding-top:10pt;margin-top:10pt}
+    #printArea .lines{margin-top:24pt;border-top:1px solid #999;padding-top:6pt;font-size:11pt}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>✍️ Writing Day 4: Problem-Solution (Lost in Seoul)</h1>
+<p>Jacqueline, you're back to <strong>problem-solution</strong> writing (you first tried it on Day 2 with the Chuseok Puzzle). This time the problem is one every traveller fears: getting on the <em>wrong subway line</em> in a city where you can't read every sign yet. Name the problem, explain why it matters, propose realistic solutions with reasons, and finish strong.</p>
+
+<h2>Part 1: The Lesson</h2>
+<div class="box">
+  <h3 style="margin-top:0">Problem → Why it matters → Solutions → Conclusion</h3>
+  <p>A strong problem-solution paragraph does more than complain. It shows the reader the problem clearly, then offers <em>realistic</em> fixes and explains why they would work. <strong>Level up this week:</strong> make each solution <em>specific</em> (not "be careful," but "check the last-station name on the platform sign").</p>
+  <div class="senses">
+    <div class="side"><strong>1. Problem:</strong> state it in one clear topic sentence</div>
+    <div class="side"><strong>2. Cause / effect:</strong> why it happens and who it hurts</div>
+    <div class="side"><strong>3. Solution 1:</strong> a specific fix + reason</div>
+    <div class="side"><strong>4. Solution 2:</strong> another fix + example or evidence</div>
+    <div class="side"><strong>5. Conclusion:</strong> why the solutions are worth trying</div>
+  </div>
+  <p><strong>Useful linking words:</strong> <em>because, since, as a result, one solution is, another option, for example, instead, this would, therefore, however</em>.</p>
+</div>
+
+<div class="box">
+  <h3 style="margin-top:0">Model Problem-Solution Paragraph</h3>
+  <p class="legend"><span class="ts">Problem (topic sentence)</span><span class="ev">Cause / effect</span><span class="ex">Solutions + reasons</span><span class="cs">Conclusion</span></p>
+  <p class="model">
+    <span class="ts">Getting on the wrong subway line in Seoul can turn an exciting day of sightseeing into a stressful one.</span>
+    <span class="ev">Many stations serve two or three lines, and trains on the same line run in opposite directions, so a hurried visitor can easily board the wrong one; as a result, she may miss a meeting, waste time, or feel too embarrassed to ask for help.</span>
+    <span class="ex">One solution is to read the last-station name on the platform sign before boarding, because that name shows which direction the train is heading.</span>
+    <span class="ex">Another option is to learn one simple question, such as 지하철역이 어디예요? (Where is the subway station?), since station staff and many residents are happy to point a visitor the right way.</span>
+    <span class="cs">With a little preparation and the courage to ask, a wrong turn becomes a short detour instead of a disaster.</span>
+  </p>
+  <p><strong>Notice:</strong> Each solution is <em>specific</em> and comes with a <em>reason</em> (because…, since…). That is what makes it convincing.</p>
+</div>
+
+<h2>Part 2: Problem, Solution, or Off-topic?</h2>
+<div class="box">
+  <p>For each sentence, decide whether it mainly describes the <strong>problem / cause</strong>, offers a <strong>solution / evidence</strong>, or is <strong>off-topic</strong>.</p>
+  <div id="labelRows"></div>
+  <div class="btnrow"><button type="button" class="go" id="checkLabels">Check my answers</button></div>
+  <div class="fb" id="labelFb"></div>
+</div>
+
+<h2>Part 3: Grammar Clinic</h2>
+<div class="box tipbox">Examine these sentences carefully. <strong>Section A:</strong> pick the correct sentence. <strong>Section B:</strong> type the sentence again with <em>all</em> mistakes fixed. We use <strong>Canadian spelling</strong> (colour, favourite, centre, neighbour, practise as a verb). Watch <strong>to / too / two</strong>, <strong>affect / effect</strong>, punctuating dialogue, and subject-verb agreement.</div>
+<h3>Section A: Pick the correct sentence</h3>
+<div id="gmc"></div>
+<h3>Section B: Fix the sentence</h3>
+<p>Retype the whole sentence correctly, with capital letters and punctuation. Each one has <strong>at least two</strong> mistakes (except where noted).</p>
+<div id="gfix"></div>
+
+<h2>Part 4: Your Turn to Write</h2>
+<div class="box">
+  <h3 style="margin-top:0">Choose a prompt</h3>
+  <div class="prompts" id="prompts">
+    <label><input type="radio" name="prompt" value="Lost in Seoul: you got on the wrong subway line and are heading away from where you need to be. Explain the problem and propose at least two solutions." checked> 🚇 <strong>Lost in Seoul.</strong> You got on the wrong subway line — explain the problem and the solutions.</label>
+    <label><input type="radio" name="prompt" value="A visitor who doesn't speak Korean needs to buy a train ticket and find the right platform. Explain the problem and propose solutions for the traveller or for the station."> 🗣️ <strong>The language barrier.</strong> Buying a ticket and finding the platform without much Korean.</label>
+    <label><input type="radio" name="prompt" value="Rush-hour buses and subways in a big city are packed and stressful. Explain the problem and propose solutions for riders or for the city."> 🚌 <strong>Rush-hour crush.</strong> Packed buses and trains — what could riders or the city do?</label>
+  </div>
+  <p><strong>Goal:</strong> one strong paragraph (or two) of <strong>150 to 230 words</strong>: a clear problem sentence, its cause or effect, at least two solutions with reasons, and a concluding sentence.</p>
+  <label for="essay"><strong>Write here:</strong></label>
+  <textarea id="essay" placeholder="Start by stating the problem clearly in one sentence..."></textarea>
+  <div class="counter">
+    <span id="wc">0 words</span>
+    <span id="sc">0 sentences</span>
+    <div class="meter" aria-hidden="true"><div id="meterBar"></div></div>
+  </div>
+  <div class="fb" id="wcMsg">Aim for 150 to 230 words.</div>
+  <p style="font-size:.8em;color:#607d8b" id="saveNote">Your writing is saved automatically in this browser as you type.</p>
+
+  <h3>Self-check before you finish ✅</h3>
+  <div class="checklist" id="checklist">
+    <label><input type="checkbox"> My <strong>topic sentence</strong> clearly states the problem.</label>
+    <label><input type="checkbox"> I explained a <strong>cause or effect</strong> of the problem (why it matters).</label>
+    <label><input type="checkbox"> I offered at least <strong>two realistic, specific solutions</strong>.</label>
+    <label><input type="checkbox"> Each solution has a <strong>reason or example</strong> (because…, for example…).</label>
+    <label><input type="checkbox"> I used linking words like <em>as a result, another option, therefore</em>.</label>
+    <label><input type="checkbox"> My <strong>concluding sentence</strong> explains why the solutions are worth trying.</label>
+    <label><input type="checkbox"> I checked capitals, punctuation, and <strong>Canadian spelling</strong>, and read it out loud once.</label>
+    <label><input type="checkbox"> I used at least one <strong>theme word</strong> (e.g. subway, transfer, platform, direction, T-money, station, ticket).</label>
+  </div>
+  <div class="btnrow">
+    <button type="button" class="blue" id="downloadBtn">⬇️ Download my writing</button>
+    <button type="button" class="purple" id="printBtn">🖨️ Print my writing</button>
+    <button type="button" class="grey" id="clearBtn">Start over</button>
+  </div>
+  <div class="fb" id="doneMsg"></div>
+</div>
+
+<div id="scoreBox"><span id="scoreText"></span><span>Keep going! 💪</span></div>
+</div>
+
+<div id="printArea"></div>
+
+<script>
+var NAME="Jacqueline";
+var PRAISE=["Nice work!","Correct! Great editing eye!","Yes!","Excellent!","Perfect diagnosis!"];
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+
+var LABELS=["Problem / cause","Solution / evidence","Off-topic (doesn't belong)"];
+var LABEL_ITEMS=[
+ {s:"Line 2 and Line 3 both stop at Euljiro 3-ga, so it is easy to follow the wrong arrow in a crowd.", a:"Problem / cause"},
+ {s:"One solution is to use a subway app that shows every transfer step by step.", a:"Solution / evidence"},
+ {s:"Missing your stop can make you late and leave you feeling anxious in an unfamiliar city.", a:"Problem / cause"},
+ {s:"My cousin's cat likes to sleep on top of the warm laptop.", a:"Off-topic (doesn't belong)"},
+ {s:"For example, each platform sign lists the last station on the line, which shows the train's direction.", a:"Solution / evidence"},
+ {s:"Asking a station worker \"경복궁역이 어디예요?\" can get you clear directions in seconds.", a:"Solution / evidence"}
+];
+var labelScore=0, labelChecked=false;
+function buildLabels(){
+  var box=document.getElementById("labelRows");
+  LABEL_ITEMS.forEach(function(it,i){
+    var d=document.createElement("div"); d.className="row"; d.id="lr"+i;
+    var sel='<select id="ls'+i+'" aria-label="Job of sentence '+(i+1)+'"><option value="">- choose -</option>';
+    LABELS.forEach(function(l){sel+='<option>'+l+'</option>';});
+    sel+='</select>';
+    d.innerHTML='<strong>'+(i+1)+'.</strong> '+it.s+'<br>'+sel+' <span id="lm'+i+'"></span>';
+    box.appendChild(d);
+  });
+}
+function checkLabels(){
+  var sc=0;
+  LABEL_ITEMS.forEach(function(it,i){
+    var ok=document.getElementById("ls"+i).value===it.a; if(ok)sc++;
+    document.getElementById("lr"+i).className="row "+(ok?"right":"wrong");
+    document.getElementById("lm"+i).textContent=ok?"✅":"❌";
+  });
+  labelScore=sc; labelChecked=true;
+  var fb=document.getElementById("labelFb");
+  if(sc===LABEL_ITEMS.length){fb.className="fb good";fb.textContent="🌟 "+sc+" / "+LABEL_ITEMS.length+". "+pick(PRAISE);}
+  else{fb.className="fb bad";fb.textContent=sc+" / "+LABEL_ITEMS.length+". Hint: problems describe what is wrong or why; solutions suggest a fix or give an example. Fix ❌ and check again.";}
+  updateScore();
+}
+
+var GMC=[
+ {q:"Which sentence is the <strong>strongest problem statement</strong> for a paragraph?",
+  o:["Subways are big.","For first-time visitors, Seoul's busy transfer stations make it easy to board a train going the wrong way.","I like trains.","Lines, colours, stations, maps."],
+  a:1,e:"It names a specific problem and who it affects."},
+ {q:"Which sentence uses <em>affect / effect</em> correctly?",
+  o:["The delay effected our plans, but the affect was small.","The delay affected our plans, but the effect was small.","The delay affected our plans, but the affect was small.","The delay effected our plans, but the effect was small."],
+  a:1,e:"<em>Affect</em> is usually the verb (to change something); <em>effect</em> is usually the noun (the result)."},
+ {q:"Which sentence punctuates <strong>dialogue</strong> correctly?",
+  o:["She asked, \"Where is the station?\"","She asked \"where is the station\"?","She asked, \"where is the station?\"","She asked, \"Where is the station\"?"],
+  a:0,e:"Comma before the quotation, capital letter to start the spoken sentence, and the question mark goes <em>inside</em> the quotation marks."},
+ {q:"Which sentence uses <em>to / too / two</em> correctly?",
+  o:["We bought to tickets, and my brother wanted one too.","We bought two tickets, and my brother wanted one to.","We bought two tickets, and my brother wanted one too.","We bought too tickets, and my brother wanted one two."],
+  a:2,e:"<em>Two</em> = 2; <em>too</em> = also or more than enough; <em>to</em> = toward, or before a verb (to go)."},
+ {q:"Which sentence punctuates <em>therefore</em> correctly?",
+  o:["The train was full; therefore, we waited for the next one.","The train was full, therefore we waited for the next one.","The train was full therefore, we waited for the next one.","The train was full; therefore we, waited for the next one."],
+  a:0,e:"When <em>therefore</em> joins two sentences, use a semicolon before it and a comma after it."},
+ {q:"Which sentence uses <strong>Canadian spelling</strong> correctly?",
+  o:["We were traveling 300 meters to the city center.","We were travelling 300 metres to the city centre.","We were travelling 300 meters to the city centre.","We were traveling 300 metres to the city center."],
+  a:1,e:"Canadian: <em>travelling</em>, <em>metres</em>, <em>centre</em>."},
+ {q:"Which sentence has correct <strong>subject-verb agreement</strong>?",
+  o:["One of the subway lines are closed today.","One of the subway lines is closed today.","One of the subway lines were closed today.","One of the subway lines be closed today."],
+  a:1,e:"The subject is <em>one</em> (singular), not <em>lines</em>, so the verb is <em>is</em>."}
+];
+var gmcState=GMC.map(function(){return{answered:false,firstRight:false,done:false};});
+function buildGMC(){
+  var box=document.getElementById("gmc");
+  GMC.forEach(function(it,i){
+    var d=document.createElement("div"); d.className="box q"; d.id="g"+i;
+    var h='<div><strong>'+(i+1)+'.</strong> '+it.q+'</div>';
+    it.o.forEach(function(o,j){h+='<button type="button" class="opt" data-i="'+i+'" data-j="'+j+'">'+String.fromCharCode(65+j)+'. '+o+'</button>';});
+    h+='<div class="fb" id="gfb'+i+'"></div>';
+    d.innerHTML=h; box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".opt"):e.target; if(!b||!b.classList.contains("opt"))return;
+    var i=+b.getAttribute("data-i"), j=+b.getAttribute("data-j"), st=gmcState[i], it=GMC[i];
+    if(st.done)return;
+    var ok=j===it.a; if(!st.answered){st.answered=true;st.firstRight=ok;}
+    var fb=document.getElementById("gfb"+i);
+    if(ok){st.done=true;b.classList.add("sel-right");document.getElementById("g"+i).className="box q right";fb.className="fb good";fb.innerHTML="✅ "+pick(PRAISE)+' <span class="explain">'+it.e+'</span>';}
+    else{b.classList.add("sel-wrong");document.getElementById("g"+i).className="box q wrong";fb.className="fb bad";fb.textContent="❌ Not quite. Look closely and try again.";}
+    updateScore();
+  });
+}
+
+var GFIX=[
+ {bad:"on monday leah took line 3 to gyeongbokgung palace.",
+  ok:["On Monday, Leah took Line 3 to Gyeongbokgung Palace.","On Monday Leah took Line 3 to Gyeongbokgung Palace.","On Monday, Leah took line 3 to Gyeongbokgung Palace.","On Monday Leah took line 3 to Gyeongbokgung Palace."],
+  hint:"Capitalize the first word, the day, the name, and the palace (a proper noun). A comma after a short opening phrase is optional."},
+ {bad:"We got on the wrong train, we had too get off at the next stop.",
+  ok:["We got on the wrong train, so we had to get off at the next stop.","We got on the wrong train. We had to get off at the next stop.","We got on the wrong train; we had to get off at the next stop.","We got on the wrong train, and we had to get off at the next stop."],
+  hint:"Use to before a verb (to get), not too. Then fix the comma splice with a period, a semicolon, or a comma + so."},
+ {bad:"There was to many people on the train this morning.",
+  ok:["There were too many people on the train this morning."],
+  hint:"People is plural, so use were. Too means more than enough."},
+ {bad:"My favorite part of the trip was the colorful subway map at the center of the station.",
+  ok:["My favourite part of the trip was the colourful subway map at the centre of the station."],
+  hint:"Three Canadian spellings: favourite, colourful, centre."}
+];
+
+var gfixState=GFIX.map(function(){return{tries:0,correct:false,firstRight:false};});
+function norm(s){return s.replace(/[\u2018\u2019\u02BC]/g,"'").replace(/[\u201C\u201D]/g,'"').replace(/\s+/g," ").trim();}
+function checkFixAnswer(i,val){var v=norm(val);return GFIX[i].ok.some(function(a){return norm(a)===v;});}
+function buildGFix(){
+  var box=document.getElementById("gfix");
+  GFIX.forEach(function(it,i){
+    var d=document.createElement("div"); d.className="box q"; d.id="f"+i;
+    d.innerHTML='<div><strong>'+(i+1)+'.</strong> Fix: <span class="bad-sent">'+it.bad+'</span></div>'+
+     '<input class="fix" type="text" id="fi'+i+'" autocomplete="off" spellcheck="false" aria-label="Corrected sentence '+(i+1)+'">'+
+     '<div class="btnrow"><button type="button" class="go" data-act="check" data-i="'+i+'">Check</button><button type="button" class="hint" data-act="hint" data-i="'+i+'">Hint 💡</button><button type="button" class="grey" data-act="show" data-i="'+i+'" style="display:none">Show answer</button></div>'+
+     '<div class="fb" id="ffb'+i+'"></div>';
+    box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target; if(b.tagName!=="BUTTON")return;
+    var i=+b.getAttribute("data-i"), act=b.getAttribute("data-act"), fb=document.getElementById("ffb"+i);
+    if(act==="hint"){fb.className="fb";fb.style.color="#5d4037";fb.textContent="💡 "+GFIX[i].hint;return;}
+    fb.style.color="";
+    if(act==="show"){fb.className="fb";fb.innerHTML='Answer: <em>'+GFIX[i].ok[0]+'</em>'+(GFIX[i].ok.length>1?' (other correct versions are accepted too)':'');return;}
+    fixCheck(i);
+  });
+  box.addEventListener("keydown",function(e){if(e.key==="Enter"&&e.target.classList.contains("fix"))fixCheck(+e.target.id.slice(2));});
+}
+function fixCheck(i){
+  var val=document.getElementById("fi"+i).value, fb=document.getElementById("ffb"+i), st=gfixState[i];
+  fb.style.color="";
+  if(!val.trim()){fb.className="fb bad";fb.textContent="Type the corrected sentence first!";return;}
+  st.tries++;
+  if(checkFixAnswer(i,val)){ if(st.tries===1)st.firstRight=true; st.correct=true; document.getElementById("f"+i).className="box q right"; fb.className="fb good"; fb.textContent="✅ "+pick(PRAISE); }
+  else { st.correct=false; document.getElementById("f"+i).className="box q wrong"; fb.className="fb bad"; fb.textContent="❌ Not quite. Check capitals, apostrophes, commas, and spelling."; if(st.tries>=2)document.querySelector('#f'+i+' [data-act=show]').style.display="inline-block"; }
+  updateScore();
+}
+
+function updateScore(){
+  var g=0; gmcState.forEach(function(s){if(s.firstRight)g++;});
+  var f=0; gfixState.forEach(function(s){if(s.correct)f++;});
+  var total=LABEL_ITEMS.length+GMC.length+GFIX.length, got=labelScore+g+f;
+  document.getElementById("scoreText").textContent="Score: "+got+" / "+total+"  (labels "+(labelChecked?labelScore:"-")+"/"+LABEL_ITEMS.length+" · grammar A "+g+"/"+GMC.length+" · grammar B "+f+"/"+GFIX.length+")";
+}
+
+var KEY="jacqueline-writing-day4";
+function countWords(t){var m=t.trim().match(/[A-Za-zÀ-ÿ0-9]+(?:['’\-][A-Za-zÀ-ÿ0-9]+)*/g);return m?m.length:0;}
+function countSentences(t){var m=t.match(/[^.!?]*[A-Za-z0-9][^.!?]*[.!?]+/g);return m?m.length:0;}
+function currentPrompt(){var r=document.querySelector('input[name=prompt]:checked');return r?r.value:"";}
+function updateCount(){
+  var t=document.getElementById("essay").value, w=countWords(t), s=countSentences(t);
+  document.getElementById("wc").textContent=w+(w===1?" word":" words");
+  document.getElementById("sc").textContent=s+(s===1?" sentence":" sentences");
+  var bar=document.getElementById("meterBar"); bar.style.width=Math.min(100,w/230*100)+"%";
+  var msg=document.getElementById("wcMsg");
+  if(w<150){bar.style.background="#ffb300";msg.className="fb";msg.textContent=w===0?"Aim for 150 to 230 words.":"Keep going! "+(150-w)+" more words to reach the goal.";}
+  else if(w<=230){bar.style.background="#43a047";msg.className="fb good";msg.textContent="🎯 You're in the target zone!";}
+  else{bar.style.background="#1e88e5";msg.className="fb";msg.textContent="That's a lot of writing! Make sure every sentence stays on topic.";}
+  try{localStorage.setItem(KEY,JSON.stringify({text:t,prompt:currentPrompt(),checks:checkStates()}));}catch(e){document.getElementById("saveNote").textContent="(This browser can't auto-save here — use Download before closing!)";}
+}
+function checkStates(){return Array.prototype.map.call(document.querySelectorAll("#checklist input"),function(c){return c.checked;});}
+function checklistText(){
+  return Array.prototype.map.call(document.querySelectorAll("#checklist label"),function(l){return (l.querySelector("input").checked?"[x] ":"[ ] ")+l.textContent.trim();}).join("\n");
+}
+function buildReport(){
+  var t=document.getElementById("essay").value;
+  return "Writing Day 4: "+NAME+"\nDate: "+new Date().toLocaleString("en-CA")+"\nPrompt: "+currentPrompt()+
+    "\nWords: "+countWords(t)+"   Sentences: "+countSentences(t)+
+    "\n\n----- "+NAME+"'s writing -----\n\n"+t+"\n\n----- Self-check -----\n"+checklistText()+
+    "\n\n----- Feedback -----\n\n\n";
+}
+function download(){
+  var t=document.getElementById("essay").value;
+  if(!t.trim()){document.getElementById("doneMsg").className="fb bad";document.getElementById("doneMsg").textContent="Write something first!";return;}
+  var blob=new Blob([buildReport().replace(/\n/g,"\r\n")],{type:"text/plain;charset=utf-8"});
+  var a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=NAME+"-writing-day4.txt";
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},1000);
+  var dm=document.getElementById("doneMsg"); dm.className="fb good"; dm.textContent="📄 Saved! Check your Downloads folder.";
+}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function printIt(){
+  var t=document.getElementById("essay").value;
+  if(!t.trim()){document.getElementById("doneMsg").className="fb bad";document.getElementById("doneMsg").textContent="Write something first!";return;}
+  document.getElementById("printArea").innerHTML="<h1>Writing Day 4: "+NAME+"</h1><div class='meta'>"+esc(new Date().toLocaleString("en-CA"))+"<br><strong>Prompt:</strong> "+esc(currentPrompt())+"<br>Words: "+countWords(t)+" · Sentences: "+countSentences(t)+"</div><div class='text'>"+esc(t)+"</div><div class='lines'><strong>Self-check:</strong><br>"+esc(checklistText()).replace(/\n/g,"<br>")+"</div><div class='lines'><strong>Feedback:</strong><br><br><br><br></div>";
+  window.print();
+}
+function restore(){
+  try{var d=JSON.parse(localStorage.getItem(KEY)||"null"); if(!d)return;
+    document.getElementById("essay").value=d.text||"";
+    Array.prototype.forEach.call(document.querySelectorAll("input[name=prompt]"),function(r){r.checked=(r.value===d.prompt);});
+    if(!document.querySelector("input[name=prompt]:checked"))document.querySelector("input[name=prompt]").checked=true;
+    var cs=document.querySelectorAll("#checklist input"); (d.checks||[]).forEach(function(v,i){if(cs[i])cs[i].checked=v;});
+  }catch(e){}
+}
+buildLabels(); buildGMC(); buildGFix(); restore(); updateCount(); updateScore();
+document.getElementById("checkLabels").addEventListener("click",checkLabels);
+document.getElementById("essay").addEventListener("input",updateCount);
+document.getElementById("checklist").addEventListener("change",function(){updateCount(); if(checkStates().every(Boolean)){var dm=document.getElementById("doneMsg");dm.className="fb good";dm.textContent="✅ All boxes checked! Download or print when ready.";} });
+document.getElementById("prompts").addEventListener("change",updateCount);
+document.getElementById("downloadBtn").addEventListener("click",download);
+document.getElementById("printBtn").addEventListener("click",printIt);
+document.getElementById("clearBtn").addEventListener("click",function(){ if(confirm("Erase your writing and start over?")){document.getElementById("essay").value="";Array.prototype.forEach.call(document.querySelectorAll("#checklist input"),function(c){c.checked=false;});document.getElementById("doneMsg").textContent="";updateCount();} });
+</script>
+</body>
+</html>

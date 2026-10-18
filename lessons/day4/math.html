@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Math Day 4: Seoul Travel Math</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.6;margin:0;background:#fff5f0;color:#1d2a3a}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#c62828}
+  h1{color:#b71c1c;font-size:2em;margin:10px 0}
+  h2{color:#c62828;margin-top:36px;border-bottom:3px solid #ffcdd2;padding-bottom:4px}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .example{border-left:8px solid #ef6c00}
+  .example h3{margin:0 0 6px;color:#bf360c}
+  .step{margin:4px 0 4px 10px}
+  code,.mono{font-family:Consolas,"Courier New",monospace;background:#ffebee;padding:1px 6px;border-radius:5px}
+  .q{border-left:8px solid #90a4ae}
+  .q.right{border-left-color:#43a047;background:#f1f8e9}
+  .q.wrong{border-left-color:#e53935;background:#fff5f5}
+  .qnum{font-weight:bold;color:#b71c1c}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+  input[type=text]{font-size:1.05em;padding:8px 12px;border:2px solid #ef9a9a;border-radius:10px;width:190px}
+  input[type=text]:focus{outline:none;border-color:#c62828;box-shadow:0 0 0 3px #ffcdd2}
+  button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold}
+  .check{background:#c62828;color:#fff} .check:hover{background:#b71c1c}
+  .hint{background:#ffe082;color:#5d4037} .hint:hover{background:#ffd54f}
+  .sol{background:#90caf9;color:#0d47a1}
+  .unit{color:#546e7a}
+  .fb{margin-top:8px;font-weight:bold;min-height:1em}
+  .fb.good{color:#2e7d32} .fb.bad{color:#c62828}
+  .hints{margin-top:8px;color:#5d4037;background:#fff8e1;border-radius:10px;padding:0 12px}
+  .hints p{margin:6px 0;padding:6px 0}
+  .solution{margin-top:8px;background:#e3f2fd;border-radius:10px;padding:8px 12px;display:none}
+  #scoreBox{position:sticky;bottom:0;background:#b71c1c;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #scoreBox button{background:#ffca28;color:#3e2723}
+  #final{display:none;font-size:1.15em;text-align:center;border:4px solid #43a047}
+  .tipbox{background:#fff8e1;border-left:8px solid #ffb300}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>🧮 Math Day 4: Seoul Travel Math</h1>
+<p>안녕하세요, Jacqueline! This week you're a traveller in Seoul. You'll use <strong>multiplication with large numbers, currency conversion (won ↔ Canadian dollars), percent fees and discounts, average speed, timetables, elapsed time, unit rates, map scale, equations, and the mean</strong> to plan subway rides, train trips, and a day budget.</p>
+
+<h2>Part 1: Learn the Moves</h2>
+
+<div class="box tipbox">
+  <strong>The 4-Step Problem Solver:</strong>
+  <ol>
+    <li><strong>Read</strong>: What is the question actually asking? Underline numbers and units.</li>
+    <li><strong>Plan</strong>: Which operations, and in what order?</li>
+    <li><strong>Solve</strong>: One step at a time; write each step down.</li>
+    <li><strong>Check</strong>: Is the answer reasonable? Did you answer the question asked?</li>
+  </ol>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 1: Converting currency</h3>
+  <p>Korea uses the <strong>won (₩, KRW)</strong>. In this lesson we use an <em>example rate</em> of <strong>1 CAD = 1,000 KRW</strong> (real rates change every day). A bowl of bibimbap costs <strong>₩11,500</strong>. How much is that in Canadian dollars?</p>
+  <p class="step">Won → dollars: divide by 1,000. 11,500 ÷ 1,000 = <strong>$11.50 CAD</strong>.</p>
+  <p class="step">Dollars → won: multiply by 1,000. So $8 CAD = ₩8,000.</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 2: Average speed</h3>
+  <p>An airport bus travels <strong>60 km</strong> in <strong>1 hour 30 minutes</strong>. What is its average speed?</p>
+  <p class="step">Change the time to hours: 1 h 30 min = 1.5 h.</p>
+  <p class="step">Speed = distance ÷ time = 60 ÷ 1.5 = <strong>40 km/h</strong>.</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 3: Reading a repeating timetable</h3>
+  <p>A bus leaves the station at <strong>7:10 a.m.</strong> and then <strong>every 25 minutes</strong>. You reach the stop at <strong>8:10 a.m.</strong> When is the next bus, and how long do you wait?</p>
+  <p class="step">7:10 → 7:35 → 8:00 → 8:25. The 8:00 bus has already gone, so the next one is <strong>8:25</strong>: a <strong>15-minute</strong> wait.</p>
+  <p class="step">Tip: keep adding the gap and write each time down so you don't skip one.</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 4: Percent fee</h3>
+  <p>An exchange booth gives you ₩100,000 but keeps a <strong>3% fee</strong>. How many won do you actually receive?</p>
+  <p class="step">Fee = 3% × 100,000 = 0.03 × 100,000 = ₩3,000.</p>
+  <p class="step">You receive 100,000 − 3,000 = <strong>₩97,000</strong>. (Or: 97% × 100,000.)</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 5: Elapsed time across noon</h3>
+  <p>A train leaves at <strong>10:50 a.m.</strong> and arrives at <strong>1:35 p.m.</strong> How long is the trip?</p>
+  <p class="step">10:50 → 12:50 is 2 hours. 12:50 → 1:35 is 45 minutes.</p>
+  <p class="step">Total = 2 h 45 min = 2 × 60 + 45 = <strong>165 minutes</strong>.</p>
+</div>
+
+<h2>Part 2: The Challenge (12 problems)</h2>
+<p>Type your answer and press <strong>Check</strong> (or Enter). Fractions like <span class="mono">3/4</span>, mixed numbers like <span class="mono">1 3/4</span>, or decimals like <span class="mono">1.75</span> are fine. Don't type the units. Stuck? Press <strong>Hint</strong>. After 2 tries, you can see a full solution.</p>
+
+<div id="questions"></div>
+<div class="box" id="final"></div>
+<div id="scoreBox">
+  <span id="scoreText">Score: 0 / 12 correct</span>
+  <button id="finishBtn" type="button">I'm done! Show my final score</button>
+</div>
+</div>
+
+<script>
+var NAME = "Jacqueline";
+var QUESTIONS = [
+ {t:"In this problem, one Seoul subway ride costs <strong>₩1,550</strong> with a T-money card. Jacqueline takes <strong>6 rides</strong> during her trip. How much does she spend on subway fares?", a:"9300", u:"won",
+  h:["Multiply the fare by the number of rides.","1,550 × 6 = (1,500 × 6) + (50 × 6) = ?"],
+  s:"1,500 × 6 = 9,000 and 50 × 6 = 300, so 1,550 × 6 = ₩9,300."},
+ {t:"At the example rate <strong>1 CAD = 1,000 KRW</strong>, Jacqueline exchanges <strong>$250 CAD</strong>. The booth keeps a <strong>2% fee</strong> from the won. How many won does she receive?", a:"245000", u:"won",
+  h:["First convert: 250 × 1,000 = ₩250,000.","The fee is 2% of 250,000 = 5,000. Subtract it."],
+  s:"250 × 1,000 = ₩250,000; fee = 0.02 × 250,000 = ₩5,000; she receives ₩245,000."},
+ {t:"The KTX high-speed train covers about <strong>420 km</strong> from Seoul to Busan in <strong>2 hours 30 minutes</strong>. What is its average speed?", a:"168", u:"km/h",
+  h:["Write the time in hours: 2 h 30 min = 2.5 h.","420 ÷ 2.5 = ? (Try 840 ÷ 5.)"],
+  s:"420 ÷ 2.5 = 840 ÷ 5 = 168 km/h."},
+ {t:"Trains leave Seoul Station at <strong>8:05 a.m.</strong> and then <strong>every 33 minutes</strong>. Jacqueline arrives at the platform at exactly 10:00 a.m. How many <strong>minutes</strong> must she wait for the next train?", a:"17", u:"minutes",
+  h:["List the departures: 8:05, 8:38, 9:11, …","Keep going: 9:44, then 10:17. How long from 10:00 to 10:17?"],
+  s:"8:05 → 8:38 → 9:11 → 9:44 → 10:17. She waits 17 minutes."},
+ {t:"Her train leaves at <strong>9:44 a.m.</strong> and arrives in Busan at <strong>12:21 p.m.</strong> How many <strong>minutes</strong> is the trip?", a:"157", u:"minutes",
+  h:["9:44 → 11:44 is 2 hours = 120 minutes.","11:44 → 12:21 is 16 + 21 = 37 minutes. Add them."],
+  s:"120 + 37 = 157 minutes (2 h 37 min)."},
+ {t:"Seoul's green <strong>Line 2</strong> loops around the city. A full loop passes <strong>43 stations</strong> and takes about <strong>86 minutes</strong>. On average, how many minutes is it between stations?", a:"2", u:"minutes",
+  h:["This is a unit rate: minutes per station.","86 ÷ 43 = ?"],
+  s:"86 ÷ 43 = 2 minutes per station (on average)."},
+ {t:"A subway car has <strong>48 seats</strong>, and <strong>12</strong> of them are priority seats for seniors, pregnant passengers, and people with disabilities. What <strong>percent</strong> of the seats are priority seats?", a:"25", u:"%",
+  h:["Write it as a fraction: 12/48.","12/48 simplifies to 1/4. What percent is 1/4?"],
+  s:"12 ÷ 48 = 1/4 = 0.25 = 25%."},
+ {t:"In this problem, an adult bus fare is <strong>₩1,500</strong> and a youth fare is <strong>₩900</strong>. What <strong>percent discount</strong> does a youth get?", a:"40", u:"%",
+  h:["Discount = 1,500 − 900 = 600 won.","Divide by the ORIGINAL (adult) fare: 600 ÷ 1,500 = ?"],
+  s:"600 ÷ 1,500 = 0.40 = 40% discount."},
+ {t:"In this simplified example, a taxi charges a <strong>₩4,800</strong> starting fare plus <strong>₩150</strong> for every 100 m. Jacqueline's ride costs <strong>₩9,300</strong>: <span class='mono'>4800 + 150n = 9300</span>, where <em>n</em> is the number of 100-metre pieces. How many <strong>kilometres</strong> did she ride?", a:"3", u:"km",
+  h:["Subtract 4,800 from both sides: 150n = 4,500.","n = 30 pieces of 100 m = 3,000 m. Now change metres to km."],
+  s:"150n = 4,500 → n = 30; 30 × 100 m = 3,000 m = 3 km."},
+ {t:"On a tourist map, <strong>1 cm represents 250 m</strong>. Gyeongbokgung Palace and Myeongdong are <strong>14 cm</strong> apart on the map. How far apart are they in real life, in <strong>km</strong>?", a:"3.5", u:"km",
+  h:["Multiply: 14 × 250 m.","3,500 m ÷ 1,000 = ? km"],
+  s:"14 × 250 = 3,500 m = 3.5 km."},
+ {t:"Jacqueline timed five subway trips: <strong>32, 28, 35, 41, and 29 minutes</strong>. What is the <strong>mean</strong> trip time?", a:"33", u:"minutes",
+  h:["Add all five times.","32 + 28 + 35 + 41 + 29 = 165. Now divide by 5."],
+  s:"165 ÷ 5 = 33 minutes."},
+ {t:"Jacqueline's day budget is <strong>₩60,000</strong>. She takes <strong>4 subway rides at ₩1,550</strong>, eats lunch for <strong>₩12,000</strong>, and buys a palace ticket for <strong>₩3,000</strong>. Using <strong>1 CAD = 1,000 KRW</strong>, how many Canadian dollars' worth of won does she have left?", a:"38.80", u:"$ CAD",
+  h:["Subway: 4 × 1,550 = 6,200. Total spent = 6,200 + 12,000 + 3,000.","Spent ₩21,200, so ₩38,800 is left. Divide by 1,000 to get dollars."],
+  s:"6,200 + 12,000 + 3,000 = ₩21,200; 60,000 − 21,200 = ₩38,800 = $38.80 CAD."}
+];
+
+var PRAISE = ["Nice work, Jacqueline!","Correct! 정확해요! 🚇","Yes!","Excellent. That was a solid puzzle!","Right on! 🎯","Brilliant thinking!","Spot on!"];
+var ENCOURAGE = ["Not quite. Check your steps and try again!","Close. Try again — maybe use a hint?","Hmm, not yet. Re-read the question carefully.","Keep going. Mistakes help your brain grow!"];
+
+function parseAnswer(str){
+  if(str===undefined||str===null) return NaN;
+  var s=String(str).trim().toLowerCase();
+  s=s.replace(/[\u2212\u2013]/g,"-");
+  s=s.replace(/(\d),(?=\d{3}(\D|$))/g,"$1");
+  s=s.replace(/[^0-9.\/\- ]/g," ").replace(/\s+/g," ").trim();
+  s=s.replace(/\s*\/\s*/g,"/");
+  var m;
+  if((m=s.match(/^(-?\d+) (\d+)\/(\d+)$/))){ var w=parseFloat(m[1]),n=parseFloat(m[2]),d=parseFloat(m[3]); if(d===0)return NaN; return w<0? w-n/d : w+n/d; }
+  if((m=s.match(/^(-?\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/))){ var d2=parseFloat(m[2]); if(d2===0)return NaN; return parseFloat(m[1])/d2; }
+  s=s.replace(/ /g,"");
+  if(/^-?(\d+\.?\d*|\.\d+)$/.test(s)) return parseFloat(s);
+  return NaN;
+}
+function isCorrect(input,key){
+  var a=parseAnswer(input), k=parseAnswer(key);
+  if(isNaN(a)) return false;
+  var isInt=Math.abs(k-Math.round(k))<1e-12;
+  var tol=isInt?1e-9:0.005;
+  return Math.abs(a-k)<=tol;
+}
+
+var state=[];
+function render(){
+  var box=document.getElementById("questions");
+  QUESTIONS.forEach(function(q,i){
+    state.push({correct:false,tries:0,hints:0});
+    var d=document.createElement("div");
+    d.className="box q"; d.id="q"+i;
+    d.innerHTML='<div><span class="qnum">'+(i+1)+'.</span> '+q.t+'</div>'+
+      '<div class="row"><input type="text" id="in'+i+'" aria-label="Answer to question '+(i+1)+'" autocomplete="off"> <span class="unit">'+q.u+'</span>'+
+      '<button type="button" class="check" data-i="'+i+'">Check</button>'+
+      '<button type="button" class="hint" data-i="'+i+'">Hint 💡</button>'+
+      '<button type="button" class="sol" data-i="'+i+'" style="display:none">Show solution</button></div>'+
+      '<div class="fb" id="fb'+i+'"></div><div class="hints" id="hints'+i+'"></div>'+
+      '<div class="solution" id="sol'+i+'"><strong>Solution:</strong> '+q.s+'</div>';
+    box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target; if(b.tagName!=="BUTTON")return;
+    var i=+b.getAttribute("data-i");
+    if(b.className==="check") check(i);
+    else if(b.className==="hint") hint(i);
+    else if(b.className==="sol") document.getElementById("sol"+i).style.display="block";
+  });
+  box.addEventListener("keydown",function(e){
+    if(e.key==="Enter"&&e.target.tagName==="INPUT"){ check(+e.target.id.slice(2)); }
+  });
+}
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)];}
+function check(i){
+  var val=document.getElementById("in"+i).value;
+  var fb=document.getElementById("fb"+i), card=document.getElementById("q"+i);
+  if(val.trim()===""){fb.className="fb bad";fb.textContent="Type an answer first!";return;}
+  if(isNaN(parseAnswer(val))){fb.className="fb bad";fb.textContent="I can't read that as a number. Try something like 42, 3.5, 3/4 or 1 3/4.";return;}
+  state[i].tries++;
+  if(isCorrect(val,QUESTIONS[i].a)){
+    state[i].correct=true; card.className="box q right"; fb.className="fb good";
+    fb.textContent="✅ "+pick(PRAISE)+(state[i].tries===1?" (first try!)":"");
+  } else {
+    state[i].correct=false; card.className="box q wrong"; fb.className="fb bad";
+    fb.textContent="❌ "+pick(ENCOURAGE);
+    if(state[i].tries>=2) card.querySelector(".sol").style.display="inline-block";
+  }
+  updateScore();
+}
+function hint(i){
+  var q=QUESTIONS[i], s=state[i], hb=document.getElementById("hints"+i);
+  if(s.hints<q.h.length){
+    var p=document.createElement("p"); p.textContent="💡 Hint "+(s.hints+1)+": "+q.h[s.hints]; hb.appendChild(p); s.hints++;
+  }
+  if(s.hints>=q.h.length) document.querySelector("#q"+i+" .hint").disabled=true;
+  updateScore();
+}
+function counts(){
+  var c=0,first=0,h=0;
+  state.forEach(function(s){ if(s.correct){c++; if(s.tries===1)first++;} h+=s.hints; });
+  return {correct:c,first:first,hints:h};
+}
+function updateScore(){
+  var k=counts();
+  document.getElementById("scoreText").textContent="Score: "+k.correct+" / "+QUESTIONS.length+" correct · hints used: "+k.hints;
+}
+function finish(){
+  var k=counts(), n=QUESTIONS.length, pct=Math.round(100*k.correct/n);
+  var msg;
+  if(pct===100) msg="🏆 PERFECT SCORE! You could plan a whole Seoul trip with math like that! 즐거운 여행!";
+  else if(pct>=85) msg="🌟 Outstanding! That's a strong Grade 6–8 performance.";
+  else if(pct>=65) msg="💪 Great effort! Review the ones you missed and try them again.";
+  else if(pct>=40) msg="👍 Good start. These problems are challenging — use the hints and solutions, then retry.";
+  else msg="🌱 Challenge problems take practice. Go through the worked examples and try again!";
+  var f=document.getElementById("final");
+  f.style.display="block";
+  f.innerHTML="<h2 style='border:none;margin-top:0'>Final Score: "+k.correct+" / "+n+" ("+pct+"%)</h2>"+
+    "<p>Correct on the first try: "+k.first+" · Hints used: "+k.hints+"</p><p>"+msg+"</p>"+
+    "<p style='font-size:.85em;color:#546e7a'>Finished on "+new Date().toLocaleString("en-CA")+"</p>";
+  f.scrollIntoView({behavior:"smooth"});
+}
+render();
+updateScore();
+document.getElementById("finishBtn").addEventListener("click",finish);
+</script>
+</body>
+</html>
