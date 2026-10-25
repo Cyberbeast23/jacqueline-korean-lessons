@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Math Day 5: Market Day Math</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.6;margin:0;background:#fff5f0;color:#1d2a3a}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#c62828}
+  h1{color:#b71c1c;font-size:2em;margin:10px 0}
+  h2{color:#c62828;margin-top:36px;border-bottom:3px solid #ffcdd2;padding-bottom:4px}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .example{border-left:8px solid #ef6c00}
+  .example h3{margin:0 0 6px;color:#bf360c}
+  .step{margin:4px 0 4px 10px}
+  code,.mono{font-family:Consolas,"Courier New",monospace;background:#ffebee;padding:1px 6px;border-radius:5px}
+  .q{border-left:8px solid #90a4ae}
+  .q.right{border-left-color:#43a047;background:#f1f8e9}
+  .q.wrong{border-left-color:#e53935;background:#fff5f5}
+  .qnum{font-weight:bold;color:#b71c1c}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+  input[type=text]{font-size:1.05em;padding:8px 12px;border:2px solid #ef9a9a;border-radius:10px;width:190px}
+  input[type=text]:focus{outline:none;border-color:#c62828;box-shadow:0 0 0 3px #ffcdd2}
+  button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold}
+  .check{background:#c62828;color:#fff} .check:hover{background:#b71c1c}
+  .hint{background:#ffe082;color:#5d4037} .hint:hover{background:#ffd54f}
+  .sol{background:#90caf9;color:#0d47a1}
+  .unit{color:#546e7a}
+  .fb{margin-top:8px;font-weight:bold;min-height:1em}
+  .fb.good{color:#2e7d32} .fb.bad{color:#c62828}
+  .hints{margin-top:8px;color:#5d4037;background:#fff8e1;border-radius:10px;padding:0 12px}
+  .hints p{margin:6px 0;padding:6px 0}
+  .solution{margin-top:8px;background:#e3f2fd;border-radius:10px;padding:8px 12px;display:none}
+  #scoreBox{position:sticky;bottom:0;background:#b71c1c;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #scoreBox button{background:#ffca28;color:#3e2723}
+  #final{display:none;font-size:1.15em;text-align:center;border:4px solid #43a047}
+  .tipbox{background:#fff8e1;border-left:8px solid #ffb300}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>🧮 Math Day 5: Market Day Math</h1>
+<p>안녕하세요, Jacqueline! This week you're shopping at a busy Korean traditional market (시장). You'll use <strong>unit prices, best-buy comparisons, percent discounts and increases, making change, ratios, converting won to Canadian dollars, equations, and the mean</strong> to shop smart.</p>
+
+<h2>Part 1: Learn the Moves</h2>
+
+<div class="box tipbox">
+  <strong>The 4-Step Problem Solver:</strong>
+  <ol>
+    <li><strong>Read</strong>: What is the question actually asking? Underline numbers and units.</li>
+    <li><strong>Plan</strong>: Which operations, and in what order?</li>
+    <li><strong>Solve</strong>: One step at a time; write each step down.</li>
+    <li><strong>Check</strong>: Is the answer reasonable? Did you answer the question asked?</li>
+  </ol>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 1: Unit price (the best buy)</h3>
+  <p>Stall A sells <strong>4 apples for ₩6,000</strong>. Stall B sells <strong>6 apples for ₩8,400</strong>. Which is the better deal?</p>
+  <p class="step">Unit price = total ÷ number of items. A: 6,000 ÷ 4 = ₩1,500 per apple. B: 8,400 ÷ 6 = ₩1,400 per apple.</p>
+  <p class="step">The lower unit price wins: <strong>Stall B</strong> is cheaper per apple.</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 2: Percent discount</h3>
+  <p>A scarf costs <strong>₩30,000</strong> and is <strong>20% off</strong>. What is the sale price?</p>
+  <p class="step">Discount = 20% × 30,000 = 0.20 × 30,000 = ₩6,000.</p>
+  <p class="step">Sale price = 30,000 − 6,000 = <strong>₩24,000</strong>. (Shortcut: pay 80% → 0.80 × 30,000.)</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 3: Making change</h3>
+  <p>You buy items costing <strong>₩3,500</strong> and <strong>₩4,200</strong> and pay with a <strong>₩10,000</strong> bill. How much change do you get?</p>
+  <p class="step">Total = 3,500 + 4,200 = ₩7,700.</p>
+  <p class="step">Change = 10,000 − 7,700 = <strong>₩2,300</strong>. Tip: count up from 7,700 → 8,000 (300) → 10,000 (2,000).</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 4: Converting currency</h3>
+  <p>We use an <em>example rate</em> of <strong>1 CAD = 1,000 KRW</strong> (real rates change every day). A bag of tangerines is <strong>₩7,500</strong>.</p>
+  <p class="step">Won → dollars: divide by 1,000. 7,500 ÷ 1,000 = <strong>$7.50 CAD</strong>.</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 5: Solving a price equation</h3>
+  <p>3 rice cakes and a ₩2,000 drink cost ₩8,000 together. What does one rice cake cost? <span class="mono">3x + 2000 = 8000</span></p>
+  <p class="step">Subtract 2,000: 3x = 6,000. Divide by 3: <strong>x = ₩2,000</strong>.</p>
+</div>
+
+<h2>Part 2: The Challenge (12 problems)</h2>
+<p>Type your answer and press <strong>Check</strong> (or Enter). Fractions like <span class="mono">3/4</span>, mixed numbers like <span class="mono">1 3/4</span>, or decimals like <span class="mono">1.75</span> are fine. Don't type the units. Stuck? Press <strong>Hint</strong>. After 2 tries, you can see a full solution.</p>
+
+<div id="questions"></div>
+<div class="box" id="final"></div>
+<div id="scoreBox">
+  <span id="scoreText">Score: 0 / 12 correct</span>
+  <button id="finishBtn" type="button">I'm done! Show my final score</button>
+</div>
+</div>
+
+<script>
+var NAME = "Jacqueline";
+var QUESTIONS = [
+ {t:"Jacqueline buys <strong>5 pears at ₩1,800 each</strong>. How much does she pay?", a:"9000", u:"won",
+  h:["Multiply the price by the number of pears.","1,800 × 5 = (1,000 × 5) + (800 × 5) = ?"],
+  s:"5,000 + 4,000 = ₩9,000."},
+ {t:"She pays for the pears (₩9,000) and a <strong>₩2,700</strong> bag of chestnuts with a <strong>₩20,000</strong> bill. How much change does she get?", a:"8300", u:"won",
+  h:["Total = 9,000 + 2,700.","Change = 20,000 − 11,700."],
+  s:"9,000 + 2,700 = ₩11,700; 20,000 − 11,700 = ₩8,300."},
+ {t:"Stall A sells <strong>3 kg of tangerines for ₩12,600</strong>. Stall B sells <strong>5 kg for ₩19,500</strong>. What is the <strong>lower</strong> price per kilogram?", a:"3900", u:"won per kg",
+  h:["A: 12,600 ÷ 3. B: 19,500 ÷ 5.","A = ₩4,200/kg, B = ₩3,900/kg. Which is lower?"],
+  s:"A = 4,200, B = 3,900. Stall B is the better buy at ₩3,900 per kg."},
+ {t:"A hanbok-style scarf costs <strong>₩45,000</strong>. The seller offers <strong>15% off</strong>. What is the sale price?", a:"38250", u:"won",
+  h:["Discount = 0.15 × 45,000.","Discount = ₩6,750. Subtract it from 45,000."],
+  s:"0.15 × 45,000 = 6,750; 45,000 − 6,750 = ₩38,250."},
+ {t:"Using the example rate <strong>1 CAD = 1,000 KRW</strong>, how much is the ₩38,250 scarf in Canadian dollars?", a:"38.25", u:"$ CAD",
+  h:["Won → dollars: divide by 1,000.","38,250 ÷ 1,000 = ?"],
+  s:"38,250 ÷ 1,000 = $38.25 CAD."},
+ {t:"Last year a box of strawberries cost <strong>₩8,000</strong>. This year it costs <strong>₩10,000</strong>. What is the <strong>percent increase</strong>?", a:"25", u:"%",
+  h:["Increase = 10,000 − 8,000 = 2,000.","Divide by the ORIGINAL price: 2,000 ÷ 8,000 = ?"],
+  s:"2,000 ÷ 8,000 = 0.25 = 25% increase."},
+ {t:"A fruit seller has apples and pears in the ratio <strong>5 : 3</strong>. She has <strong>120 pieces of fruit</strong> in total. How many are <strong>apples</strong>?", a:"75", u:"apples",
+  h:["5 + 3 = 8 parts in total. One part = 120 ÷ 8.","One part = 15. Apples are 5 parts."],
+  s:"120 ÷ 8 = 15; 5 × 15 = 75 apples (and 45 pears)."},
+ {t:"A tteokbokki stall sells <strong>₩4,000</strong> plates. On Saturday it took in <strong>₩368,000</strong>. How many plates did it sell?", a:"92", u:"plates",
+  h:["Divide total money by the price per plate.","368,000 ÷ 4,000 = 368 ÷ 4 = ?"],
+  s:"368 ÷ 4 = 92 plates."},
+ {t:"Jacqueline buys <strong>4 bindaetteok</strong> (mung-bean pancakes) and one <strong>₩3,000</strong> sikhye drink, spending <strong>₩23,000</strong> in total: <span class='mono'>4x + 3000 = 23000</span>. What does <strong>one</strong> pancake cost?", a:"5000", u:"won",
+  h:["Subtract 3,000 from both sides: 4x = 20,000.","Divide by 4."],
+  s:"4x = 20,000 → x = ₩5,000."},
+ {t:"The seller gives <strong>덤 (a free bonus)</strong>: buy 10 apples, get 2 free. Jacqueline pays <strong>₩15,000</strong> for 10 and gets 12. What is the <strong>actual</strong> price per apple?", a:"1250", u:"won",
+  h:["She paid ₩15,000 for 12 apples in total.","15,000 ÷ 12 = ?"],
+  s:"15,000 ÷ 12 = ₩1,250 per apple (instead of ₩1,500)."},
+ {t:"She checks the price of a bag of rice at four stalls: <strong>₩24,000, ₩21,500, ₩26,000, and ₩22,500</strong>. What is the <strong>mean</strong> price?", a:"23500", u:"won",
+  h:["Add all four prices.","24,000 + 21,500 + 26,000 + 22,500 = 94,000. Divide by 4."],
+  s:"94,000 ÷ 4 = ₩23,500."},
+ {t:"Jacqueline's market budget is <strong>₩50,000</strong>. She spends <strong>40%</strong> on fruit and <strong>₩12,500</strong> on street food. Using <strong>1 CAD = 1,000 KRW</strong>, how many Canadian dollars' worth of won does she have left?", a:"17.50", u:"$ CAD",
+  h:["Fruit = 0.40 × 50,000 = ₩20,000.","Spent 20,000 + 12,500 = 32,500, so ₩17,500 is left. Divide by 1,000."],
+  s:"20,000 + 12,500 = ₩32,500; 50,000 − 32,500 = ₩17,500 = $17.50 CAD."}
+];
+
+var PRAISE = ["Nice work, Jacqueline!","Correct! 정확해요! 🍎","Yes!","Excellent. That was a solid puzzle!","Right on! 🎯","Brilliant thinking!","Spot on!"];
+var ENCOURAGE = ["Not quite. Check your steps and try again!","Close. Try again — maybe use a hint?","Hmm, not yet. Re-read the question carefully.","Keep going. Mistakes help your brain grow!"];
+
+function parseAnswer(str){
+  if(str===undefined||str===null) return NaN;
+  var s=String(str).trim().toLowerCase();
+  s=s.replace(/[\u2212\u2013]/g,"-");
+  s=s.replace(/(\d),(?=\d{3}(\D|$))/g,"$1");
+  s=s.replace(/[^0-9.\/\- ]/g," ").replace(/\s+/g," ").trim();
+  s=s.replace(/\s*\/\s*/g,"/");
+  var m;
+  if((m=s.match(/^(-?\d+) (\d+)\/(\d+)$/))){ var w=parseFloat(m[1]),n=parseFloat(m[2]),d=parseFloat(m[3]); if(d===0)return NaN; return w<0? w-n/d : w+n/d; }
+  if((m=s.match(/^(-?\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/))){ var d2=parseFloat(m[2]); if(d2===0)return NaN; return parseFloat(m[1])/d2; }
+  s=s.replace(/ /g,"");
+  if(/^-?(\d+\.?\d*|\.\d+)$/.test(s)) return parseFloat(s);
+  return NaN;
+}
+function isCorrect(input,key){
+  var a=parseAnswer(input), k=parseAnswer(key);
+  if(isNaN(a)) return false;
+  var isInt=Math.abs(k-Math.round(k))<1e-12;
+  var tol=isInt?1e-9:0.005;
+  return Math.abs(a-k)<=tol;
+}
+
+var state=[];
+function render(){
+  var box=document.getElementById("questions");
+  QUESTIONS.forEach(function(q,i){
+    state.push({correct:false,tries:0,hints:0});
+    var d=document.createElement("div");
+    d.className="box q"; d.id="q"+i;
+    d.innerHTML='<div><span class="qnum">'+(i+1)+'.</span> '+q.t+'</div>'+
+      '<div class="row"><input type="text" id="in'+i+'" aria-label="Answer to question '+(i+1)+'" autocomplete="off"> <span class="unit">'+q.u+'</span>'+
+      '<button type="button" class="check" data-i="'+i+'">Check</button>'+
+      '<button type="button" class="hint" data-i="'+i+'">Hint 💡</button>'+
+      '<button type="button" class="sol" data-i="'+i+'" style="display:none">Show solution</button></div>'+
+      '<div class="fb" id="fb'+i+'"></div><div class="hints" id="hints'+i+'"></div>'+
+      '<div class="solution" id="sol'+i+'"><strong>Solution:</strong> '+q.s+'</div>';
+    box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target; if(b.tagName!=="BUTTON")return;
+    var i=+b.getAttribute("data-i");
+    if(b.className==="check") check(i);
+    else if(b.className==="hint") hint(i);
+    else if(b.className==="sol") document.getElementById("sol"+i).style.display="block";
+  });
+  box.addEventListener("keydown",function(e){
+    if(e.key==="Enter"&&e.target.tagName==="INPUT"){ check(+e.target.id.slice(2)); }
+  });
+}
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)];}
+function check(i){
+  var val=document.getElementById("in"+i).value;
+  var fb=document.getElementById("fb"+i), card=document.getElementById("q"+i);
+  if(val.trim()===""){fb.className="fb bad";fb.textContent="Type an answer first!";return;}
+  if(isNaN(parseAnswer(val))){fb.className="fb bad";fb.textContent="I can't read that as a number. Try something like 42, 3.5, 3/4 or 1 3/4.";return;}
+  state[i].tries++;
+  if(isCorrect(val,QUESTIONS[i].a)){
+    state[i].correct=true; card.className="box q right"; fb.className="fb good";
+    fb.textContent="✅ "+pick(PRAISE)+(state[i].tries===1?" (first try!)":"");
+  } else {
+    state[i].correct=false; card.className="box q wrong"; fb.className="fb bad";
+    fb.textContent="❌ "+pick(ENCOURAGE);
+    if(state[i].tries>=2) card.querySelector(".sol").style.display="inline-block";
+  }
+  updateScore();
+}
+function hint(i){
+  var q=QUESTIONS[i], s=state[i], hb=document.getElementById("hints"+i);
+  if(s.hints<q.h.length){
+    var p=document.createElement("p"); p.textContent="💡 Hint "+(s.hints+1)+": "+q.h[s.hints]; hb.appendChild(p); s.hints++;
+  }
+  if(s.hints>=q.h.length) document.querySelector("#q"+i+" .hint").disabled=true;
+  updateScore();
+}
+function counts(){
+  var c=0,first=0,h=0;
+  state.forEach(function(s){ if(s.correct){c++; if(s.tries===1)first++;} h+=s.hints; });
+  return {correct:c,first:first,hints:h};
+}
+function updateScore(){
+  var k=counts();
+  document.getElementById("scoreText").textContent="Score: "+k.correct+" / "+QUESTIONS.length+" correct · hints used: "+k.hints;
+}
+function finish(){
+  var k=counts(), n=QUESTIONS.length, pct=Math.round(100*k.correct/n);
+  var msg;
+  if(pct===100) msg="🏆 PERFECT SCORE! The smartest shopper in the whole 시장! 또 오세요!";
+  else if(pct>=85) msg="🌟 Outstanding! That's a strong Grade 6–8 performance.";
+  else if(pct>=65) msg="💪 Great effort! Review the ones you missed and try them again.";
+  else if(pct>=40) msg="👍 Good start. These problems are challenging — use the hints and solutions, then retry.";
+  else msg="🌱 Challenge problems take practice. Go through the worked examples and try again!";
+  var f=document.getElementById("final");
+  f.style.display="block";
+  f.innerHTML="<h2 style='border:none;margin-top:0'>Final Score: "+k.correct+" / "+n+" ("+pct+"%)</h2>"+
+    "<p>Correct on the first try: "+k.first+" · Hints used: "+k.hints+"</p><p>"+msg+"</p>"+
+    "<p style='font-size:.85em;color:#546e7a'>Finished on "+new Date().toLocaleString("en-CA")+"</p>";
+  f.scrollIntoView({behavior:"smooth"});
+}
+render();
+updateScore();
+document.getElementById("finishBtn").addEventListener("click",finish);
+</script>
+</body>
+</html>

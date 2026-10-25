@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading Day 5: The Extra Apple</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.65;margin:0;background:#fef6f0;color:#1a2b2e}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#c62828}
+  h1{color:#b71c1c;font-size:2em;margin:10px 0}
+  h2{color:#c62828;margin-top:36px;border-bottom:3px solid #ffcdd2;padding-bottom:4px}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .passage{font-family:Georgia,"Times New Roman",serif;font-size:1.1em;line-height:1.8}
+  .passage h3{text-align:center;font-family:"Segoe UI",Verdana,sans-serif;color:#b71c1c;font-size:1.4em;margin:4px 0 14px}
+  .passage p{text-indent:1.5em;margin:0 0 14px}
+  mark.v{background:#fff59d;padding:0 3px;border-radius:4px;font-weight:bold}
+  .tipbox{background:#fff8e1;border-left:8px solid #ffb300}
+  .q{border-left:8px solid #bcaaa4}
+  .q.right{border-left-color:#43a047;background:#f1f8e9}
+  .q.wrong{border-left-color:#e53935;background:#fff5f5}
+  .tag{display:inline-block;font-size:.7em;background:#c62828;color:#fff;border-radius:8px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+  .opt{display:block;width:100%;text-align:left;font-size:.95em;background:#fafafa;border:2px solid #e0e0e0;border-radius:10px;padding:8px 14px;margin:8px 0;cursor:pointer;font-family:inherit}
+  .opt:hover{border-color:#ef9a9a;background:#fff}
+  .opt.sel-right{background:#c8e6c9;border-color:#43a047}
+  .opt.sel-wrong{background:#ffcdd2;border-color:#e53935}
+  .fb{margin-top:6px;font-weight:bold}
+  .fb.good{color:#2e7d32} .fb.bad{color:#c62828}
+  .explain{color:#3e2723;font-weight:normal}
+  select{font-size:.95em;padding:6px 8px;border-radius:8px;border:2px solid #ef9a9a;max-width:100%;font-family:inherit}
+  .vrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:8px 6px;border-bottom:1px dashed #eee}
+  .vrow .w{font-weight:bold;min-width:140px}
+  .vrow.right{background:#f1f8e9} .vrow.wrong{background:#fff5f5}
+  .mark{font-size:1.2em;min-width:30px}
+  button.main{font-size:1em;padding:10px 20px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#c62828;color:#fff;margin-top:10px}
+  button.main:hover{background:#b71c1c}
+  button.sec{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#ffe082;color:#5d4037}
+  textarea{width:100%;box-sizing:border-box;font-size:1em;font-family:inherit;padding:10px;border:2px solid #ef9a9a;border-radius:10px;min-height:120px}
+  #model{display:none;background:#ffebee;border-radius:10px;padding:10px 14px;margin-top:10px}
+  #scoreBox{position:sticky;bottom:0;background:#b71c1c;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #scoreBox button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#ffca28;color:#3e2723}
+  #final{display:none;text-align:center;border:4px solid #43a047;font-size:1.1em}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>📖 Reading Day 5: The Extra Apple</h1>
+
+<div class="box tipbox">
+  <strong>Before you read:</strong> Good readers dig for clues.
+  <ul>
+    <li><strong>Preview:</strong> Read the title. What do you expect the passage to cover?</li>
+    <li><strong>Pause:</strong> After each paragraph, say its main idea in one sentence.</li>
+    <li><strong>Words in <mark class="v">yellow</mark></strong> are vocabulary. Use context to figure out their meaning.</li>
+  </ul>
+</div>
+
+<div class="box passage" id="passage">
+<h3>The Extra Apple</h3>
+<p>Every Saturday, Grandma Kim walked to the traditional market near her apartment in Seoul, and this week Mina, visiting from Toronto, went with her. Mina had imagined a quiet grocery store with neat shelves. Instead, the market was <mark class="v">bustling</mark>: hundreds of tiny stalls squeezed together under a long glass roof, sellers calling out prices, and shoppers weaving between carts piled with cabbages. Steam rose from a stall where a woman flipped golden mung-bean pancakes, and the smell of sesame oil made Mina's stomach growl.</p>
+<p>Grandma Kim had a list, but she did not buy anything right away. First she walked slowly down the whole row of fruit stalls, looking at the apples, pears, and bright orange persimmons. "Look before you buy," she told Mina. "The first price you see is not always the best one." At one stall, apples were ₩2,000 each. Three stalls later, they were five for ₩8,000. Mina did the math in her head and grinned. The second stall was the better <mark class="v">bargain</mark>.</p>
+<p>The <mark class="v">vendor</mark> at that stall was an older man in a padded vest who seemed to know everyone. "할머니, 오랜만이에요!" (Grandma, it's been a while!) he called. Grandma Kim laughed and introduced her granddaughter. Mina had been practising for this moment. She pointed at the apples and asked carefully, "이거 얼마예요?" (How much is this?)</p>
+<p>The man's eyebrows shot up. "Five for eight thousand won," he answered in Korean, slowly, so she could follow. Mina counted out the money with both hands, the way Grandma had shown her, and said, "사과 다섯 개 주세요." (Five apples, please.) The vendor filled a black plastic bag — and then, with a wink, dropped in a sixth apple. "덤이에요," he said. <em>It's a bonus.</em></p>
+<p>On the walk home, Mina asked about the extra apple. Grandma Kim explained that <em>deom</em> is an old market custom. A <mark class="v">generous</mark> seller adds a little extra for a loyal customer, and the customer keeps coming back. "Supermarkets have lower prices sometimes," she said, "but they don't remember your name." She told Mina that many traditional markets had struggled when big stores and online shopping arrived, and some had closed. The ones that survived often did so because of relationships: sellers who knew which family liked crisp apples and which grandmother needed her rice delivered.</p>
+<p>That night, Mina wrote in her journal about the market. She described the steam, the shouting, and the crowded rows, but most of all she wrote about the moment her Korean worked. One small question, 이거 얼마예요?, had turned a stranger into someone who smiled at her. She decided that next Saturday she would go back, pay attention to the prices, and say thank you before Grandma could remind her.</p>
+<p>The sixth apple sat on the kitchen table until morning. Mina almost did not want to eat it. It felt less like fruit and more like a welcome.</p>
+<p style="text-indent:0;font-size:.8em;color:#546e7a;text-align:right">About 490 words</p>
+</div>
+
+<h2>Part 1: Comprehension</h2>
+<p>Click the best answer. Only your <strong>first click</strong> counts toward your score, but you can keep trying to find the right answer.</p>
+<div id="mc"></div>
+
+<h2>Part 2: Think Deeper (not scored)</h2>
+<div class="box">
+  <p><strong>In 2 to 4 sentences, explain why Grandma Kim prefers the traditional market to a supermarket. Use at least two details from the passage (for example: <em>the extra apple, the vendor knowing her, "look before you buy", relationships</em>).</strong></p>
+  <textarea id="openAns" placeholder="Write your answer here..."></textarea>
+  <p><button type="button" class="sec" id="showModel">Compare with a model answer</button></p>
+  <div id="model"><strong>Model answer:</strong> Grandma Kim likes the traditional market because the sellers know her and treat her like a friend; the vendor greets her by saying it has been a while. She says supermarkets may sometimes be cheaper, "but they don't remember your name." The custom of 덤, like the free sixth apple, shows how sellers and customers build loyalty, and Grandma can still find good bargains by comparing prices before she buys.<br><em>Did you include a reason AND evidence from the story? Strong work if so!</em></div>
+</div>
+
+<h2>Part 3: Vocabulary</h2>
+<div class="box">
+  <h3 style="margin-top:0">A. Match each word to its meaning</h3>
+  <p>Choose the meaning that fits how the word is used in the passage.</p>
+  <div id="vmatch"></div>
+  <h3>B. Fill in the blank</h3>
+  <p>Choose the vocabulary word that best completes each sentence.</p>
+  <div id="vfill"></div>
+  <button type="button" class="main" id="checkVocab">Check my vocabulary</button>
+  <div class="fb" id="vocabFb"></div>
+</div>
+
+<div class="box" id="final"></div>
+<div id="scoreBox">
+  <span id="scoreText"></span>
+  <button type="button" id="finishBtn">I'm done! Show my final score</button>
+</div>
+</div>
+
+<script>
+var MC = [
+ {q:"Which sentence best states the <strong>main idea</strong> of the passage?",
+  o:["Supermarkets are always better than markets.",
+     "On a trip to a Korean traditional market, Mina learns smart shopping and discovers how relationships and customs like 덤 keep markets alive.",
+     "Apples are the most popular fruit in Korea.",
+     "Mina does not like her grandmother's neighbourhood."],
+  a:1, e:"Only this choice covers the whole story: the market, the shopping lesson, the bonus apple, and what Mina learned."},
+ {q:"How was the market different from what Mina expected?",
+  o:["It was quieter and emptier","It was crowded and noisy with many small stalls, not neat shelves","It only sold clothes","It was outdoors in the rain"],
+  a:1, e:"Paragraph 1: she imagined neat shelves, but found a bustling market of tiny stalls."},
+ {q:"What advice did Grandma Kim give before buying?",
+  o:["Always buy from the first stall","Look before you buy, because the first price is not always the best","Never talk to the sellers","Only pay by card"],
+  a:1, e:"\"Look before you buy. The first price you see is not always the best one.\""},
+ {q:"Why was \"five for ₩8,000\" the better deal than ₩2,000 each?", tag:"Detail",
+  o:["Each apple cost ₩1,600 instead of ₩2,000","The apples were bigger","It came with a free bag","The seller was Grandma's cousin"],
+  a:0, e:"8,000 ÷ 5 = ₩1,600 per apple, which is less than ₩2,000."},
+ {q:"Which Korean question did Mina ask the vendor?", tag:"Detail",
+  o:["어디예요?","이거 얼마예요?","카드 돼요?","돈이 있어요?"],
+  a:1, e:"이거 얼마예요? = How much is this?"},
+ {q:"How did Mina hand over the money?", tag:"Detail",
+  o:["She threw it on the counter","With both hands, as Grandma had shown her","With her left hand only","Grandma paid instead"],
+  a:1, e:"Using both hands is a sign of respect in Korea."},
+ {q:"What is <strong>덤 (deom)</strong>?", tag:"Vocabulary in context",
+  o:["A type of apple","A small free extra a seller gives a loyal customer","A market tax","A plastic bag"],
+  a:1, e:"Grandma explains it is a custom where a generous seller adds a little extra."},
+ {q:"Grandma says supermarkets \"don't remember your name.\" What can you <strong>infer</strong> she values most?", tag:"Inference",
+  o:["The lowest possible price","Personal relationships with sellers","Shopping online","Fast checkout lines"],
+  a:1, e:"She admits supermarkets can be cheaper, but she values being known and treated as a friend."},
+ {q:"According to the passage, why did some traditional markets survive?", tag:"Detail",
+  o:["They became supermarkets","Because of relationships between sellers and families","They stopped selling fruit","The government bought them"],
+  a:1, e:"\"The ones that survived often did so because of relationships.\""},
+ {q:"At the end, the apple \"felt less like fruit and more like a welcome.\" What does this show?", tag:"Author's craft",
+  o:["Mina was not hungry","The apple was rotten","Mina felt accepted and connected to the market community","Mina wanted to sell the apple"],
+  a:2, e:"The apple has become a symbol: a sign that Mina was welcomed by the people of the market."}
+];
+
+var VOCAB = ["bustling","bargain","vendor","generous"];
+var DEFS = {
+ bustling:"full of busy, noisy activity and people moving around",
+ bargain:"something bought for a good, low price",
+ vendor:"a person who sells things, often at a stall or stand",
+ generous:"happy to give more than is expected"
+};
+var FILL = [
+ {s:"The ice-cream ____ at the beach handed out cones from a small cart.", a:"vendor"},
+ {s:"Two shirts for the price of one is a real ____.", a:"bargain"},
+ {s:"On the night before the holiday, the train station was ____ with travellers.", a:"bustling"},
+ {s:"Our ____ neighbour shared half of her garden's tomatoes with the whole street.", a:"generous"}
+];
+var FILL_OPTIONS = ["bustling","bargain","vendor","generous","transfer","etiquette"];
+
+var PRAISE=["Nice work!","Correct! Sharp reading!","Yes! You found the evidence!","Excellent thinking!","Right!"];
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function shuffled(arr,seed){var a=arr.slice(),s=seed;for(var i=a.length-1;i>0;i--){s=(s*9301+49297)%233280;var j=Math.floor(s/233280*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+var mcState=MC.map(function(){return {answered:false,firstRight:false,done:false};});
+var vocabScore=0, vocabChecked=false;
+var VOCAB_TOTAL=VOCAB.length+FILL.length;
+
+function buildMC(){
+  var box=document.getElementById("mc");
+  MC.forEach(function(item,i){
+    var d=document.createElement("div"); d.className="box q"; d.id="mc"+i;
+    var html="<div><strong>"+(i+1)+".</strong> "+item.q+(item.tag?'<span class="tag">'+item.tag+'</span>':"")+"</div>";
+    item.o.forEach(function(opt,j){ html+='<button type="button" class="opt" data-i="'+i+'" data-j="'+j+'">'+String.fromCharCode(65+j)+". "+opt+"</button>"; });
+    html+='<div class="fb" id="mcfb'+i+'"></div>';
+    d.innerHTML=html; box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".opt"):e.target; if(!b||!b.classList.contains("opt"))return;
+    answerMC(+b.getAttribute("data-i"),+b.getAttribute("data-j"),b);
+  });
+}
+function answerMC(i,j,btn){
+  var st=mcState[i], item=MC[i], fb=document.getElementById("mcfb"+i), card=document.getElementById("mc"+i);
+  if(st.done) return;
+  var right=(j===item.a);
+  if(!st.answered){ st.answered=true; st.firstRight=right; }
+  if(right){
+    st.done=true; btn.classList.add("sel-right"); card.className="box q right";
+    fb.className="fb good"; fb.innerHTML="✅ "+pick(PRAISE)+' <span class="explain">'+item.e+"</span>";
+  } else {
+    btn.classList.add("sel-wrong"); card.className="box q wrong";
+    fb.className="fb bad"; fb.innerHTML="❌ Not quite. Look back at the passage and try another answer.";
+  }
+  updateScore();
+}
+function buildVocab(){
+  var m=document.getElementById("vmatch");
+  var defOrder=shuffled(VOCAB,22);
+  VOCAB.forEach(function(w,i){
+    var row=document.createElement("div"); row.className="vrow"; row.id="vm"+i;
+    var sel='<select id="vsel'+i+'" aria-label="Meaning of '+w+'"><option value="">- choose a meaning -</option>';
+    defOrder.forEach(function(k){ sel+='<option value="'+k+'">'+DEFS[k]+'</option>'; });
+    sel+="</select>";
+    row.innerHTML='<span class="mark" id="vmk'+i+'"></span><span class="w">'+w+'</span>'+sel;
+    m.appendChild(row);
+  });
+  var f=document.getElementById("vfill");
+  FILL.forEach(function(item,i){
+    var row=document.createElement("div"); row.className="vrow"; row.id="vf"+i;
+    var sel='<select id="fsel'+i+'" aria-label="Blank '+(i+1)+'"><option value="">- choose -</option>';
+    FILL_OPTIONS.forEach(function(w){ sel+='<option value="'+w+'">'+w+'</option>'; });
+    sel+="</select>";
+    var parts=item.s.split("____");
+    row.innerHTML='<span class="mark" id="vfk'+i+'"></span><span>'+(i+1)+'. '+parts[0]+sel+parts[1]+'</span>';
+    f.appendChild(row);
+  });
+}
+function checkVocab(){
+  var score=0, blank=0;
+  VOCAB.forEach(function(w,i){
+    var v=document.getElementById("vsel"+i).value, ok=(v===w);
+    if(!v) blank++;
+    if(ok) score++;
+    document.getElementById("vm"+i).className="vrow "+(ok?"right":"wrong");
+    document.getElementById("vmk"+i).textContent=ok?"✅":"❌";
+  });
+  FILL.forEach(function(item,i){
+    var v=document.getElementById("fsel"+i).value, ok=(v===item.a);
+    if(!v) blank++;
+    if(ok) score++;
+    document.getElementById("vf"+i).className="vrow "+(ok?"right":"wrong");
+    document.getElementById("vfk"+i).textContent=ok?"✅":"❌";
+  });
+  vocabScore=score; vocabChecked=true;
+  var fb=document.getElementById("vocabFb");
+  if(score===VOCAB_TOTAL){ fb.className="fb good"; fb.textContent="🌟 "+score+" / "+VOCAB_TOTAL+". Perfect! Your market vocabulary is a real bargain!"; }
+  else { fb.className="fb bad"; fb.textContent=score+" / "+VOCAB_TOTAL+" correct"+(blank?" ("+blank+" left blank)":"")+". Fix the ❌ ones and check again."; }
+  updateScore();
+}
+function scores(){
+  var mc=0,answered=0; mcState.forEach(function(s){ if(s.firstRight) mc++; if(s.answered) answered++; });
+  return {mc:mc,answered:answered,vocab:vocabScore};
+}
+function updateScore(){
+  var s=scores();
+  document.getElementById("scoreText").textContent="Comprehension: "+s.mc+" / "+MC.length+" · Vocabulary: "+(vocabChecked?s.vocab:"-")+" / "+VOCAB_TOTAL;
+}
+function finish(){
+  if(!vocabChecked) checkVocab();
+  var s=scores(), total=MC.length+VOCAB_TOTAL, got=s.mc+s.vocab, pct=Math.round(100*got/total);
+  var msg = pct===100 ? "🏆 A perfect score! Outstanding reading!" :
+            pct>=80 ? "🌟 Fantastic work! You read carefully and used evidence." :
+            pct>=60 ? "💪 Solid effort! Reread the paragraphs for the questions you missed." :
+                      "🌱 Challenging passage. Read it once more, slowly, and try again.";
+  var f=document.getElementById("final"); f.style.display="block";
+  f.innerHTML="<h2 style='border:none;margin-top:0'>Final Score: "+got+" / "+total+" ("+pct+"%)</h2>"+
+    "<p>Comprehension (first tries): "+s.mc+" / "+MC.length+(s.answered<MC.length?" (you skipped "+(MC.length-s.answered)+")":"")+"<br>Vocabulary: "+s.vocab+" / "+VOCAB_TOTAL+"</p><p>"+msg+"</p>"+
+    "<p style='font-size:.85em;color:#546e7a'>Finished on "+new Date().toLocaleString("en-CA")+"</p>";
+  f.scrollIntoView({behavior:"smooth"});
+}
+buildMC(); buildVocab(); updateScore();
+document.getElementById("checkVocab").addEventListener("click",checkVocab);
+document.getElementById("finishBtn").addEventListener("click",finish);
+document.getElementById("showModel").addEventListener("click",function(){document.getElementById("model").style.display="block";});
+</script>
+</body>
+</html>
