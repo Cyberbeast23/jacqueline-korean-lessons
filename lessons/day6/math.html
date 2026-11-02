@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Math Day 6: Autumn Weather Math</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.6;margin:0;background:#fff5f0;color:#1d2a3a}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#c62828}
+  h1{color:#b71c1c;font-size:2em;margin:10px 0}
+  h2{color:#c62828;margin-top:36px;border-bottom:3px solid #ffcdd2;padding-bottom:4px}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .example{border-left:8px solid #ef6c00}
+  .example h3{margin:0 0 6px;color:#bf360c}
+  .step{margin:4px 0 4px 10px}
+  code,.mono{font-family:Consolas,"Courier New",monospace;background:#ffebee;padding:1px 6px;border-radius:5px}
+  .q{border-left:8px solid #90a4ae}
+  .q.right{border-left-color:#43a047;background:#f1f8e9}
+  .q.wrong{border-left-color:#e53935;background:#fff5f5}
+  .qnum{font-weight:bold;color:#b71c1c}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+  input[type=text]{font-size:1.05em;padding:8px 12px;border:2px solid #ef9a9a;border-radius:10px;width:190px}
+  input[type=text]:focus{outline:none;border-color:#c62828;box-shadow:0 0 0 3px #ffcdd2}
+  button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold}
+  .check{background:#c62828;color:#fff} .check:hover{background:#b71c1c}
+  .hint{background:#ffe082;color:#5d4037} .hint:hover{background:#ffd54f}
+  .sol{background:#90caf9;color:#0d47a1}
+  .unit{color:#546e7a}
+  .fb{margin-top:8px;font-weight:bold;min-height:1em}
+  .fb.good{color:#2e7d32} .fb.bad{color:#c62828}
+  .hints{margin-top:8px;color:#5d4037;background:#fff8e1;border-radius:10px;padding:0 12px}
+  .hints p{margin:6px 0;padding:6px 0}
+  .solution{margin-top:8px;background:#e3f2fd;border-radius:10px;padding:8px 12px;display:none}
+  #scoreBox{position:sticky;bottom:0;background:#b71c1c;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #scoreBox button{background:#ffca28;color:#3e2723}
+  #final{display:none;font-size:1.15em;text-align:center;border:4px solid #43a047}
+  .tipbox{background:#fff8e1;border-left:8px solid #ffb300}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>🧮 Math Day 6: Autumn Weather Math</h1>
+<p>안녕하세요, Jacqueline! It's 가을 (autumn) in Korea: cool mornings, windy afternoons, and mountains turning red and gold with 단풍 (autumn leaves). This week you'll be a weather forecaster and use <strong>integers (temperatures below zero), Celsius ↔ Fahrenheit formulas, the mean, percents, rates, and unit conversions</strong> to understand the weather.</p>
+
+<h2>Part 1: Learn the Moves</h2>
+
+<div class="box tipbox">
+  <strong>The 4-Step Problem Solver:</strong>
+  <ol>
+    <li><strong>Read</strong>: What is the question actually asking? Underline numbers and units.</li>
+    <li><strong>Plan</strong>: Which operations, and in what order?</li>
+    <li><strong>Solve</strong>: One step at a time; write each step down.</li>
+    <li><strong>Check</strong>: Is the answer reasonable? Did you answer the question asked?</li>
+  </ol>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 1: Temperature change with negatives</h3>
+  <p>At dawn in Seoul it is <strong>−3 °C</strong>. By the afternoon it is <strong>8 °C</strong>. How many degrees did it warm up?</p>
+  <p class="step">Change = final − start = 8 − (−3) = 8 + 3 = <strong>11 °C</strong>.</p>
+  <p class="step">Picture a thermometer: 3 degrees up to 0, then 8 more = 11.</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 2: Celsius → Fahrenheit</h3>
+  <p>The formula is <span class="mono">F = (9/5) × C + 32</span>. Convert <strong>20 °C</strong>.</p>
+  <p class="step">9/5 × 20 = 36. Then 36 + 32 = <strong>68 °F</strong>.</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 3: Fahrenheit → Celsius</h3>
+  <p>Work backwards: <span class="mono">C = (F − 32) × 5/9</span>. Convert <strong>50 °F</strong>.</p>
+  <p class="step">50 − 32 = 18. Then 18 × 5/9 = <strong>10 °C</strong>. (Undo the +32 first, then undo the × 9/5.)</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 4: Mean temperature</h3>
+  <p>Daily highs this week were <strong>12, 9, 7, 10 °C</strong>. What is the mean?</p>
+  <p class="step">Sum = 12 + 9 + 7 + 10 = 38. Mean = 38 ÷ 4 = <strong>9.5 °C</strong>.</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 5: Converting a rate (km/h → m/s)</h3>
+  <p>The wind (바람) blows at <strong>18 km/h</strong>. How many metres per second is that?</p>
+  <p class="step">18 km = 18,000 m and 1 hour = 3,600 s. 18,000 ÷ 3,600 = <strong>5 m/s</strong>. (Shortcut: divide km/h by 3.6.)</p>
+</div>
+
+<h2>Part 2: The Challenge (12 problems)</h2>
+<p>Type your answer and press <strong>Check</strong> (or Enter). Negative numbers like <span class="mono">-6</span>, fractions like <span class="mono">3/4</span>, mixed numbers like <span class="mono">1 3/4</span>, or decimals like <span class="mono">1.75</span> are fine. Don't type the units. Stuck? Press <strong>Hint</strong>. After 2 tries, you can see a full solution.</p>
+
+<div id="questions"></div>
+<div class="box" id="final"></div>
+<div id="scoreBox">
+  <span id="scoreText">Score: 0 / 12 correct</span>
+  <button id="finishBtn" type="button">I'm done! Show my final score</button>
+</div>
+</div>
+
+<script>
+var NAME = "Jacqueline";
+var QUESTIONS = [
+ {t:"On an October morning in Seoul it is <strong>6 °C</strong>. By 3 p.m. it is <strong>17 °C</strong>. How many degrees did the temperature rise?", a:"11", u:"°C",
+  h:["Change = afternoon − morning.","17 − 6 = ?"],
+  s:"17 − 6 = 11 °C warmer."},
+ {t:"A sunny 가을 afternoon is <strong>15 °C</strong>. Use <span class='mono'>F = (9/5) × C + 32</span> to convert it to Fahrenheit.", a:"59", u:"°F",
+  h:["First 9/5 × 15.","9/5 × 15 = 27. Now add 32."],
+  s:"27 + 32 = 59 °F."},
+ {t:"On a January night, Seoul is <strong>−8 °C</strong> and Toronto is <strong>−15 °C</strong>. How many degrees <strong>colder</strong> is Toronto?", a:"7", u:"°C",
+  h:["Difference = −8 − (−15).","Subtracting a negative is adding: −8 + 15."],
+  s:"−8 − (−15) = −8 + 15 = 7 degrees colder."},
+ {t:"At 6 p.m. it is <strong>4 °C</strong>. A cold wind makes the temperature drop <strong>2 °C every hour</strong>. What is the temperature at <strong>11 p.m.</strong>?", a:"-6", u:"°C",
+  h:["From 6 p.m. to 11 p.m. is 5 hours. Total drop = 5 × 2.","4 − 10 = ? (it goes below zero!)"],
+  s:"Drop = 10 °C; 4 − 10 = −6 °C."},
+ {t:"The daily highs for five days of the autumn-leaf festival were <strong>18, 15, 12, 14, and 11 °C</strong>. What was the <strong>mean</strong> high?", a:"14", u:"°C",
+  h:["Add all five temperatures.","18 + 15 + 12 + 14 + 11 = 70. Divide by 5."],
+  s:"70 ÷ 5 = 14 °C."},
+ {t:"A weather app from the U.S. says it will be <strong>77 °F</strong> in Busan. Use <span class='mono'>C = (F − 32) × 5/9</span>. What is that in Celsius?", a:"25", u:"°C",
+  h:["First subtract 32: 77 − 32 = 45.","45 × 5/9 = 45 ÷ 9 × 5 = ?"],
+  s:"45 ÷ 9 = 5; 5 × 5 = 25 °C."},
+ {t:"Seoul gets about <strong>1,450 mm</strong> of rain (비) a year. About <strong>60%</strong> of it falls during the summer monsoon (장마). About how many millimetres fall in summer?", a:"870", u:"mm",
+  h:["60% = 0.60.","0.60 × 1,450 = ?"],
+  s:"0.6 × 1,450 = 870 mm."},
+ {t:"In November (30 days), it rained on <strong>12 days</strong>. What <strong>percent</strong> of the days were rainy?", a:"40", u:"%",
+  h:["Fraction of rainy days = 12/30.","12 ÷ 30 = 0.4. Change to a percent."],
+  s:"12/30 = 0.4 = 40%."},
+ {t:"A strong autumn 바람 blows at <strong>36 km/h</strong>. How fast is that in <strong>metres per second</strong>?", a:"10", u:"m/s",
+  h:["36 km/h = 36,000 m in 3,600 s.","36,000 ÷ 3,600 = ? (or 36 ÷ 3.6)"],
+  s:"36,000 ÷ 3,600 = 10 m/s."},
+ {t:"To see the 단풍 on Seoraksan, Jacqueline hikes a <strong>9.6 km</strong> trail at an average speed of <strong>2.4 km/h</strong>. How many <strong>hours</strong> does the hike take?", a:"4", u:"hours",
+  h:["Time = distance ÷ speed.","9.6 ÷ 2.4 = 96 ÷ 24 = ?"],
+  s:"9.6 ÷ 2.4 = 4 hours."},
+ {t:"The \"autumn-leaf front\" moves south about <strong>25 km per day</strong>. Seoraksan is about <strong>300 km</strong> north of Naejangsan. About how many <strong>days</strong> after Seoraksan do Naejangsan's leaves reach their peak?", a:"12", u:"days",
+  h:["Time = distance ÷ rate.","300 ÷ 25 = ?"],
+  s:"300 ÷ 25 = 12 days."},
+ {t:"A shop near the subway sells <strong>80 umbrellas (우산)</strong> on a normal day. On a rainy day, sales rise by <strong>35%</strong>. Each umbrella costs <strong>₩12,000</strong>. How much money (in won) does the shop take in on the rainy day?", a:"1296000", u:"won",
+  h:["New sales = 80 + 35% of 80 = 80 × 1.35.","80 × 1.35 = 108 umbrellas. Multiply by ₩12,000."],
+  s:"108 × 12,000 = ₩1,296,000."}
+];
+
+var PRAISE = ["Nice work, Jacqueline!","Correct! 정확해요! 🍁","Yes!","Excellent. That was a solid puzzle!","Right on! 🎯","Brilliant thinking!","Spot on!"];
+var ENCOURAGE = ["Not quite. Check your steps and try again!","Close. Try again — maybe use a hint?","Hmm, not yet. Re-read the question carefully.","Keep going. Mistakes help your brain grow!"];
+
+function parseAnswer(str){
+  if(str===undefined||str===null) return NaN;
+  var s=String(str).trim().toLowerCase();
+  s=s.replace(/[\u2212\u2013]/g,"-");
+  s=s.replace(/(\d),(?=\d{3}(\D|$))/g,"$1");
+  s=s.replace(/[^0-9.\/\- ]/g," ").replace(/\s+/g," ").trim();
+  s=s.replace(/\s*\/\s*/g,"/");
+  var m;
+  if((m=s.match(/^(-?\d+) (\d+)\/(\d+)$/))){ var w=parseFloat(m[1]),n=parseFloat(m[2]),d=parseFloat(m[3]); if(d===0)return NaN; return w<0? w-n/d : w+n/d; }
+  if((m=s.match(/^(-?\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/))){ var d2=parseFloat(m[2]); if(d2===0)return NaN; return parseFloat(m[1])/d2; }
+  s=s.replace(/ /g,"");
+  if(/^-?(\d+\.?\d*|\.\d+)$/.test(s)) return parseFloat(s);
+  return NaN;
+}
+function isCorrect(input,key){
+  var a=parseAnswer(input), k=parseAnswer(key);
+  if(isNaN(a)) return false;
+  var isInt=Math.abs(k-Math.round(k))<1e-12;
+  var tol=isInt?1e-9:0.005;
+  return Math.abs(a-k)<=tol;
+}
+
+var state=[];
+function render(){
+  var box=document.getElementById("questions");
+  QUESTIONS.forEach(function(q,i){
+    state.push({correct:false,tries:0,hints:0});
+    var d=document.createElement("div");
+    d.className="box q"; d.id="q"+i;
+    d.innerHTML='<div><span class="qnum">'+(i+1)+'.</span> '+q.t+'</div>'+
+      '<div class="row"><input type="text" id="in'+i+'" aria-label="Answer to question '+(i+1)+'" autocomplete="off"> <span class="unit">'+q.u+'</span>'+
+      '<button type="button" class="check" data-i="'+i+'">Check</button>'+
+      '<button type="button" class="hint" data-i="'+i+'">Hint 💡</button>'+
+      '<button type="button" class="sol" data-i="'+i+'" style="display:none">Show solution</button></div>'+
+      '<div class="fb" id="fb'+i+'"></div><div class="hints" id="hints'+i+'"></div>'+
+      '<div class="solution" id="sol'+i+'"><strong>Solution:</strong> '+q.s+'</div>';
+    box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target; if(b.tagName!=="BUTTON")return;
+    var i=+b.getAttribute("data-i");
+    if(b.className==="check") check(i);
+    else if(b.className==="hint") hint(i);
+    else if(b.className==="sol") document.getElementById("sol"+i).style.display="block";
+  });
+  box.addEventListener("keydown",function(e){
+    if(e.key==="Enter"&&e.target.tagName==="INPUT"){ check(+e.target.id.slice(2)); }
+  });
+}
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)];}
+function check(i){
+  var val=document.getElementById("in"+i).value;
+  var fb=document.getElementById("fb"+i), card=document.getElementById("q"+i);
+  if(val.trim()===""){fb.className="fb bad";fb.textContent="Type an answer first!";return;}
+  if(isNaN(parseAnswer(val))){fb.className="fb bad";fb.textContent="I can't read that as a number. Try something like 42, 3.5, 3/4 or 1 3/4.";return;}
+  state[i].tries++;
+  if(isCorrect(val,QUESTIONS[i].a)){
+    state[i].correct=true; card.className="box q right"; fb.className="fb good";
+    fb.textContent="✅ "+pick(PRAISE)+(state[i].tries===1?" (first try!)":"");
+  } else {
+    state[i].correct=false; card.className="box q wrong"; fb.className="fb bad";
+    fb.textContent="❌ "+pick(ENCOURAGE);
+    if(state[i].tries>=2) card.querySelector(".sol").style.display="inline-block";
+  }
+  updateScore();
+}
+function hint(i){
+  var q=QUESTIONS[i], s=state[i], hb=document.getElementById("hints"+i);
+  if(s.hints<q.h.length){
+    var p=document.createElement("p"); p.textContent="💡 Hint "+(s.hints+1)+": "+q.h[s.hints]; hb.appendChild(p); s.hints++;
+  }
+  if(s.hints>=q.h.length) document.querySelector("#q"+i+" .hint").disabled=true;
+  updateScore();
+}
+function counts(){
+  var c=0,first=0,h=0;
+  state.forEach(function(s){ if(s.correct){c++; if(s.tries===1)first++;} h+=s.hints; });
+  return {correct:c,first:first,hints:h};
+}
+function updateScore(){
+  var k=counts();
+  document.getElementById("scoreText").textContent="Score: "+k.correct+" / "+QUESTIONS.length+" correct · hints used: "+k.hints;
+}
+function finish(){
+  var k=counts(), n=QUESTIONS.length, pct=Math.round(100*k.correct/n);
+  var msg;
+  if(pct===100) msg="🏆 PERFECT SCORE! You could be the next Korean weather forecaster! 날씨가 좋아요! 🍁";
+  else if(pct>=85) msg="🌟 Outstanding! That's a strong Grade 6–8 performance.";
+  else if(pct>=65) msg="💪 Great effort! Review the ones you missed and try them again.";
+  else if(pct>=40) msg="👍 Good start. These problems are challenging — use the hints and solutions, then retry.";
+  else msg="🌱 Challenge problems take practice. Go through the worked examples and try again!";
+  var f=document.getElementById("final");
+  f.style.display="block";
+  f.innerHTML="<h2 style='border:none;margin-top:0'>Final Score: "+k.correct+" / "+n+" ("+pct+"%)</h2>"+
+    "<p>Correct on the first try: "+k.first+" · Hints used: "+k.hints+"</p><p>"+msg+"</p>"+
+    "<p style='font-size:.85em;color:#546e7a'>Finished on "+new Date().toLocaleString("en-CA")+"</p>";
+  f.scrollIntoView({behavior:"smooth"});
+}
+render();
+updateScore();
+document.getElementById("finishBtn").addEventListener("click",finish);
+</script>
+</body>
+</html>

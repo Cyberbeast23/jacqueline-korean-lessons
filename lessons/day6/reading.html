@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading Day 6: Chasing the Red Leaves</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.65;margin:0;background:#fef6f0;color:#1a2b2e}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#c62828}
+  h1{color:#b71c1c;font-size:2em;margin:10px 0}
+  h2{color:#c62828;margin-top:36px;border-bottom:3px solid #ffcdd2;padding-bottom:4px}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .passage{font-family:Georgia,"Times New Roman",serif;font-size:1.1em;line-height:1.8}
+  .passage h3{text-align:center;font-family:"Segoe UI",Verdana,sans-serif;color:#b71c1c;font-size:1.4em;margin:4px 0 14px}
+  .passage p{text-indent:1.5em;margin:0 0 14px}
+  mark.v{background:#fff59d;padding:0 3px;border-radius:4px;font-weight:bold}
+  .tipbox{background:#fff8e1;border-left:8px solid #ffb300}
+  .q{border-left:8px solid #bcaaa4}
+  .q.right{border-left-color:#43a047;background:#f1f8e9}
+  .q.wrong{border-left-color:#e53935;background:#fff5f5}
+  .tag{display:inline-block;font-size:.7em;background:#c62828;color:#fff;border-radius:8px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+  .opt{display:block;width:100%;text-align:left;font-size:.95em;background:#fafafa;border:2px solid #e0e0e0;border-radius:10px;padding:8px 14px;margin:8px 0;cursor:pointer;font-family:inherit}
+  .opt:hover{border-color:#ef9a9a;background:#fff}
+  .opt.sel-right{background:#c8e6c9;border-color:#43a047}
+  .opt.sel-wrong{background:#ffcdd2;border-color:#e53935}
+  .fb{margin-top:6px;font-weight:bold}
+  .fb.good{color:#2e7d32} .fb.bad{color:#c62828}
+  .explain{color:#3e2723;font-weight:normal}
+  select{font-size:.95em;padding:6px 8px;border-radius:8px;border:2px solid #ef9a9a;max-width:100%;font-family:inherit}
+  .vrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:8px 6px;border-bottom:1px dashed #eee}
+  .vrow .w{font-weight:bold;min-width:140px}
+  .vrow.right{background:#f1f8e9} .vrow.wrong{background:#fff5f5}
+  .mark{font-size:1.2em;min-width:30px}
+  button.main{font-size:1em;padding:10px 20px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#c62828;color:#fff;margin-top:10px}
+  button.main:hover{background:#b71c1c}
+  button.sec{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#ffe082;color:#5d4037}
+  textarea{width:100%;box-sizing:border-box;font-size:1em;font-family:inherit;padding:10px;border:2px solid #ef9a9a;border-radius:10px;min-height:120px}
+  #model{display:none;background:#ffebee;border-radius:10px;padding:10px 14px;margin-top:10px}
+  #scoreBox{position:sticky;bottom:0;background:#b71c1c;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #scoreBox button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#ffca28;color:#3e2723}
+  #final{display:none;text-align:center;border:4px solid #43a047;font-size:1.1em}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>📖 Reading Day 6: Chasing the Red Leaves</h1>
+
+<div class="box tipbox">
+  <strong>Before you read:</strong> Good readers dig for clues.
+  <ul>
+    <li><strong>Preview:</strong> Read the title. What do you expect the passage to cover?</li>
+    <li><strong>Pause:</strong> After each paragraph, say its main idea in one sentence.</li>
+    <li><strong>Words in <mark class="v">yellow</mark></strong> are vocabulary. Use context to figure out their meaning.</li>
+  </ul>
+</div>
+
+<div class="box passage" id="passage">
+<h3>Chasing the Red Leaves</h3>
+<p>For weeks, Mina had been waiting for one thing: <em>danpung</em>, the autumn leaves. Every evening on the TV news in Seoul, a weather reporter stood in front of a map of Korea covered in little red and orange dots. The dots showed where the leaves had turned, and each week they crept a little farther south. "When the dots reach Seoraksan's peak," Grandma Kim said, "the whole mountain catches fire." Mina knew she meant colour, not flames, but she still pictured it glowing.</p>
+<p>Uncle Joon promised to take them hiking on Saturday. On Friday night, Mina checked the <mark class="v">forecast</mark> on Grandma's phone and her heart sank: 비 (rain) in the morning, a strong 바람 (wind) in the afternoon, and a low of just 2 °C. "We can't go," she groaned. "The leaves will all blow away, and we'll freeze."</p>
+<p>Grandma Kim did not look worried. She pulled a basket from the closet and began laying things out on the floor: thin wool shirts, fleece jackets, rain shells, gloves, and three folding umbrellas. "Koreans have four seasons," she said, "and every one of them has taught us something. Autumn teaches us to dress in <mark class="v">layers</mark>. If you are warm, you take one off. If you are cold, you put one back on." She also packed a thermos of hot barley tea and a bag of roasted chestnuts.</p>
+<p>Uncle Joon had his own idea. He looked at the hour-by-hour forecast and noticed that the rain would stop by ten o'clock. Instead of starting at dawn, they would leave later and choose a shorter, lower trail through a valley, where the cliffs would block much of the wind. "The peak can wait for another year," he said. "The valley leaves are just as beautiful, and they're closer to the ground where we can see them."</p>
+<p>On Saturday morning, the bus to the mountain was damp and full of hikers in bright jackets. By the time they reached the trailhead, the clouds were breaking apart. The air was <mark class="v">brisk</mark>, cold enough to make Mina's cheeks sting, but she was cozy in her three layers. Then they turned a corner and she stopped walking. Maple trees lined both sides of a rushing stream, and their leaves were so <mark class="v">vivid</mark> that they seemed to glow: scarlet, gold, and a deep orange like persimmons. Fallen leaves floated in the water like tiny boats.</p>
+<p>"단풍이 정말 예뻐요," Mina whispered. <em>The autumn leaves are really pretty.</em> Uncle Joon grinned and handed her a cup of steaming tea.</p>
+<p>On the way home, Mina thought about how close she had come to giving up. The forecast had not been wrong; the weather really was cold and wet. But by planning carefully, choosing a better route, and packing the right clothes, her family had turned a bad forecast into one of the best days of her trip. She decided that next time the weather looked gloomy, she would ask a different question: not "Can we go?" but "How can we go?"</p>
+<p style="text-indent:0;font-size:.8em;color:#546e7a;text-align:right">About 500 words</p>
+</div>
+
+<h2>Part 1: Comprehension</h2>
+<p>Click the best answer. Only your <strong>first click</strong> counts toward your score, but you can keep trying to find the right answer.</p>
+<div id="mc"></div>
+
+<h2>Part 2: Think Deeper (not scored)</h2>
+<div class="box">
+  <p><strong>In 2 to 4 sentences, explain how Mina's family solved the problem of the bad forecast. Use at least two details from the passage (for example: <em>layers, the later start, the valley trail, hot tea, umbrellas</em>).</strong></p>
+  <textarea id="openAns" placeholder="Write your answer here..."></textarea>
+  <p><button type="button" class="sec" id="showModel">Compare with a model answer</button></p>
+  <div id="model"><strong>Model answer:</strong> The forecast called for rain, strong wind, and cold, so Mina wanted to cancel. Instead, Grandma Kim packed warm layers, rain shells, umbrellas, and hot tea so everyone could stay comfortable. Uncle Joon noticed the rain would stop by ten, so they left later and chose a lower valley trail where the cliffs blocked the wind. Because they planned around the weather, the trip became one of the best days of Mina's visit.<br><em>Did you name the problem AND at least two solutions with evidence? Strong work if so!</em></div>
+</div>
+
+<h2>Part 3: Vocabulary</h2>
+<div class="box">
+  <h3 style="margin-top:0">A. Match each word to its meaning</h3>
+  <p>Choose the meaning that fits how the word is used in the passage.</p>
+  <div id="vmatch"></div>
+  <h3>B. Fill in the blank</h3>
+  <p>Choose the vocabulary word that best completes each sentence.</p>
+  <div id="vfill"></div>
+  <button type="button" class="main" id="checkVocab">Check my vocabulary</button>
+  <div class="fb" id="vocabFb"></div>
+</div>
+
+<div class="box" id="final"></div>
+<div id="scoreBox">
+  <span id="scoreText"></span>
+  <button type="button" id="finishBtn">I'm done! Show my final score</button>
+</div>
+</div>
+
+<script>
+var MC = [
+ {q:"Which sentence best states the <strong>main idea</strong> of the passage?",
+  o:["Hiking in Korea is too dangerous in autumn.",
+     "Mina's family turns a bad weather forecast into a great leaf-viewing day by planning carefully and dressing in layers.",
+     "Weather reporters in Korea are always wrong.",
+     "Mina prefers summer to autumn."],
+  a:1, e:"Only this choice covers the whole story: the problem (the forecast), the solutions, and what Mina learned."},
+ {q:"What did the red and orange dots on the TV weather map show?",
+  o:["Where it was raining","Where the autumn leaves had changed colour","Where the bus stops were","Where it would snow"],
+  a:1, e:"Paragraph 1: the dots showed where the leaves had turned, moving south each week."},
+ {q:"When Grandma says \"the whole mountain catches fire,\" she means:", tag:"Figurative language",
+  o:["There will be a forest fire","The mountain will be covered in bright red and orange leaves","The mountain is a volcano","It will be very hot"],
+  a:1, e:"It is a metaphor: the colourful leaves make the mountain look like it is glowing like fire."},
+ {q:"What was the problem with Friday night's forecast?", tag:"Detail",
+  o:["It would be too hot","Rain in the morning, strong wind, and a low of 2 °C","Snow all weekend","The leaves had already fallen"],
+  a:1, e:"Paragraph 2 lists rain, a strong wind, and a low of just 2 °C."},
+ {q:"Why did Grandma Kim pack many thin layers instead of one huge coat?", tag:"Detail",
+  o:["Layers are cheaper","You can take one off when warm and put it back on when cold","She forgot the coat","Coats are not allowed on trails"],
+  a:1, e:"\"If you are warm, you take one off. If you are cold, you put one back on.\""},
+ {q:"How did Uncle Joon use the hour-by-hour forecast?", tag:"Detail",
+  o:["He cancelled the trip","He saw the rain would stop by ten, so they started later","He decided to hike at night","He drove instead of taking the bus"],
+  a:1, e:"Paragraph 4: the rain would stop by ten o'clock, so they left later."},
+ {q:"In paragraph 5, the air is <strong>brisk</strong>. What does <em>brisk</em> mean here?", tag:"Vocabulary in context",
+  o:["Hot and sticky","Pleasantly cold and fresh","Smoky","Completely still"],
+  a:1, e:"It was \"cold enough to make Mina's cheeks sting,\" but she felt cozy: fresh, cool air."},
+ {q:"Why did the family choose the valley trail instead of the peak?", tag:"Inference",
+  o:["The valley was more sheltered from the wind and the trail was shorter","The peak was closed forever","Mina was afraid of heights","The bus only went to the valley"],
+  a:0, e:"The cliffs would \"block much of the wind,\" and the lower trail was shorter, which suited the cold weather."},
+ {q:"The author compares fallen leaves in the stream to \"tiny boats.\" This is an example of:", tag:"Author's craft",
+  o:["A simile","A rhyme","A fact","An opinion"],
+  a:0, e:"It compares two things using <em>like</em>, so it is a simile."},
+ {q:"What lesson does Mina learn at the end?", tag:"Theme",
+  o:["Never trust the weather forecast","Stay home when the weather is bad","Instead of asking \"Can we go?\" ask \"How can we go?\" and plan around problems","Autumn is the worst season"],
+  a:2, e:"Her new question shows she learned to look for solutions instead of giving up."}
+];
+
+var VOCAB = ["forecast","layers","brisk","vivid"];
+var DEFS = {
+ forecast:"a prediction of what the weather will be like",
+ layers:"several pieces of clothing worn one on top of another",
+ brisk:"cold, fresh, and lively (used about air or weather)",
+ vivid:"very bright, strong, and clear in colour"
+};
+var FILL = [
+ {s:"The ____ says it will snow tomorrow, so bring your boots.", a:"forecast"},
+ {s:"On a ____ November morning, our breath made little clouds in the air.", a:"brisk"},
+ {s:"Wear ____ on a ski trip so you can stay warm without overheating.", a:"layers"},
+ {s:"The sunset painted the sky in ____ pinks and purples.", a:"vivid"}
+];
+var FILL_OPTIONS = ["forecast","layers","brisk","vivid","bargain","vendor"];
+
+var PRAISE=["Nice work!","Correct! Sharp reading!","Yes! You found the evidence!","Excellent thinking!","Right!"];
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function shuffled(arr,seed){var a=arr.slice(),s=seed;for(var i=a.length-1;i>0;i--){s=(s*9301+49297)%233280;var j=Math.floor(s/233280*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+var mcState=MC.map(function(){return {answered:false,firstRight:false,done:false};});
+var vocabScore=0, vocabChecked=false;
+var VOCAB_TOTAL=VOCAB.length+FILL.length;
+
+function buildMC(){
+  var box=document.getElementById("mc");
+  MC.forEach(function(item,i){
+    var d=document.createElement("div"); d.className="box q"; d.id="mc"+i;
+    var html="<div><strong>"+(i+1)+".</strong> "+item.q+(item.tag?'<span class="tag">'+item.tag+'</span>':"")+"</div>";
+    item.o.forEach(function(opt,j){ html+='<button type="button" class="opt" data-i="'+i+'" data-j="'+j+'">'+String.fromCharCode(65+j)+". "+opt+"</button>"; });
+    html+='<div class="fb" id="mcfb'+i+'"></div>';
+    d.innerHTML=html; box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".opt"):e.target; if(!b||!b.classList.contains("opt"))return;
+    answerMC(+b.getAttribute("data-i"),+b.getAttribute("data-j"),b);
+  });
+}
+function answerMC(i,j,btn){
+  var st=mcState[i], item=MC[i], fb=document.getElementById("mcfb"+i), card=document.getElementById("mc"+i);
+  if(st.done) return;
+  var right=(j===item.a);
+  if(!st.answered){ st.answered=true; st.firstRight=right; }
+  if(right){
+    st.done=true; btn.classList.add("sel-right"); card.className="box q right";
+    fb.className="fb good"; fb.innerHTML="✅ "+pick(PRAISE)+' <span class="explain">'+item.e+"</span>";
+  } else {
+    btn.classList.add("sel-wrong"); card.className="box q wrong";
+    fb.className="fb bad"; fb.innerHTML="❌ Not quite. Look back at the passage and try another answer.";
+  }
+  updateScore();
+}
+function buildVocab(){
+  var m=document.getElementById("vmatch");
+  var defOrder=shuffled(VOCAB,22);
+  VOCAB.forEach(function(w,i){
+    var row=document.createElement("div"); row.className="vrow"; row.id="vm"+i;
+    var sel='<select id="vsel'+i+'" aria-label="Meaning of '+w+'"><option value="">- choose a meaning -</option>';
+    defOrder.forEach(function(k){ sel+='<option value="'+k+'">'+DEFS[k]+'</option>'; });
+    sel+="</select>";
+    row.innerHTML='<span class="mark" id="vmk'+i+'"></span><span class="w">'+w+'</span>'+sel;
+    m.appendChild(row);
+  });
+  var f=document.getElementById("vfill");
+  FILL.forEach(function(item,i){
+    var row=document.createElement("div"); row.className="vrow"; row.id="vf"+i;
+    var sel='<select id="fsel'+i+'" aria-label="Blank '+(i+1)+'"><option value="">- choose -</option>';
+    FILL_OPTIONS.forEach(function(w){ sel+='<option value="'+w+'">'+w+'</option>'; });
+    sel+="</select>";
+    var parts=item.s.split("____");
+    row.innerHTML='<span class="mark" id="vfk'+i+'"></span><span>'+(i+1)+'. '+parts[0]+sel+parts[1]+'</span>';
+    f.appendChild(row);
+  });
+}
+function checkVocab(){
+  var score=0, blank=0;
+  VOCAB.forEach(function(w,i){
+    var v=document.getElementById("vsel"+i).value, ok=(v===w);
+    if(!v) blank++;
+    if(ok) score++;
+    document.getElementById("vm"+i).className="vrow "+(ok?"right":"wrong");
+    document.getElementById("vmk"+i).textContent=ok?"✅":"❌";
+  });
+  FILL.forEach(function(item,i){
+    var v=document.getElementById("fsel"+i).value, ok=(v===item.a);
+    if(!v) blank++;
+    if(ok) score++;
+    document.getElementById("vf"+i).className="vrow "+(ok?"right":"wrong");
+    document.getElementById("vfk"+i).textContent=ok?"✅":"❌";
+  });
+  vocabScore=score; vocabChecked=true;
+  var fb=document.getElementById("vocabFb");
+  if(score===VOCAB_TOTAL){ fb.className="fb good"; fb.textContent="🌟 "+score+" / "+VOCAB_TOTAL+". Perfect! Your weather vocabulary is as vivid as the autumn leaves!"; }
+  else { fb.className="fb bad"; fb.textContent=score+" / "+VOCAB_TOTAL+" correct"+(blank?" ("+blank+" left blank)":"")+". Fix the ❌ ones and check again."; }
+  updateScore();
+}
+function scores(){
+  var mc=0,answered=0; mcState.forEach(function(s){ if(s.firstRight) mc++; if(s.answered) answered++; });
+  return {mc:mc,answered:answered,vocab:vocabScore};
+}
+function updateScore(){
+  var s=scores();
+  document.getElementById("scoreText").textContent="Comprehension: "+s.mc+" / "+MC.length+" · Vocabulary: "+(vocabChecked?s.vocab:"-")+" / "+VOCAB_TOTAL;
+}
+function finish(){
+  if(!vocabChecked) checkVocab();
+  var s=scores(), total=MC.length+VOCAB_TOTAL, got=s.mc+s.vocab, pct=Math.round(100*got/total);
+  var msg = pct===100 ? "🏆 A perfect score! Outstanding reading!" :
+            pct>=80 ? "🌟 Fantastic work! You read carefully and used evidence." :
+            pct>=60 ? "💪 Solid effort! Reread the paragraphs for the questions you missed." :
+                      "🌱 Challenging passage. Read it once more, slowly, and try again.";
+  var f=document.getElementById("final"); f.style.display="block";
+  f.innerHTML="<h2 style='border:none;margin-top:0'>Final Score: "+got+" / "+total+" ("+pct+"%)</h2>"+
+    "<p>Comprehension (first tries): "+s.mc+" / "+MC.length+(s.answered<MC.length?" (you skipped "+(MC.length-s.answered)+")":"")+"<br>Vocabulary: "+s.vocab+" / "+VOCAB_TOTAL+"</p><p>"+msg+"</p>"+
+    "<p style='font-size:.85em;color:#546e7a'>Finished on "+new Date().toLocaleString("en-CA")+"</p>";
+  f.scrollIntoView({behavior:"smooth"});
+}
+buildMC(); buildVocab(); updateScore();
+document.getElementById("checkVocab").addEventListener("click",checkVocab);
+document.getElementById("finishBtn").addEventListener("click",finish);
+document.getElementById("showModel").addEventListener("click",function(){document.getElementById("model").style.display="block";});
+</script>
+</body>
+</html>

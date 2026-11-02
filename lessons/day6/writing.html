@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Writing Day 6: Problem-Solution + Grammar Clinic</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.6;margin:0;background:#eef7ee;color:#1b2b1b}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#2e7d32}
+  h1{color:#1b5e20;font-size:2em;margin:10px 0}
+  h2{color:#2e7d32;margin-top:36px;border-bottom:3px solid #a5d6a7;padding-bottom:4px}
+  h3{color:#2e7d32}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .tipbox{background:#fff8e1;border-left:8px solid #ffb300}
+  .senses{display:grid;gap:8px;margin:10px 0;grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+  .senses .side{border-radius:14px;padding:10px 16px;background:#fff9c4}
+  .ts{background:#bbdefb;border-radius:5px;padding:1px 3px}
+  .ev{background:#c8e6c9;border-radius:5px;padding:1px 3px}
+  .ex{background:#ffe0b2;border-radius:5px;padding:1px 3px}
+  .cs{background:#e1bee7;border-radius:5px;padding:1px 3px}
+  .legend span{display:inline-block;margin:4px 8px 4px 0;font-size:.85em}
+  .model{font-family:Georgia,"Times New Roman",serif;font-size:1.05em;line-height:1.9}
+  .row{padding:10px 6px;border-bottom:1px dashed #ddd}
+  .row.right{background:#f1f8e9} .row.wrong{background:#fff5f5}
+  select{font-size:.9em;padding:5px 8px;border-radius:8px;border:2px solid #aed581;font-family:inherit}
+  .q{border-left:8px solid #b0bec5}
+  .q.right{border-left-color:#43a047;background:#f1f8e9}
+  .q.wrong{border-left-color:#e53935;background:#fff5f5}
+  .opt{display:block;width:100%;text-align:left;font-size:.95em;background:#fafafa;border:2px solid #e0e0e0;border-radius:10px;padding:8px 14px;margin:8px 0;cursor:pointer;font-family:inherit}
+  .opt:hover{border-color:#9ccc65;background:#fff}
+  .opt.sel-right{background:#c8e6c9;border-color:#43a047}
+  .opt.sel-wrong{background:#ffcdd2;border-color:#e53935}
+  .fb{margin-top:6px;font-weight:bold}
+  .fb.good{color:#2e7d32} .fb.bad{color:#c62828}
+  .explain{font-weight:normal;color:#1b5e20}
+  .bad-sent{font-family:Consolas,"Courier New",monospace;background:#ffebee;padding:6px 10px;border-radius:8px;display:inline-block;margin:6px 0}
+  input.fix{width:100%;box-sizing:border-box;font-size:1em;padding:8px 12px;border:2px solid #aed581;border-radius:10px;font-family:inherit}
+  button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;font-family:inherit}
+  .go{background:#2e7d32;color:#fff} .go:hover{background:#1b5e20}
+  .hint{background:#ffe082;color:#5d4037}
+  .blue{background:#1e88e5;color:#fff}
+  .purple{background:#8e24aa;color:#fff}
+  .grey{background:#cfd8dc;color:#263238}
+  .btnrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+  textarea{width:100%;box-sizing:border-box;min-height:300px;font-size:1.05em;line-height:1.7;font-family:Georgia,"Times New Roman",serif;padding:14px;border:3px solid #aed581;border-radius:12px}
+  textarea:focus{outline:none;border-color:#2e7d32}
+  .counter{display:flex;flex-wrap:wrap;gap:20px;align-items:center;margin:8px 0;font-weight:bold}
+  .meter{flex:1;min-width:200px;height:18px;background:#e0e0e0;border-radius:9px;overflow:hidden}
+  .meter div{height:100%;width:0;background:#ffb300;transition:width .2s}
+  .checklist label{display:block;padding:6px 4px;cursor:pointer}
+  .checklist input{transform:scale(1.4);margin-right:10px}
+  .prompts label{display:block;background:#f1f8e9;border-radius:10px;padding:10px 14px;margin:8px 0;cursor:pointer}
+  .prompts input{transform:scale(1.3);margin-right:8px}
+  #scoreBox{position:sticky;bottom:0;background:#1b5e20;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #printArea{display:none}
+  @media print{
+    body{background:#fff;font-size:14pt}
+    .wrap,#scoreBox{display:none !important}
+    #printArea{display:block;font-family:Georgia,serif;line-height:1.8}
+    #printArea h1{font-size:18pt;margin:0 0 6pt}
+    #printArea .meta{font-size:11pt;color:#444}
+    #printArea .text{white-space:pre-wrap;border-top:1px solid #999;padding-top:10pt;margin-top:10pt}
+    #printArea .lines{margin-top:24pt;border-top:1px solid #999;padding-top:6pt;font-size:11pt}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>✍️ Writing Day 6: Problem-Solution (When the Weather Ruins the Plan)</h1>
+<p>Jacqueline, it's <strong>problem-solution</strong> week again (last time you rescued a traveller who was lost in Seoul). This week's problem comes from the sky: a cold, rainy, windy forecast that threatens a big autumn plan, just like Mina's leaf-viewing hike in the reading. Name the problem, explain why it matters, propose realistic solutions with reasons, and finish strong.</p>
+
+<h2>Part 1: The Lesson</h2>
+<div class="box">
+  <h3 style="margin-top:0">Problem → Why it matters → Solutions → Conclusion</h3>
+  <p>A strong problem-solution paragraph does more than complain about the weather. It shows the reader the problem clearly, then offers <em>realistic</em> fixes and explains why they would work. <strong>Level up this week:</strong> <em>answer an objection</em>. After a solution, add one sentence that admits a weakness and shows why the solution still works ("Some people may say…; however,…").</p>
+  <div class="senses">
+    <div class="side"><strong>1. Problem:</strong> state it in one clear topic sentence</div>
+    <div class="side"><strong>2. Cause / effect:</strong> why it happens and who it hurts</div>
+    <div class="side"><strong>3. Solution 1:</strong> a specific fix + reason</div>
+    <div class="side"><strong>4. Solution 2:</strong> another fix + example, and answer an objection</div>
+    <div class="side"><strong>5. Conclusion:</strong> why the solutions are worth trying</div>
+  </div>
+  <p><strong>Useful linking words:</strong> <em>because, since, as a result, one solution is, another option, for example, some people may argue, however, even so, therefore</em>.</p>
+</div>
+
+<div class="box">
+  <h3 style="margin-top:0">Model Problem-Solution Paragraph</h3>
+  <p class="legend"><span class="ts">Problem (topic sentence)</span><span class="ev">Cause / effect</span><span class="ex">Solutions + reasons</span><span class="cs">Conclusion</span></p>
+  <p class="model">
+    <span class="ts">A cold, rainy forecast can threaten a school's autumn field trip to see the 단풍 (autumn leaves).</span>
+    <span class="ev">Late-autumn weather changes quickly, and students who are wet and chilled may stop enjoying the trip or even get sick; as a result, teachers are often tempted to cancel.</span>
+    <span class="ex">One solution is to send families a packing list a week ahead, including warm layers, a rain jacket, and a folding umbrella, because students who dress for the weather stay comfortable much longer.</span>
+    <span class="ex">Another option is to check the hour-by-hour forecast and start the trip after the rain stops, choosing a short, sheltered trail. Some people may argue that a later start leaves less time to explore; however, two dry, happy hours are better than four soggy ones.</span>
+    <span class="cs">With smart planning, a gloomy forecast does not have to cancel the adventure; it just changes the way the class gets there.</span>
+  </p>
+  <p><strong>Notice:</strong> Each solution is <em>specific</em> and comes with a <em>reason</em> (because…), and the writer answers an objection with <em>however</em>. That is what makes it convincing.</p>
+</div>
+
+<h2>Part 2: Problem, Solution, or Off-topic?</h2>
+<div class="box">
+  <p>For each sentence, decide whether it mainly describes the <strong>problem / cause</strong>, offers a <strong>solution / evidence</strong>, or is <strong>off-topic</strong>.</p>
+  <div id="labelRows"></div>
+  <div class="btnrow"><button type="button" class="go" id="checkLabels">Check my answers</button></div>
+  <div class="fb" id="labelFb"></div>
+</div>
+
+<h2>Part 3: Grammar Clinic</h2>
+<div class="box tipbox">Examine these sentences carefully. <strong>Section A:</strong> pick the correct sentence. <strong>Section B:</strong> type the sentence again with <em>all</em> mistakes fixed. We use <strong>Canadian spelling</strong> (colour, favourite, centre, neighbour, practise as a verb). Watch <strong>weather / whether</strong>, <strong>its / it's</strong>, <strong>then / than</strong>, and commas after introductory words.</div>
+<h3>Section A: Pick the correct sentence</h3>
+<div id="gmc"></div>
+<h3>Section B: Fix the sentence</h3>
+<p>Retype the whole sentence correctly, with capital letters and punctuation. Each one has <strong>at least two</strong> mistakes (except where noted).</p>
+<div id="gfix"></div>
+
+<h2>Part 4: Your Turn to Write</h2>
+<div class="box">
+  <h3 style="margin-top:0">Choose a prompt</h3>
+  <div class="prompts" id="prompts">
+    <label><input type="radio" name="prompt" value="Rained out: your class has planned an autumn field trip to see the fall leaves, but the forecast calls for cold rain and strong wind. Explain the problem and propose at least two solutions." checked> 🍁 <strong>Rained out.</strong> The class leaf-viewing trip vs. a cold, rainy, windy forecast.</label>
+    <label><input type="radio" name="prompt" value="Icy winter mornings: sidewalks and the path to school become icy and slippery in winter. Explain the problem and propose solutions for students, families, or the community."> ❄️ <strong>Icy mornings.</strong> Slippery sidewalks on the way to school in winter.</label>
+    <label><input type="radio" name="prompt" value="Soaked again: many students arrive at school wet because they forget umbrellas or rain jackets on rainy days. Explain the problem and propose solutions for students or the school."> ☔ <strong>Soaked again.</strong> Students keep arriving at school drenched on rainy days.</label>
+  </div>
+  <p><strong>Goal:</strong> one strong paragraph (or two) of <strong>150 to 230 words</strong>: a clear problem sentence, its cause or effect, at least two solutions with reasons, and a concluding sentence.</p>
+  <label for="essay"><strong>Write here:</strong></label>
+  <textarea id="essay" placeholder="Start by stating the problem clearly in one sentence..."></textarea>
+  <div class="counter">
+    <span id="wc">0 words</span>
+    <span id="sc">0 sentences</span>
+    <div class="meter" aria-hidden="true"><div id="meterBar"></div></div>
+  </div>
+  <div class="fb" id="wcMsg">Aim for 150 to 230 words.</div>
+  <p style="font-size:.8em;color:#607d8b" id="saveNote">Your writing is saved automatically in this browser as you type.</p>
+
+  <h3>Self-check before you finish ✅</h3>
+  <div class="checklist" id="checklist">
+    <label><input type="checkbox"> My <strong>topic sentence</strong> clearly states the problem.</label>
+    <label><input type="checkbox"> I explained a <strong>cause or effect</strong> of the problem (why it matters).</label>
+    <label><input type="checkbox"> I offered at least <strong>two realistic, specific solutions</strong>.</label>
+    <label><input type="checkbox"> Each solution has a <strong>reason or example</strong> (because…, for example…), and I answered at least one <strong>objection</strong> (however…).</label>
+    <label><input type="checkbox"> I used linking words like <em>as a result, another option, therefore</em>.</label>
+    <label><input type="checkbox"> My <strong>concluding sentence</strong> explains why the solutions are worth trying.</label>
+    <label><input type="checkbox"> I checked capitals, punctuation, and <strong>Canadian spelling</strong>, and read it out loud once.</label>
+    <label><input type="checkbox"> I used at least one <strong>theme word</strong> (e.g. forecast, layers, brisk, temperature, season, umbrella, 단풍).</label>
+  </div>
+  <div class="btnrow">
+    <button type="button" class="blue" id="downloadBtn">⬇️ Download my writing</button>
+    <button type="button" class="purple" id="printBtn">🖨️ Print my writing</button>
+    <button type="button" class="grey" id="clearBtn">Start over</button>
+  </div>
+  <div class="fb" id="doneMsg"></div>
+</div>
+
+<div id="scoreBox"><span id="scoreText"></span><span>Keep going! 💪</span></div>
+</div>
+
+<div id="printArea"></div>
+
+<script>
+var NAME="Jacqueline";
+var PRAISE=["Nice work!","Correct! Great editing eye!","Yes!","Excellent!","Perfect diagnosis!"];
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+
+var LABELS=["Problem / cause","Solution / evidence","Off-topic (doesn't belong)"];
+var LABEL_ITEMS=[
+ {s:"The forecast for Saturday calls for cold rain and wind gusts of 40 km/h on the mountain trail.", a:"Problem / cause"},
+ {s:"One solution is to pack a rain shell and two warm layers so hikers can adjust as the temperature changes.", a:"Solution / evidence"},
+ {s:"Wet, chilled students may stop enjoying the trip and could even catch a cold.", a:"Problem / cause"},
+ {s:"My favourite flavour of ice cream is mint chocolate chip.", a:"Off-topic (doesn't belong)"},
+ {s:"For example, the hour-by-hour forecast shows that the rain will stop by ten o'clock, so the group could start later.", a:"Solution / evidence"},
+ {s:"Choosing a lower valley trail, where cliffs block the wind, would keep everyone warmer.", a:"Solution / evidence"}
+];
+var labelScore=0, labelChecked=false;
+function buildLabels(){
+  var box=document.getElementById("labelRows");
+  LABEL_ITEMS.forEach(function(it,i){
+    var d=document.createElement("div"); d.className="row"; d.id="lr"+i;
+    var sel='<select id="ls'+i+'" aria-label="Job of sentence '+(i+1)+'"><option value="">- choose -</option>';
+    LABELS.forEach(function(l){sel+='<option>'+l+'</option>';});
+    sel+='</select>';
+    d.innerHTML='<strong>'+(i+1)+'.</strong> '+it.s+'<br>'+sel+' <span id="lm'+i+'"></span>';
+    box.appendChild(d);
+  });
+}
+function checkLabels(){
+  var sc=0;
+  LABEL_ITEMS.forEach(function(it,i){
+    var ok=document.getElementById("ls"+i).value===it.a; if(ok)sc++;
+    document.getElementById("lr"+i).className="row "+(ok?"right":"wrong");
+    document.getElementById("lm"+i).textContent=ok?"✅":"❌";
+  });
+  labelScore=sc; labelChecked=true;
+  var fb=document.getElementById("labelFb");
+  if(sc===LABEL_ITEMS.length){fb.className="fb good";fb.textContent="🌟 "+sc+" / "+LABEL_ITEMS.length+". "+pick(PRAISE);}
+  else{fb.className="fb bad";fb.textContent=sc+" / "+LABEL_ITEMS.length+". Hint: problems describe what is wrong or why; solutions suggest a fix or give an example. Fix ❌ and check again.";}
+  updateScore();
+}
+
+var GMC=[
+ {q:"Which sentence is the <strong>strongest problem statement</strong> for a paragraph?",
+  o:["Weather is weird.","When a cold, rainy forecast hits on the day of a class field trip, students and teachers are tempted to cancel a long-awaited adventure.","I like autumn.","Rain, wind, cold, leaves."],
+  a:1,e:"It names a specific problem and who it affects."},
+ {q:"Which sentence uses <em>weather / whether</em> correctly?",
+  o:["We don't know weather the whether will be sunny.","We don't know whether the weather will be sunny.","We don't know whether the whether will be sunny.","We don't know weather the weather will be sunny."],
+  a:1,e:"<em>Weather</em> = rain, sun, snow, wind. <em>Whether</em> = if (it introduces a choice)."},
+ {q:"Which sentence uses <em>its / it's</em> correctly?",
+  o:["It's cold today, and the maple tree has lost most of its leaves.","Its cold today, and the maple tree has lost most of it's leaves.","It's cold today, and the maple tree has lost most of it's leaves.","Its cold today, and the maple tree has lost most of its leaves."],
+  a:0,e:"<em>It's</em> = it is. <em>Its</em> (no apostrophe) shows ownership, like <em>his</em> or <em>her</em>."},
+ {q:"Which sentence uses <em>then / than</em> correctly?",
+  o:["Seoul is colder then Busan, and than it snows.","Seoul is colder than Busan, and then it snows.","Seoul is colder then Busan, and then it snows.","Seoul is colder than Busan, and than it snows."],
+  a:1,e:"<em>Than</em> compares (colder than). <em>Then</em> is about time (next, after that)."},
+ {q:"Which sentence answers an <strong>objection</strong> with correct punctuation?",
+  o:["Some people may say rain jackets are expensive however, they last for years.","Some people may say rain jackets are expensive; however, they last for years.","Some people may say rain jackets are expensive, however they last for years.","Some people may say rain jackets are expensive however they last, for years."],
+  a:1,e:"When <em>however</em> joins two complete sentences, put a semicolon before it and a comma after it."},
+ {q:"Which sentence uses a comma after an <strong>introductory word or phrase</strong> correctly?",
+  o:["In late October the leaves on Seoraksan, turn red.","In late October, the leaves on Seoraksan turn red.","In, late October the leaves on Seoraksan turn red.","In late October the leaves, on Seoraksan turn red."],
+  a:1,e:"Put the comma right after the introductory phrase (<em>In late October,</em>), not in the middle of the main sentence."},
+ {q:"Which sentence uses <strong>Canadian spelling</strong> correctly?",
+  o:["The leaves turned a vivid color, and my favorite was the gray maple.","The leaves turned a vivid colour, and my favourite was the grey maple.","The leaves turned a vivid colour, and my favorite was the grey maple.","The leaves turned a vivid color, and my favourite was the gray maple."],
+  a:1,e:"Canadian: <em>colour</em>, <em>favourite</em>, <em>grey</em>."}
+];
+var gmcState=GMC.map(function(){return{answered:false,firstRight:false,done:false};});
+function buildGMC(){
+  var box=document.getElementById("gmc");
+  GMC.forEach(function(it,i){
+    var d=document.createElement("div"); d.className="box q"; d.id="g"+i;
+    var h='<div><strong>'+(i+1)+'.</strong> '+it.q+'</div>';
+    it.o.forEach(function(o,j){h+='<button type="button" class="opt" data-i="'+i+'" data-j="'+j+'">'+String.fromCharCode(65+j)+'. '+o+'</button>';});
+    h+='<div class="fb" id="gfb'+i+'"></div>';
+    d.innerHTML=h; box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".opt"):e.target; if(!b||!b.classList.contains("opt"))return;
+    var i=+b.getAttribute("data-i"), j=+b.getAttribute("data-j"), st=gmcState[i], it=GMC[i];
+    if(st.done)return;
+    var ok=j===it.a; if(!st.answered){st.answered=true;st.firstRight=ok;}
+    var fb=document.getElementById("gfb"+i);
+    if(ok){st.done=true;b.classList.add("sel-right");document.getElementById("g"+i).className="box q right";fb.className="fb good";fb.innerHTML="✅ "+pick(PRAISE)+' <span class="explain">'+it.e+'</span>';}
+    else{b.classList.add("sel-wrong");document.getElementById("g"+i).className="box q wrong";fb.className="fb bad";fb.textContent="❌ Not quite. Look closely and try again.";}
+    updateScore();
+  });
+}
+
+var GFIX=[
+ {bad:"on saturday mina hiked seoraksan with her uncle.",
+  ok:["On Saturday, Mina hiked Seoraksan with her uncle.","On Saturday Mina hiked Seoraksan with her uncle."],
+  hint:"Capitalize the first word, the day, the name, and the mountain (a proper noun). A comma after a short opening phrase is optional."},
+ {bad:"Its colder today then it was yesterday.",
+  ok:["It's colder today than it was yesterday."],
+  hint:"It's = it is (needs an apostrophe). Use than to compare."},
+ {bad:"I can't decide weather to bring an umbrella, the forecast says it might rain.",
+  ok:["I can't decide whether to bring an umbrella, because the forecast says it might rain.","I can't decide whether to bring an umbrella because the forecast says it might rain.","I can't decide whether to bring an umbrella. The forecast says it might rain.","I can't decide whether to bring an umbrella; the forecast says it might rain."],
+  hint:"Whether (= if) not weather. Then fix the comma splice with a period, a semicolon, or because."},
+ {bad:"The colorful leafs was my favorite part of the hike.",
+  ok:["The colourful leaves were my favourite part of the hike."],
+  hint:"The plural of leaf is leaves, and plural subjects take were. Use Canadian spelling: colourful, favourite."}
+];
+
+var gfixState=GFIX.map(function(){return{tries:0,correct:false,firstRight:false};});
+function norm(s){return s.replace(/[\u2018\u2019\u02BC]/g,"'").replace(/[\u201C\u201D]/g,'"').replace(/\s+/g," ").trim();}
+function checkFixAnswer(i,val){var v=norm(val);return GFIX[i].ok.some(function(a){return norm(a)===v;});}
+function buildGFix(){
+  var box=document.getElementById("gfix");
+  GFIX.forEach(function(it,i){
+    var d=document.createElement("div"); d.className="box q"; d.id="f"+i;
+    d.innerHTML='<div><strong>'+(i+1)+'.</strong> Fix: <span class="bad-sent">'+it.bad+'</span></div>'+
+     '<input class="fix" type="text" id="fi'+i+'" autocomplete="off" spellcheck="false" aria-label="Corrected sentence '+(i+1)+'">'+
+     '<div class="btnrow"><button type="button" class="go" data-act="check" data-i="'+i+'">Check</button><button type="button" class="hint" data-act="hint" data-i="'+i+'">Hint 💡</button><button type="button" class="grey" data-act="show" data-i="'+i+'" style="display:none">Show answer</button></div>'+
+     '<div class="fb" id="ffb'+i+'"></div>';
+    box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target; if(b.tagName!=="BUTTON")return;
+    var i=+b.getAttribute("data-i"), act=b.getAttribute("data-act"), fb=document.getElementById("ffb"+i);
+    if(act==="hint"){fb.className="fb";fb.style.color="#5d4037";fb.textContent="💡 "+GFIX[i].hint;return;}
+    fb.style.color="";
+    if(act==="show"){fb.className="fb";fb.innerHTML='Answer: <em>'+GFIX[i].ok[0]+'</em>'+(GFIX[i].ok.length>1?' (other correct versions are accepted too)':'');return;}
+    fixCheck(i);
+  });
+  box.addEventListener("keydown",function(e){if(e.key==="Enter"&&e.target.classList.contains("fix"))fixCheck(+e.target.id.slice(2));});
+}
+function fixCheck(i){
+  var val=document.getElementById("fi"+i).value, fb=document.getElementById("ffb"+i), st=gfixState[i];
+  fb.style.color="";
+  if(!val.trim()){fb.className="fb bad";fb.textContent="Type the corrected sentence first!";return;}
+  st.tries++;
+  if(checkFixAnswer(i,val)){ if(st.tries===1)st.firstRight=true; st.correct=true; document.getElementById("f"+i).className="box q right"; fb.className="fb good"; fb.textContent="✅ "+pick(PRAISE); }
+  else { st.correct=false; document.getElementById("f"+i).className="box q wrong"; fb.className="fb bad"; fb.textContent="❌ Not quite. Check capitals, apostrophes, commas, and spelling."; if(st.tries>=2)document.querySelector('#f'+i+' [data-act=show]').style.display="inline-block"; }
+  updateScore();
+}
+
+function updateScore(){
+  var g=0; gmcState.forEach(function(s){if(s.firstRight)g++;});
+  var f=0; gfixState.forEach(function(s){if(s.correct)f++;});
+  var total=LABEL_ITEMS.length+GMC.length+GFIX.length, got=labelScore+g+f;
+  document.getElementById("scoreText").textContent="Score: "+got+" / "+total+"  (labels "+(labelChecked?labelScore:"-")+"/"+LABEL_ITEMS.length+" · grammar A "+g+"/"+GMC.length+" · grammar B "+f+"/"+GFIX.length+")";
+}
+
+var KEY="jacqueline-writing-day6";
+function countWords(t){var m=t.trim().match(/[A-Za-zÀ-ÿ0-9]+(?:['’\-][A-Za-zÀ-ÿ0-9]+)*/g);return m?m.length:0;}
+function countSentences(t){var m=t.match(/[^.!?]*[A-Za-z0-9][^.!?]*[.!?]+/g);return m?m.length:0;}
+function currentPrompt(){var r=document.querySelector('input[name=prompt]:checked');return r?r.value:"";}
+function updateCount(){
+  var t=document.getElementById("essay").value, w=countWords(t), s=countSentences(t);
+  document.getElementById("wc").textContent=w+(w===1?" word":" words");
+  document.getElementById("sc").textContent=s+(s===1?" sentence":" sentences");
+  var bar=document.getElementById("meterBar"); bar.style.width=Math.min(100,w/230*100)+"%";
+  var msg=document.getElementById("wcMsg");
+  if(w<150){bar.style.background="#ffb300";msg.className="fb";msg.textContent=w===0?"Aim for 150 to 230 words.":"Keep going! "+(150-w)+" more words to reach the goal.";}
+  else if(w<=230){bar.style.background="#43a047";msg.className="fb good";msg.textContent="🎯 You're in the target zone!";}
+  else{bar.style.background="#1e88e5";msg.className="fb";msg.textContent="That's a lot of writing! Make sure every sentence stays on topic.";}
+  try{localStorage.setItem(KEY,JSON.stringify({text:t,prompt:currentPrompt(),checks:checkStates()}));}catch(e){document.getElementById("saveNote").textContent="(This browser can't auto-save here — use Download before closing!)";}
+}
+function checkStates(){return Array.prototype.map.call(document.querySelectorAll("#checklist input"),function(c){return c.checked;});}
+function checklistText(){
+  return Array.prototype.map.call(document.querySelectorAll("#checklist label"),function(l){return (l.querySelector("input").checked?"[x] ":"[ ] ")+l.textContent.trim();}).join("\n");
+}
+function buildReport(){
+  var t=document.getElementById("essay").value;
+  return "Writing Day 6: "+NAME+"\nDate: "+new Date().toLocaleString("en-CA")+"\nPrompt: "+currentPrompt()+
+    "\nWords: "+countWords(t)+"   Sentences: "+countSentences(t)+
+    "\n\n----- "+NAME+"'s writing -----\n\n"+t+"\n\n----- Self-check -----\n"+checklistText()+
+    "\n\n----- Feedback -----\n\n\n";
+}
+function download(){
+  var t=document.getElementById("essay").value;
+  if(!t.trim()){document.getElementById("doneMsg").className="fb bad";document.getElementById("doneMsg").textContent="Write something first!";return;}
+  var blob=new Blob([buildReport().replace(/\n/g,"\r\n")],{type:"text/plain;charset=utf-8"});
+  var a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=NAME+"-writing-day6.txt";
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},1000);
+  var dm=document.getElementById("doneMsg"); dm.className="fb good"; dm.textContent="📄 Saved! Check your Downloads folder.";
+}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function printIt(){
+  var t=document.getElementById("essay").value;
+  if(!t.trim()){document.getElementById("doneMsg").className="fb bad";document.getElementById("doneMsg").textContent="Write something first!";return;}
+  document.getElementById("printArea").innerHTML="<h1>Writing Day 6: "+NAME+"</h1><div class='meta'>"+esc(new Date().toLocaleString("en-CA"))+"<br><strong>Prompt:</strong> "+esc(currentPrompt())+"<br>Words: "+countWords(t)+" · Sentences: "+countSentences(t)+"</div><div class='text'>"+esc(t)+"</div><div class='lines'><strong>Self-check:</strong><br>"+esc(checklistText()).replace(/\n/g,"<br>")+"</div><div class='lines'><strong>Feedback:</strong><br><br><br><br></div>";
+  window.print();
+}
+function restore(){
+  try{var d=JSON.parse(localStorage.getItem(KEY)||"null"); if(!d)return;
+    document.getElementById("essay").value=d.text||"";
+    Array.prototype.forEach.call(document.querySelectorAll("input[name=prompt]"),function(r){r.checked=(r.value===d.prompt);});
+    if(!document.querySelector("input[name=prompt]:checked"))document.querySelector("input[name=prompt]").checked=true;
+    var cs=document.querySelectorAll("#checklist input"); (d.checks||[]).forEach(function(v,i){if(cs[i])cs[i].checked=v;});
+  }catch(e){}
+}
+buildLabels(); buildGMC(); buildGFix(); restore(); updateCount(); updateScore();
+document.getElementById("checkLabels").addEventListener("click",checkLabels);
+document.getElementById("essay").addEventListener("input",updateCount);
+document.getElementById("checklist").addEventListener("change",function(){updateCount(); if(checkStates().every(Boolean)){var dm=document.getElementById("doneMsg");dm.className="fb good";dm.textContent="✅ All boxes checked! Download or print when ready.";} });
+document.getElementById("prompts").addEventListener("change",updateCount);
+document.getElementById("downloadBtn").addEventListener("click",download);
+document.getElementById("printBtn").addEventListener("click",printIt);
+document.getElementById("clearBtn").addEventListener("click",function(){ if(confirm("Erase your writing and start over?")){document.getElementById("essay").value="";Array.prototype.forEach.call(document.querySelectorAll("#checklist input"),function(c){c.checked=false;});document.getElementById("doneMsg").textContent="";updateCount();} });
+</script>
+</body>
+</html>
