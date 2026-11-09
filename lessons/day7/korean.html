@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Korean Day 7: Health &amp; the Body</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.6;margin:0;background:#fff5f5;color:#1d1a2a}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#c62828}
+  h1{color:#b71c1c;font-size:2em;margin:10px 0}
+  h2{color:#c62828;margin-top:36px;border-bottom:3px solid #ffcdd2;padding-bottom:4px}
+  h3{color:#c62828}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .tipbox{background:#fff8e1;border-left:8px solid #ffb300}
+  .char{font-size:2.2em;font-weight:bold;color:#b71c1c;line-height:1.2}
+  .rom{font-family:Consolas,"Courier New",monospace;background:#ffebee;padding:2px 8px;border-radius:8px;font-size:1.05em}
+  .card{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;align-items:center;border-left:8px solid #e53935;padding-left:14px}
+  .card .meta{grid-column:2}
+  .ex{margin-top:8px;background:#fff8f8;border-radius:10px;padding:8px 12px;font-size:.95em}
+  .q{border-left:8px solid #b0bec5}
+  .q.right{border-left-color:#43a047;background:#f1f8e9}
+  .q.wrong{border-left-color:#e53935;background:#fff5f5}
+  .opt{display:block;width:100%;text-align:left;font-size:.95em;background:#fafafa;border:2px solid #e0e0e0;border-radius:10px;padding:8px 14px;margin:8px 0;cursor:pointer;font-family:inherit}
+  .opt:hover{border-color:#ef9a9a;background:#fff}
+  .opt.sel-right{background:#c8e6c9;border-color:#43a047}
+  .opt.sel-wrong{background:#ffcdd2;border-color:#e53935}
+  .fb{margin-top:6px;font-weight:bold}
+  .fb.good{color:#2e7d32} .fb.bad{color:#c62828}
+  .explain{font-weight:normal;color:#b71c1c}
+  .vrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:8px 6px;border-bottom:1px dashed #eee}
+  .vrow .w{font-weight:bold;min-width:120px;font-size:1.3em}
+  .vrow.right{background:#f1f8e9} .vrow.wrong{background:#fff5f5}
+  select{font-size:.95em;padding:6px 8px;border-radius:8px;border:2px solid #ef9a9a;max-width:100%;font-family:inherit}
+  .mark{font-size:1.2em;min-width:30px}
+  button.main{font-size:1em;padding:10px 20px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#c62828;color:#fff;margin-top:10px}
+  button.main:hover{background:#b71c1c}
+  input[type=text]{font-size:1.05em;padding:8px 12px;border:2px solid #ef9a9a;border-radius:10px;width:240px;font-family:inherit}
+  button.check{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#c62828;color:#fff}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+  #scoreBox{position:sticky;bottom:0;background:#b71c1c;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #scoreBox button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#ffca28;color:#3e2723}
+  #final{display:none;text-align:center;border:4px solid #43a047;font-size:1.1em}
+  .tone{font-size:.85em;color:#c62828}
+  .reveal-box{margin-top:10px}
+  .reveal-btn{font-size:.95em;padding:8px 14px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#0047a0;color:#fff}
+  .reveal-ans{display:none;margin-top:8px;background:#e3f2fd;border-radius:10px;padding:10px 14px}
+
+  .audio-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:12px 0 4px}
+  button.speak,button.record,button.play-mine,button.play-model,button.audio-ctrl{
+    font-size:1.05em;padding:14px 18px;min-height:52px;min-width:52px;
+    border:none;border-radius:14px;cursor:pointer;font-weight:bold;font-family:inherit;
+    touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+  }
+  button.speak,button.play-model,button.audio-ctrl.hear{background:#c62828;color:#fff}
+  button.speak:hover,button.play-model:hover,button.audio-ctrl.hear:hover{background:#b71c1c}
+  button.speak.playing{background:#43a047}
+  button.record{background:#e53935;color:#fff}
+  button.record:hover{background:#c62828}
+  button.record.recording{background:#ffca28;color:#3e2723;animation:pulse 1s infinite}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+  button.play-mine{background:#00897b;color:#fff}
+  button.play-mine:hover{background:#00695c}
+  button.play-mine:disabled{opacity:.45;cursor:not-allowed}
+  button.audio-ctrl.stop{background:#546e7a;color:#fff}
+  button.audio-ctrl.stop:hover{background:#37474f}
+  .practice{margin-top:14px;padding-top:12px;border-top:2px dashed #ffcdd2}
+  .practice-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .rec-status{margin-top:8px;font-weight:bold;color:#c62828;font-size:.95em}
+  .rec-status.rec-on{color:#c62828}
+  .mic-msg{margin-top:8px;background:#fff3e0;border-left:6px solid #ef6c00;border-radius:10px;padding:10px 14px;font-size:.95em;color:#e65100}
+  .box[data-audio]{position:relative}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>🇰🇷 Korean Day 7: Health &amp; the Body</h1>
+<p>Welcome back, Jacqueline! This week is all about <strong>건강 (geongang, health)</strong> and the <strong>body</strong>. You'll learn <strong>10 new words</strong> with <strong>Hangul</strong>, <strong>Revised Romanization</strong>, English meaning, and listen-and-say practice for <em>every</em> word. By the end you can name body parts, say what hurts, tell someone you're going to the clinic or taking medicine, and reassure a friend with 괜찮아요 (I'm okay). Example sentences reuse earlier words (어디, 가요, 선생님) so you keep them fresh.</p>
+
+<div class="box tipbox">
+  <strong>How to read Revised Romanization:</strong>
+  <ul>
+    <li>Letters approximate the sound in English. Korean does not use tone numbers like Cantonese.</li>
+    <li>Example: <span class="rom">gwaenchanayo</span> — roughly <em>gwen-chan-a-yo</em>. The vowel <strong>ㅙ (wae)</strong> is a quick "gweh". The ㅎ in 괜찮아요 goes silent, so you never hear an "h": say it smoothly in four beats.</li>
+    <li>The vowel <strong>ㅢ (ui)</strong> in 의사 (<span class="rom">uisa</span>) glides from "eu" (lips flat) to "ee". Say <em>eu-ee</em> quickly, then <em>sa</em>.</li>
+    <li>Sound change: a final consonant slides into a following vowel. 손 + 을 = 손을, said <span class="rom">soneul</span>; 약 + 을 = 약을, said <span class="rom">yageul</span> (the k softens to g); 병원 + 에 = <span class="rom">byeongwone</span>.</li>
+    <li><strong>Listening tip:</strong> Tap <em>Hear model</em>, say the word out loud three times, then <em>Record</em> and compare.</li>
+  </ul>
+</div>
+
+<h2>Part 1: Learn Today's Words (all 10 have audio)</h2>
+<div class="box tipbox" style="background:#ffebee;border-left-color:#c62828"><strong>Listen &amp; practise:</strong> Tap <em>Hear model</em> to hear Korean (voice: Google TTS Korean). Then tap <em>Record</em>, say it out loud, and compare with <em>Play my try</em> + <em>Play model</em>. Recordings stay on this device only for this visit — nothing is uploaded.</div>
+<div class="audio-bar">
+  <button type="button" class="audio-ctrl hear" id="playAll">🔊 Play all words</button>
+  <button type="button" class="audio-ctrl stop" id="stopAudio">⏹️ Stop</button>
+  <span class="tone">Plays English then Korean for every word.</span>
+</div>
+<div id="cards"></div>
+
+<div class="box tipbox">
+  <strong>Culture tip:</strong> In Korea, many people visit a local <strong>의원 (uiwon)</strong> clinic for everyday aches, and some also visit a <strong>한의원 (hanuiwon)</strong>, a traditional Korean medicine clinic that uses acupuncture and herbal teas. After a long week, families love the <strong>찜질방 (jjimjilbang)</strong>, a public bathhouse with hot rooms and heated floors where people relax in matching cotton outfits, eat boiled eggs, and drink sweet rice punch (식혜, sikhye). And when someone looks tired or sick, friends say <strong>몸조심하세요 (momjosimhaseyo)</strong>: "take care of your body!"
+</div>
+
+<h2>Part 2: Match the Meaning</h2>
+<div class="box">
+  <p>Match each Korean word to its English meaning.</p>
+  <div id="vmatch"></div>
+  <button type="button" class="main" id="checkMatch">Check my matching</button>
+  <div class="fb" id="matchFb"></div>
+</div>
+
+<h2>Part 3: What Would You Say?</h2>
+<p>Click the best Korean phrase for each situation. Only your <strong>first click</strong> counts toward your score.</p>
+<div id="mc"></div>
+
+<h2>Part 4: Type the Romanization</h2>
+<p>Look at the Hangul and type the Revised Romanization (lowercase is fine). Example: <span class="rom">meori</span></p>
+<div id="fill"></div>
+
+<h2>Part 5: Click-to-reveal (self-check)</h2>
+<div class="box" id="reveals"></div>
+
+<div class="box" id="final"></div>
+<div id="scoreBox">
+  <span id="scoreText"></span>
+  <button type="button" id="finishBtn">I'm done! Show my final score</button>
+</div>
+</div>
+
+<script src="../../audio/korean/player.js"></script>
+<script>
+var WORDS = [
+ {zh:"머리", jy:"meori", audio:"day7-01-meori-head.mp3", en:"head",
+  ex_zh:"머리가 아파요.", ex_jy:"Meoriga apayo.", ex_en:"I have a headache. (My head hurts.)"},
+ {zh:"배", jy:"bae", audio:"day7-02-bae-stomach.mp3", en:"stomach / tummy",
+  ex_zh:"배가 고파요.", ex_jy:"Baega gopayo.", ex_en:"I'm hungry. (My stomach is hungry.)"},
+ {zh:"다리", jy:"dari", audio:"day7-03-dari-leg.mp3", en:"leg",
+  ex_zh:"다리가 길어요.", ex_jy:"Dariga gireoyo.", ex_en:"(Her) legs are long."},
+ {zh:"손", jy:"son", audio:"day7-04-son-hand.mp3", en:"hand",
+  ex_zh:"손을 씻어요.", ex_jy:"Soneul ssiseoyo.", ex_en:"I wash my hands."},
+ {zh:"허리", jy:"heori", audio:"day7-05-heori-lower-back.mp3", en:"lower back / waist",
+  ex_zh:"허리가 아파요.", ex_jy:"Heoriga apayo.", ex_en:"My lower back hurts."},
+ {zh:"아파요", jy:"apayo", audio:"day7-06-apayo-it-hurts.mp3", en:"it hurts / I'm sick",
+  ex_zh:"어디가 아파요?", ex_jy:"Eodiga apayo?", ex_en:"Where does it hurt?"},
+ {zh:"병원", jy:"byeongwon", audio:"day7-07-byeongwon-hospital.mp3", en:"hospital / clinic",
+  ex_zh:"병원에 가요.", ex_jy:"Byeongwone gayo.", ex_en:"I'm going to the clinic."},
+ {zh:"약", jy:"yak", audio:"day7-08-yak-medicine.mp3", en:"medicine",
+  ex_zh:"약을 먹어요.", ex_jy:"Yageul meogeoyo.", ex_en:"I take medicine. (Literally: I eat medicine.)"},
+ {zh:"의사", jy:"uisa", audio:"day7-09-uisa-doctor.mp3", en:"doctor",
+  ex_zh:"의사 선생님이 친절해요.", ex_jy:"Uisa seonsaengnimi chinjeolhaeyo.", ex_en:"The doctor is kind."},
+ {zh:"괜찮아요", jy:"gwaenchanayo", audio:"day7-10-gwaenchanayo-im-okay.mp3", en:"I'm okay / it's fine",
+  ex_zh:"네, 괜찮아요!", ex_jy:"Ne, gwaenchanayo!", ex_en:"Yes, I'm okay!"}
+];
+
+var PRAISE=["Nice work!","정확해요! Correct!","Yes! Your Korean is sharp!","Excellent!","Right!"];
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function shuffled(arr,seed){var a=arr.slice(),s=seed;for(var i=a.length-1;i>0;i--){s=(s*9301+49297)%233280;var j=Math.floor(s/233280*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+function buildCards(){
+  var box=document.getElementById("cards");
+  WORDS.forEach(function(w,i){
+    var d=document.createElement("div"); d.className="box";
+    if(w.audio){ d.setAttribute("data-audio", w.audio); d.setAttribute("data-audio-label", w.zh+" "+w.jy); }
+    d.innerHTML='<div class="card">'+
+      '<div class="char">'+(i+1)+'. '+w.zh+'</div>'+
+      '<div class="meta"><div><span class="rom">'+w.jy+'</span> <span class="tone">← Hear model, then Record</span></div>'+
+      '<div><strong>'+w.en+'</strong></div></div></div>'+
+      '<div class="ex"><strong>Example:</strong> '+w.ex_zh+'<br><span class="rom">'+w.ex_jy+'</span><br><em>'+w.ex_en+'</em></div>'+
+      '<div class="practice"></div>';
+    box.appendChild(d);
+  });
+}
+
+var matchScore=0, matchChecked=false;
+function buildMatch(){
+  var m=document.getElementById("vmatch");
+  var order=shuffled(WORDS.map(function(w){return w.jy;}),12);
+  WORDS.forEach(function(w,i){
+    var row=document.createElement("div"); row.className="vrow"; row.id="vm"+i;
+    var sel='<select id="vsel'+i+'" aria-label="Meaning of '+w.zh+'"><option value="">- choose English -</option>';
+    order.forEach(function(jy){
+      var en=WORDS.find(function(x){return x.jy===jy;}).en;
+      sel+='<option value="'+jy+'">'+en+'</option>';
+    });
+    sel+='</select>';
+    row.innerHTML='<span class="mark" id="vmk'+i+'"></span><span class="w">'+w.zh+'</span><span class="rom">'+w.jy+'</span>'+sel;
+    m.appendChild(row);
+  });
+}
+function checkMatch(){
+  var score=0, blank=0;
+  WORDS.forEach(function(w,i){
+    var v=document.getElementById("vsel"+i).value, ok=(v===w.jy);
+    if(!v) blank++;
+    if(ok) score++;
+    document.getElementById("vm"+i).className="vrow "+(ok?"right":"wrong");
+    document.getElementById("vmk"+i).textContent=ok?"✅":"❌";
+  });
+  matchScore=score; matchChecked=true;
+  var fb=document.getElementById("matchFb");
+  if(score===WORDS.length){ fb.className="fb good"; fb.textContent="🌟 "+score+" / "+WORDS.length+". Perfect matching!"; }
+  else { fb.className="fb bad"; fb.textContent=score+" / "+WORDS.length+" correct"+(blank?" ("+blank+" blank)":"")+". Fix the ❌ ones and check again."; }
+  updateScore();
+}
+
+var MC = [
+ {q:"You bumped your head on a cupboard. Which word means <strong>head</strong>?",
+  o:["머리 meori","다리 dari","손 son","배 bae"], a:0,
+  e:"머리 (meori) = head. 머리가 아파요 = I have a headache."},
+ {q:"At the clinic, the doctor asks <strong>어디가 아파요?</strong> What is she asking?",
+  o:["Where does it hurt?","How much is it?","Where is the station?","Are you hungry?"], a:0,
+  e:"어디 = where, 아파요 = hurts. You met 어디 on Day 4 (어디예요?)."},
+ {q:"You skipped lunch and your stomach is growling. What do you say?",
+  o:["배가 고파요.","허리가 아파요.","손을 씻어요.","추워요."], a:0,
+  e:"배 (bae) = stomach. 배가 고파요 = I'm hungry (my stomach is hungry)."},
+ {q:"You lifted a heavy box and now your <strong>lower back</strong> hurts. Which sentence fits?",
+  o:["다리가 길어요.","허리가 아파요.","머리가 좋아요.","약을 사요."], a:1,
+  e:"허리 (heori) = lower back / waist. 허리가 아파요 = my lower back hurts."},
+ {q:"Before eating, your grandma reminds you to do this. What does <strong>손을 씻어요</strong> mean?",
+  o:["I wash my hands.","I take medicine.","I go to the clinic.","I'm okay."], a:0,
+  e:"손 (son) = hand, 씻어요 = wash."},
+ {q:"Which word means <strong>doctor</strong>?",
+  o:["의사 uisa","학생 haksaeng","선생님 seonsaengnim","친구 chingu"], a:0,
+  e:"의사 (uisa) = doctor. Koreans politely say 의사 선생님 (doctor + teacher/honoured person)."},
+ {q:"In Korean, you don't \"take\" medicine. Which verb do you use with 약 (yak)?",
+  o:["먹어요 (eat)","사랑해요 (love)","와요 (come)","불어요 (blow)"], a:0,
+  e:"약을 먹어요 = literally \"I eat medicine\". That's how Koreans say they take a pill."},
+ {q:"Where are you going if you say <strong>병원에 가요</strong>?",
+  o:["To the market","To the hospital / clinic","To school","To the library"], a:1,
+  e:"병원 (byeongwon) = hospital or clinic. 에 가요 = going to."},
+ {q:"Your friend trips and asks if you're hurt. You're fine! What do you answer?",
+  o:["네, 괜찮아요!","너무 비싸요!","비가 와요!","얼마예요?"], a:0,
+  e:"괜찮아요 (gwaenchanayo) = I'm okay / it's fine. One of the most useful words in Korean!"},
+ {q:"Which body part is <strong>다리 (dari)</strong>?",
+  o:["arm","leg","ear","nose"], a:1,
+  e:"다리 = leg. Fun fact: 다리 also means bridge, just like 눈 meant both snow and eye on Day 6."}
+];
+
+var mcState=MC.map(function(){return{answered:false,firstRight:false,done:false};});
+function buildMC(){
+  var box=document.getElementById("mc");
+  MC.forEach(function(item,i){
+    var d=document.createElement("div"); d.className="box q"; d.id="mc"+i;
+    var html="<div><strong>"+(i+1)+".</strong> "+item.q+"</div>";
+    item.o.forEach(function(opt,j){ html+='<button type="button" class="opt" data-i="'+i+'" data-j="'+j+'">'+String.fromCharCode(65+j)+". "+opt+"</button>"; });
+    html+='<div class="fb" id="mcfb'+i+'"></div>';
+    d.innerHTML=html; box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".opt"):e.target; if(!b||!b.classList.contains("opt"))return;
+    var i=+b.getAttribute("data-i"), j=+b.getAttribute("data-j"), st=mcState[i], item=MC[i];
+    if(st.done) return;
+    var right=(j===item.a);
+    if(!st.answered){ st.answered=true; st.firstRight=right; }
+    var fb=document.getElementById("mcfb"+i), card=document.getElementById("mc"+i);
+    if(right){
+      st.done=true; b.classList.add("sel-right"); card.className="box q right";
+      fb.className="fb good"; fb.innerHTML="✅ "+pick(PRAISE)+' <span class="explain">'+item.e+"</span>";
+    } else {
+      b.classList.add("sel-wrong"); card.className="box q wrong";
+      fb.className="fb bad"; fb.innerHTML="❌ Not quite. Try again.";
+    }
+    updateScore();
+  });
+}
+
+var fillScore=0, fillChecked={};
+function buildFill(){
+  var box=document.getElementById("fill");
+  WORDS.forEach(function(w,i){
+    fillChecked[i]=false;
+    var d=document.createElement("div"); d.className="box q"; d.id="fq"+i;
+    d.innerHTML='<div><strong>'+(i+1)+'.</strong> <span class="char" style="font-size:1.6em">'+w.zh+'</span> → type romanization</div>'+
+      '<div class="row"><input type="text" id="fin'+i+'" autocomplete="off" spellcheck="false" aria-label="Romanization for '+w.zh+'">'+
+      '<button type="button" class="check" data-i="'+i+'">Check</button></div>'+
+      '<div class="fb" id="ffb'+i+'"></div>';
+    box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target; if(b.tagName!=="BUTTON"||!b.classList.contains("check"))return;
+    checkFill(+b.getAttribute("data-i"));
+  });
+  box.addEventListener("keydown",function(e){
+    if(e.key==="Enter"&&e.target.tagName==="INPUT"){ checkFill(+e.target.id.slice(3)); }
+  });
+}
+function checkFill(i){
+  var val=document.getElementById("fin"+i).value.trim().toLowerCase().replace(/\s+/g,"");
+  var key=WORDS[i].jy.toLowerCase().replace(/\s+/g,"");
+  var fb=document.getElementById("ffb"+i), card=document.getElementById("fq"+i);
+  if(!val){ fb.className="fb bad"; fb.textContent="Type the romanization first."; return; }
+  var ok=(val===key);
+  fillChecked[i]=ok;
+  if(ok){ card.className="box q right"; fb.className="fb good"; fb.textContent="✅ "+pick(PRAISE); }
+  else { card.className="box q wrong"; fb.className="fb bad"; fb.textContent="❌ Not quite. Hint: "+WORDS[i].jy; }
+  fillScore=Object.keys(fillChecked).filter(function(k){return fillChecked[k];}).length;
+  updateScore();
+}
+
+function buildReveals(){
+  var box=document.getElementById("reveals");
+  WORDS.forEach(function(w,i){
+    var d=document.createElement("div"); d.className="reveal-box";
+    d.innerHTML='<button type="button" class="reveal-btn" data-i="'+i+'">Reveal '+(i+1)+': '+w.en+' → ?</button>'+
+      '<div class="reveal-ans" id="rev'+i+'"><span class="char" style="font-size:1.5em">'+w.zh+'</span> · <span class="rom">'+w.jy+'</span> · '+w.en+'</div>';
+    box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".reveal-btn"):null; if(!b)return;
+    var el=document.getElementById("rev"+b.getAttribute("data-i"));
+    el.style.display = el.style.display==="block"?"none":"block";
+  });
+}
+
+function updateScore(){
+  var mc=0; mcState.forEach(function(s){ if(s.firstRight) mc++; });
+  document.getElementById("scoreText").textContent=
+    "Match: "+(matchChecked?matchScore:"-")+" / "+WORDS.length+
+    " · Situations: "+mc+" / "+MC.length+
+    " · Romanization: "+fillScore+" / "+WORDS.length;
+}
+function finish(){
+  if(!matchChecked) checkMatch();
+  var mc=0; mcState.forEach(function(s){ if(s.firstRight) mc++; });
+  var total=WORDS.length+MC.length+WORDS.length;
+  var got=matchScore+mc+fillScore;
+  var pct=Math.round(100*got/total);
+  var msg = pct===100 ? "🏆 Perfect! All 10 body and health words — listening, matching, and romanization — mastered! 괜찮아요? 네, 최고예요! (You're the best!) 💪" :
+            pct>=80 ? "🌟 Fantastic work! Keep practising Hear model + Record for every word." :
+            pct>=60 ? "💪 Solid start. Revisit the cards and listen again." :
+                      "🌱 Take your time with Hear model on each word, then retry the quizzes.";
+  var f=document.getElementById("final"); f.style.display="block";
+  f.innerHTML="<h2 style='border:none;margin-top:0'>Final Score: "+got+" / "+total+" ("+pct+"%)</h2>"+
+    "<p>Matching: "+matchScore+" / "+WORDS.length+" · Situations: "+mc+" / "+MC.length+" · Romanization: "+fillScore+" / "+WORDS.length+"</p>"+
+    "<p><strong>Audio coverage:</strong> all "+WORDS.length+" vocabulary words have Hear model + Record / compare.</p>"+
+    "<p>"+msg+"</p>"+
+    "<p style='font-size:.85em;color:#546e7a'>Finished on "+new Date().toLocaleString("en-CA")+"</p>";
+  f.scrollIntoView({behavior:"smooth"});
+}
+
+buildCards();
+buildMatch();
+buildMC();
+buildFill();
+buildReveals();
+updateScore();
+document.getElementById("checkMatch").addEventListener("click",checkMatch);
+document.getElementById("finishBtn").addEventListener("click",finish);
+if(window.JacquelineKoreanAudio){
+  JacquelineKoreanAudio.wireLesson({playAllBtn:"#playAll",stopBtn:"#stopAudio",allFile:"day7-ALL-words.mp3"});
+}
+</script>
+</body>
+</html>
