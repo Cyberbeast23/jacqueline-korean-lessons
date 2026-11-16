@@ -14,3 +14,6 @@ Korean words: 한글, 한글날, 학교, 선생님, 학생, 친구, 책, 연필,
 
 ## Day 4 (2026-10-18): Travel & Getting Around Seoul
 Korean words: 여행, 지하철, 버스, 기차, 비행기, 역, 표, 어디예요?, 왼쪽, 오른쪽 (audio `audio/korean/day4-*.mp3`, gTTS Korean voice). Writing: problem-solution (Lost in Seoul).
+
+## Day 8 (2026-11-15): Daily Routines & Telling Time
+Korean words: 아침, 점심, 저녁, 일어나요, 자요, 시간, 시, 분, 매일, 몇 시예요? (audio `audio/korean/day8-*.mp3`, gTTS Korean voice). Writing: problem-solution (The Rushed Morning: choosing the best solution).

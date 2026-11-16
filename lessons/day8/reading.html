@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading Day 8: Mina Races the Clock</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.65;margin:0;background:#fef6f0;color:#1a2b2e}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#c62828}
+  h1{color:#b71c1c;font-size:2em;margin:10px 0}
+  h2{color:#c62828;margin-top:36px;border-bottom:3px solid #ffcdd2;padding-bottom:4px}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .passage{font-family:Georgia,"Times New Roman",serif;font-size:1.1em;line-height:1.8}
+  .passage h3{text-align:center;font-family:"Segoe UI",Verdana,sans-serif;color:#b71c1c;font-size:1.4em;margin:4px 0 14px}
+  .passage p{text-indent:1.5em;margin:0 0 14px}
+  mark.v{background:#fff59d;padding:0 3px;border-radius:4px;font-weight:bold}
+  .tipbox{background:#fff8e1;border-left:8px solid #ffb300}
+  .q{border-left:8px solid #bcaaa4}
+  .q.right{border-left-color:#43a047;background:#f1f8e9}
+  .q.wrong{border-left-color:#e53935;background:#fff5f5}
+  .tag{display:inline-block;font-size:.7em;background:#c62828;color:#fff;border-radius:8px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+  .opt{display:block;width:100%;text-align:left;font-size:.95em;background:#fafafa;border:2px solid #e0e0e0;border-radius:10px;padding:8px 14px;margin:8px 0;cursor:pointer;font-family:inherit}
+  .opt:hover{border-color:#ef9a9a;background:#fff}
+  .opt.sel-right{background:#c8e6c9;border-color:#43a047}
+  .opt.sel-wrong{background:#ffcdd2;border-color:#e53935}
+  .fb{margin-top:6px;font-weight:bold}
+  .fb.good{color:#2e7d32} .fb.bad{color:#c62828}
+  .explain{color:#3e2723;font-weight:normal}
+  select{font-size:.95em;padding:6px 8px;border-radius:8px;border:2px solid #ef9a9a;max-width:100%;font-family:inherit}
+  .vrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:8px 6px;border-bottom:1px dashed #eee}
+  .vrow .w{font-weight:bold;min-width:140px}
+  .vrow.right{background:#f1f8e9} .vrow.wrong{background:#fff5f5}
+  .mark{font-size:1.2em;min-width:30px}
+  button.main{font-size:1em;padding:10px 20px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#c62828;color:#fff;margin-top:10px}
+  button.main:hover{background:#b71c1c}
+  button.sec{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#ffe082;color:#5d4037}
+  textarea{width:100%;box-sizing:border-box;font-size:1em;font-family:inherit;padding:10px;border:2px solid #ef9a9a;border-radius:10px;min-height:120px}
+  #model{display:none;background:#ffebee;border-radius:10px;padding:10px 14px;margin-top:10px}
+  #scoreBox{position:sticky;bottom:0;background:#b71c1c;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #scoreBox button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#ffca28;color:#3e2723}
+  #final{display:none;text-align:center;border:4px solid #43a047;font-size:1.1em}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>📖 Reading Day 8: Mina Races the Clock</h1>
+
+<div class="box tipbox">
+  <strong>Before you read:</strong> Good readers dig for clues.
+  <ul>
+    <li><strong>Preview:</strong> Read the title. What do you expect the passage to cover?</li>
+    <li><strong>Pause:</strong> After each paragraph, say its main idea in one sentence.</li>
+    <li><strong>Words in <mark class="v">yellow</mark></strong> are vocabulary. Use context to figure out their meaning.</li>
+  </ul>
+</div>
+
+<div class="box passage" id="passage">
+<h3>Mina Races the Clock</h3>
+<p>In Seoul, the city wakes up before the sun. By six o'clock, delivery scooters are buzzing down the alleys, shop owners are rolling up their metal shutters, and the first subway trains are rumbling under the streets. Mina's alarm rings at 6:50. On a good day, she is out the door by 7:45. Lately, there had not been many good days.</p>
+<p>Mina's mornings had a pattern. She would turn off the alarm, close her eyes "for one minute," and wake up again at 7:15. Then the scramble began: hunting for a missing sock, packing her bag, gulping down a few bites of rice and soup while her grandmother shook her head. She would <mark class="v">dawdle</mark> in front of the mirror, then sprint to the station. Three times in two weeks, she watched the doors of the 7:58 train slide shut in front of her face. Three times, she slipped into class after the bell, cheeks burning.</p>
+<p>"You are not slow," her grandmother said one evening over dinner. "Your mornings are just crowded. You are trying to fit forty minutes of jobs into twenty minutes of time."</p>
+<p>That night, Grandma helped Mina make a plan. First, they wrote down every job Mina did in the morning and how long each one really took. Getting dressed: 10 minutes. Breakfast: 15 minutes. Washing up and brushing teeth: 10 minutes. Finding things: anywhere from 2 to 15 minutes! "There is your thief," Grandma said, tapping the last line. "The time isn't disappearing. It is being stolen by a missing sock."</p>
+<p>So they moved some jobs to the night before. Mina packed her bag after finishing her homework, laid her uniform on the chair, and set her shoes by the door. She put her alarm clock across the room, so she had to get out of bed to switch it off. Finally, she wrote her new <mark class="v">routine</mark> on a sticky note and stuck it to the bathroom mirror: <em>6:50 up, 7:00 wash, 7:10 dress, 7:20 breakfast, 7:40 shoes, 7:45 GO.</em></p>
+<p>The first morning was hard. The alarm buzzed across the room, and Mina groaned, stumbled over, and turned it off. But since she was already standing, she kept going. Her bag was waiting. Her sock was where she had left it. At 7:43, she was tying her shoes. At 7:52, she was standing on the platform with six minutes to spare, watching the arrival screen count down: 3 minutes, 2 minutes, 1 minute.</p>
+<p>By the end of the month, Mina had not been late once. Her <mark class="v">commute</mark> felt calmer, too. Instead of running, she had time to read a few pages of her book on the train. Her teacher noticed and called her the most <mark class="v">punctual</mark> student in the class, which made Mina laugh, because a month earlier she had been the least.</p>
+<p>One Sunday, Mina's little cousin complained that he was always late for his taekwondo class. Mina grabbed a sticky note and a pencil. "First," she said, "let's find your thief."</p>
+<p style="text-indent:0;font-size:.8em;color:#546e7a;text-align:right">About 500 words</p>
+</div>
+
+<h2>Part 1: Comprehension</h2>
+<p>Click the best answer. Only your <strong>first click</strong> counts toward your score, but you can keep trying to find the right answer.</p>
+<div id="mc"></div>
+
+<h2>Part 2: Think Deeper (not scored)</h2>
+<div class="box">
+  <p><strong>In 2 to 4 sentences, explain Mina's problem, what caused it, and two specific changes that solved it. Use details from the passage (for example: <em>the missing sock, packing the night before, the alarm across the room, the sticky note</em>).</strong></p>
+  <textarea id="openAns" placeholder="Write your answer here..."></textarea>
+  <p><button type="button" class="sec" id="showModel">Compare with a model answer</button></p>
+  <div id="model"><strong>Model answer:</strong> Mina kept missing the 7:58 train and arriving late to class because she snoozed her alarm and wasted time searching for things in the morning. Grandma helped her time each job and find the "thief": looking for lost items. Mina started packing her bag and laying out her uniform the night before, and she put her alarm across the room so she had to get up. With a written routine on the mirror, she reached the platform early and was never late that month.<br><em>Did you name the problem, the cause, AND at least two solutions with evidence? Strong work if so!</em></div>
+</div>
+
+<h2>Part 3: Vocabulary</h2>
+<div class="box">
+  <h3 style="margin-top:0">A. Match each word to its meaning</h3>
+  <p>Choose the meaning that fits how the word is used in the passage.</p>
+  <div id="vmatch"></div>
+  <h3>B. Fill in the blank</h3>
+  <p>Choose the vocabulary word that best completes each sentence.</p>
+  <div id="vfill"></div>
+  <button type="button" class="main" id="checkVocab">Check my vocabulary</button>
+  <div class="fb" id="vocabFb"></div>
+</div>
+
+<div class="box" id="final"></div>
+<div id="scoreBox">
+  <span id="scoreText"></span>
+  <button type="button" id="finishBtn">I'm done! Show my final score</button>
+</div>
+</div>
+
+<script>
+var MC = [
+ {q:"Which sentence best states the <strong>main idea</strong> of the passage?",
+  o:["Seoul's subway trains are always crowded.",
+     "By finding what was wasting her time and planning ahead, Mina fixes her rushed mornings and stops being late.",
+     "Grandmothers are better at waking up than children.",
+     "Mina's cousin should quit taekwondo."],
+  a:1, e:"Only this choice covers the problem (being late), the solution (finding the thief and planning), and the result."},
+ {q:"Which train did Mina keep missing?", tag:"Detail",
+  o:["The 6:50 train","The 7:45 train","The 7:58 train","The 8:40 train"],
+  a:2, e:"Paragraph 2: she watched the doors of the 7:58 train slide shut three times in two weeks."},
+ {q:"Grandma says, \"You are not slow. Your mornings are just crowded.\" What does she mean?", tag:"Inference",
+  o:["Mina has too many jobs squeezed into too little time","Mina's home has too many people in it","Mina should walk faster","The subway is too full"],
+  a:0, e:"She explains: forty minutes of jobs in twenty minutes of time."},
+ {q:"Grandma calls the lost-item hunting a \"thief.\" This is an example of:", tag:"Author's craft",
+  o:["A simile","A metaphor","A rhyme","A fact"],
+  a:1, e:"It says the search <em>is</em> a thief (no <em>like</em> or <em>as</em>), so it is a metaphor: it 'steals' Mina's time."},
+ {q:"What was the <strong>first</strong> step in Grandma's plan?", tag:"Sequence",
+  o:["Buying a new alarm clock","Leaving the house at 6:50","Asking the teacher for help","Writing down every morning job and how long it really took"],
+  a:3, e:"Paragraph 4: \"First, they wrote down every job Mina did in the morning and how long each one really took.\""},
+ {q:"Why did Mina put her alarm clock across the room?", tag:"Cause and effect",
+  o:["So she had to get out of bed to switch it off","It was too loud","Grandma wanted it","It didn't fit on the nightstand"],
+  a:0, e:"Paragraph 5: she had to get out of bed to switch it off, so she couldn't snooze."},
+ {q:"In paragraph 2, Mina would <strong>dawdle</strong> in front of the mirror. What does <em>dawdle</em> mean?", tag:"Vocabulary in context",
+  o:["To hurry","To waste time by moving slowly","To clean carefully","To sing loudly"],
+  a:1, e:"She dawdles, then has to sprint: the contrast tells you dawdling is slow and time-wasting."},
+ {q:"How much time did Mina have to spare on the platform on her first new morning?", tag:"Detail",
+  o:["One minute","Three minutes","Six minutes","Ten minutes"],
+  a:2, e:"Paragraph 6: she stood on the platform at 7:52 with six minutes to spare before the 7:58."},
+ {q:"Why did Mina laugh when her teacher called her the most punctual student?", tag:"Character",
+  o:["She didn't understand the word","She thought the teacher was joking about the subway","A month earlier she had been the least punctual","She was embarrassed about her book"],
+  a:2, e:"Paragraph 7: the change was so big that it seemed funny to her."},
+ {q:"What does the ending, \"First, let's find your thief,\" show about Mina?", tag:"Theme",
+  o:["She wants to become a police officer","She has learned a problem-solving method and can teach it to others","She thinks her cousin stole something","She is late again"],
+  a:1, e:"Mina now uses Grandma's method herself: find what wastes the time, then plan to fix it."}
+];
+
+var VOCAB = ["routine","commute","punctual","dawdle"];
+var DEFS = {
+ routine:"the usual order in which you do things every day",
+ commute:"the regular trip between home and school or work",
+ punctual:"arriving or doing something at the right time; not late",
+ dawdle:"to waste time by moving or acting slowly"
+};
+var FILL = [
+ {s:"Dad's ____ to the office takes 40 minutes by subway each way.", a:"commute"},
+ {s:"My bedtime ____ is shower, pyjamas, brush teeth, and read for ten minutes.", a:"routine"},
+ {s:"If you ____ on the way to the bus stop, you might miss the bus.", a:"dawdle"},
+ {s:"Our coach is always ____; practice starts at exactly 4:00, never 4:01.", a:"punctual"}
+];
+var FILL_OPTIONS = ["routine","commute","punctual","dawdle","strained","twinge"];
+
+var PRAISE=["Nice work!","Correct! Sharp reading!","Yes! You found the evidence!","Excellent thinking!","Right!"];
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function shuffled(arr,seed){var a=arr.slice(),s=seed;for(var i=a.length-1;i>0;i--){s=(s*9301+49297)%233280;var j=Math.floor(s/233280*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+var mcState=MC.map(function(){return {answered:false,firstRight:false,done:false};});
+var vocabScore=0, vocabChecked=false;
+var VOCAB_TOTAL=VOCAB.length+FILL.length;
+
+function buildMC(){
+  var box=document.getElementById("mc");
+  MC.forEach(function(item,i){
+    var d=document.createElement("div"); d.className="box q"; d.id="mc"+i;
+    var html="<div><strong>"+(i+1)+".</strong> "+item.q+(item.tag?'<span class="tag">'+item.tag+'</span>':"")+"</div>";
+    item.o.forEach(function(opt,j){ html+='<button type="button" class="opt" data-i="'+i+'" data-j="'+j+'">'+String.fromCharCode(65+j)+". "+opt+"</button>"; });
+    html+='<div class="fb" id="mcfb'+i+'"></div>';
+    d.innerHTML=html; box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".opt"):e.target; if(!b||!b.classList.contains("opt"))return;
+    answerMC(+b.getAttribute("data-i"),+b.getAttribute("data-j"),b);
+  });
+}
+function answerMC(i,j,btn){
+  var st=mcState[i], item=MC[i], fb=document.getElementById("mcfb"+i), card=document.getElementById("mc"+i);
+  if(st.done) return;
+  var right=(j===item.a);
+  if(!st.answered){ st.answered=true; st.firstRight=right; }
+  if(right){
+    st.done=true; btn.classList.add("sel-right"); card.className="box q right";
+    fb.className="fb good"; fb.innerHTML="✅ "+pick(PRAISE)+' <span class="explain">'+item.e+"</span>";
+  } else {
+    btn.classList.add("sel-wrong"); card.className="box q wrong";
+    fb.className="fb bad"; fb.innerHTML="❌ Not quite. Look back at the passage and try another answer.";
+  }
+  updateScore();
+}
+function buildVocab(){
+  var m=document.getElementById("vmatch");
+  var defOrder=shuffled(VOCAB,22);
+  VOCAB.forEach(function(w,i){
+    var row=document.createElement("div"); row.className="vrow"; row.id="vm"+i;
+    var sel='<select id="vsel'+i+'" aria-label="Meaning of '+w+'"><option value="">- choose a meaning -</option>';
+    defOrder.forEach(function(k){ sel+='<option value="'+k+'">'+DEFS[k]+'</option>'; });
+    sel+="</select>";
+    row.innerHTML='<span class="mark" id="vmk'+i+'"></span><span class="w">'+w+'</span>'+sel;
+    m.appendChild(row);
+  });
+  var f=document.getElementById("vfill");
+  FILL.forEach(function(item,i){
+    var row=document.createElement("div"); row.className="vrow"; row.id="vf"+i;
+    var sel='<select id="fsel'+i+'" aria-label="Blank '+(i+1)+'"><option value="">- choose -</option>';
+    FILL_OPTIONS.forEach(function(w){ sel+='<option value="'+w+'">'+w+'</option>'; });
+    sel+="</select>";
+    var parts=item.s.split("____");
+    row.innerHTML='<span class="mark" id="vfk'+i+'"></span><span>'+(i+1)+'. '+parts[0]+sel+parts[1]+'</span>';
+    f.appendChild(row);
+  });
+}
+function checkVocab(){
+  var score=0, blank=0;
+  VOCAB.forEach(function(w,i){
+    var v=document.getElementById("vsel"+i).value, ok=(v===w);
+    if(!v) blank++;
+    if(ok) score++;
+    document.getElementById("vm"+i).className="vrow "+(ok?"right":"wrong");
+    document.getElementById("vmk"+i).textContent=ok?"✅":"❌";
+  });
+  FILL.forEach(function(item,i){
+    var v=document.getElementById("fsel"+i).value, ok=(v===item.a);
+    if(!v) blank++;
+    if(ok) score++;
+    document.getElementById("vf"+i).className="vrow "+(ok?"right":"wrong");
+    document.getElementById("vfk"+i).textContent=ok?"✅":"❌";
+  });
+  vocabScore=score; vocabChecked=true;
+  var fb=document.getElementById("vocabFb");
+  if(score===VOCAB_TOTAL){ fb.className="fb good"; fb.textContent="🌟 "+score+" / "+VOCAB_TOTAL+". Perfect! Your time vocabulary is right on schedule!"; }
+  else { fb.className="fb bad"; fb.textContent=score+" / "+VOCAB_TOTAL+" correct"+(blank?" ("+blank+" left blank)":"")+". Fix the ❌ ones and check again."; }
+  updateScore();
+}
+function scores(){
+  var mc=0,answered=0; mcState.forEach(function(s){ if(s.firstRight) mc++; if(s.answered) answered++; });
+  return {mc:mc,answered:answered,vocab:vocabScore};
+}
+function updateScore(){
+  var s=scores();
+  document.getElementById("scoreText").textContent="Comprehension: "+s.mc+" / "+MC.length+" · Vocabulary: "+(vocabChecked?s.vocab:"-")+" / "+VOCAB_TOTAL;
+}
+function finish(){
+  if(!vocabChecked) checkVocab();
+  var s=scores(), total=MC.length+VOCAB_TOTAL, got=s.mc+s.vocab, pct=Math.round(100*got/total);
+  var msg = pct===100 ? "🏆 A perfect score! Outstanding reading!" :
+            pct>=80 ? "🌟 Fantastic work! You read carefully and used evidence." :
+            pct>=60 ? "💪 Solid effort! Reread the paragraphs for the questions you missed." :
+                      "🌱 Challenging passage. Read it once more, slowly, and try again.";
+  var f=document.getElementById("final"); f.style.display="block";
+  f.innerHTML="<h2 style='border:none;margin-top:0'>Final Score: "+got+" / "+total+" ("+pct+"%)</h2>"+
+    "<p>Comprehension (first tries): "+s.mc+" / "+MC.length+(s.answered<MC.length?" (you skipped "+(MC.length-s.answered)+")":"")+"<br>Vocabulary: "+s.vocab+" / "+VOCAB_TOTAL+"</p><p>"+msg+"</p>"+
+    "<p style='font-size:.85em;color:#546e7a'>Finished on "+new Date().toLocaleString("en-CA")+"</p>";
+  f.scrollIntoView({behavior:"smooth"});
+}
+buildMC(); buildVocab(); updateScore();
+document.getElementById("checkVocab").addEventListener("click",checkVocab);
+document.getElementById("finishBtn").addEventListener("click",finish);
+document.getElementById("showModel").addEventListener("click",function(){document.getElementById("model").style.display="block";});
+</script>
+</body>
+</html>

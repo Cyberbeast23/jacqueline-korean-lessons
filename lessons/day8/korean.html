@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Korean Day 8: Daily Routines &amp; Telling Time</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.6;margin:0;background:#fff5f5;color:#1d1a2a}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#c62828}
+  h1{color:#b71c1c;font-size:2em;margin:10px 0}
+  h2{color:#c62828;margin-top:36px;border-bottom:3px solid #ffcdd2;padding-bottom:4px}
+  h3{color:#c62828}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .tipbox{background:#fff8e1;border-left:8px solid #ffb300}
+  .char{font-size:2.2em;font-weight:bold;color:#b71c1c;line-height:1.2}
+  .rom{font-family:Consolas,"Courier New",monospace;background:#ffebee;padding:2px 8px;border-radius:8px;font-size:1.05em}
+  .card{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;align-items:center;border-left:8px solid #e53935;padding-left:14px}
+  .card .meta{grid-column:2}
+  .ex{margin-top:8px;background:#fff8f8;border-radius:10px;padding:8px 12px;font-size:.95em}
+  .q{border-left:8px solid #b0bec5}
+  .q.right{border-left-color:#43a047;background:#f1f8e9}
+  .q.wrong{border-left-color:#e53935;background:#fff5f5}
+  .opt{display:block;width:100%;text-align:left;font-size:.95em;background:#fafafa;border:2px solid #e0e0e0;border-radius:10px;padding:8px 14px;margin:8px 0;cursor:pointer;font-family:inherit}
+  .opt:hover{border-color:#ef9a9a;background:#fff}
+  .opt.sel-right{background:#c8e6c9;border-color:#43a047}
+  .opt.sel-wrong{background:#ffcdd2;border-color:#e53935}
+  .fb{margin-top:6px;font-weight:bold}
+  .fb.good{color:#2e7d32} .fb.bad{color:#c62828}
+  .explain{font-weight:normal;color:#b71c1c}
+  .vrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:8px 6px;border-bottom:1px dashed #eee}
+  .vrow .w{font-weight:bold;min-width:120px;font-size:1.3em}
+  .vrow.right{background:#f1f8e9} .vrow.wrong{background:#fff5f5}
+  select{font-size:.95em;padding:6px 8px;border-radius:8px;border:2px solid #ef9a9a;max-width:100%;font-family:inherit}
+  .mark{font-size:1.2em;min-width:30px}
+  button.main{font-size:1em;padding:10px 20px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#c62828;color:#fff;margin-top:10px}
+  button.main:hover{background:#b71c1c}
+  input[type=text]{font-size:1.05em;padding:8px 12px;border:2px solid #ef9a9a;border-radius:10px;width:240px;font-family:inherit}
+  button.check{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#c62828;color:#fff}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+  #scoreBox{position:sticky;bottom:0;background:#b71c1c;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #scoreBox button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#ffca28;color:#3e2723}
+  #final{display:none;text-align:center;border:4px solid #43a047;font-size:1.1em}
+  .tone{font-size:.85em;color:#c62828}
+  .reveal-box{margin-top:10px}
+  .reveal-btn{font-size:.95em;padding:8px 14px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#0047a0;color:#fff}
+  .reveal-ans{display:none;margin-top:8px;background:#e3f2fd;border-radius:10px;padding:10px 14px}
+
+  .audio-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:12px 0 4px}
+  button.speak,button.record,button.play-mine,button.play-model,button.audio-ctrl{
+    font-size:1.05em;padding:14px 18px;min-height:52px;min-width:52px;
+    border:none;border-radius:14px;cursor:pointer;font-weight:bold;font-family:inherit;
+    touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+  }
+  button.speak,button.play-model,button.audio-ctrl.hear{background:#c62828;color:#fff}
+  button.speak:hover,button.play-model:hover,button.audio-ctrl.hear:hover{background:#b71c1c}
+  button.speak.playing{background:#43a047}
+  button.record{background:#e53935;color:#fff}
+  button.record:hover{background:#c62828}
+  button.record.recording{background:#ffca28;color:#3e2723;animation:pulse 1s infinite}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+  button.play-mine{background:#00897b;color:#fff}
+  button.play-mine:hover{background:#00695c}
+  button.play-mine:disabled{opacity:.45;cursor:not-allowed}
+  button.audio-ctrl.stop{background:#546e7a;color:#fff}
+  button.audio-ctrl.stop:hover{background:#37474f}
+  .practice{margin-top:14px;padding-top:12px;border-top:2px dashed #ffcdd2}
+  .practice-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .rec-status{margin-top:8px;font-weight:bold;color:#c62828;font-size:.95em}
+  .rec-status.rec-on{color:#c62828}
+  .mic-msg{margin-top:8px;background:#fff3e0;border-left:6px solid #ef6c00;border-radius:10px;padding:10px 14px;font-size:.95em;color:#e65100}
+  .box[data-audio]{position:relative}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>🇰🇷 Korean Day 8: Daily Routines &amp; Telling Time</h1>
+<p>Welcome back, Jacqueline! This week we follow <strong>a day in the life in Seoul</strong>: <strong>하루 일과 (haru ilgwa, daily routine)</strong> and <strong>telling time</strong>. You'll learn <strong>10 new words</strong> with <strong>Hangul</strong>, <strong>Revised Romanization</strong>, English meaning, and listen-and-say practice for <em>every</em> word. By the end you can say when you get up and go to bed, name the three meals of the day, ask 몇 시예요? (what time is it?), and tell someone you're in a hurry. Example sentences reuse earlier words (밥, 가족, 공부해요, 김밥) so you keep them fresh.</p>
+
+<div class="box tipbox">
+  <strong>How to read Revised Romanization:</strong>
+  <ul>
+    <li>Letters approximate the sound in English. Korean does not use tone numbers like Cantonese.</li>
+    <li>Example: <span class="rom">jeonyeok</span> — roughly <em>juh-nyuhk</em>. <strong>eo</strong> is an open "uh" sound (like the u in <em>cup</em>), and the final <strong>k</strong> is barely released: your tongue just stops.</li>
+    <li>In <span class="rom">si</span> (시) and <span class="rom">sigan</span> (시간), the ㅅ before <strong>i</strong> sounds like "shee", so 시 is said almost like <em>she</em>. 시간 ≈ <em>shee-gan</em>.</li>
+    <li>Sound change: a final consonant slides into a following vowel. 아침 + 을 = <span class="rom">achimeul</span>; 일어나요 itself is 일 + 어 = <span class="rom">i-reo-na-yo</span> (the l turns into a soft r before a vowel); 몇 시 is said <span class="rom">myeot ssi</span> (the s gets a little stronger).</li>
+    <li><strong>Two number systems:</strong> hours use native Korean numbers (한 시, 두 시, 세 시, 네 시, 다섯 시…), but minutes use Sino-Korean numbers (오 분, 십 분, 삼십 분). 7:30 = 일곱 시 삼십 분 (ilgop si samsip bun), or simply 일곱 시 반 (half past seven).</li>
+    <li><strong>Listening tip:</strong> Tap <em>Hear model</em>, say the word out loud three times, then <em>Record</em> and compare.</li>
+  </ul>
+</div>
+
+<h2>Part 1: Learn Today's Words (all 10 have audio)</h2>
+<div class="box tipbox" style="background:#ffebee;border-left-color:#c62828"><strong>Listen &amp; practise:</strong> Tap <em>Hear model</em> to hear Korean (voice: Google TTS Korean). Then tap <em>Record</em>, say it out loud, and compare with <em>Play my try</em> + <em>Play model</em>. Recordings stay on this device only for this visit — nothing is uploaded.</div>
+<div class="audio-bar">
+  <button type="button" class="audio-ctrl hear" id="playAll">🔊 Play all words</button>
+  <button type="button" class="audio-ctrl stop" id="stopAudio">⏹️ Stop</button>
+  <span class="tone">Plays English then Korean for every word.</span>
+</div>
+<div id="cards"></div>
+
+<div class="box tipbox">
+  <strong>Culture tip:</strong> A school day in Seoul can be long! Many students eat a hot 점심 (lunch) together in the school cafeteria, then after school go to a <strong>학원 (hagwon)</strong>, an after-school academy for math, English, piano, or taekwondo, and may not get home until 저녁. Seoul's subway is famous for being on time, and the screens show exactly how many 분 until the next train. When Koreans greet each other at mealtimes they often ask <strong>밥 먹었어요? (bap meogeosseoyo?)</strong>: "Have you eaten?" It is a friendly way of saying "How are you?"
+</div>
+
+<h2>Part 2: Match the Meaning</h2>
+<div class="box">
+  <p>Match each Korean word to its English meaning.</p>
+  <div id="vmatch"></div>
+  <button type="button" class="main" id="checkMatch">Check my matching</button>
+  <div class="fb" id="matchFb"></div>
+</div>
+
+<h2>Part 3: What Would You Say?</h2>
+<p>Click the best Korean phrase for each situation. Only your <strong>first click</strong> counts toward your score.</p>
+<div id="mc"></div>
+
+<h2>Part 4: Type the Romanization</h2>
+<p>Look at the Hangul and type the Revised Romanization (lowercase is fine). Example: <span class="rom">achim</span></p>
+<div id="fill"></div>
+
+<h2>Part 5: Click-to-reveal (self-check)</h2>
+<div class="box" id="reveals"></div>
+
+<div class="box" id="final"></div>
+<div id="scoreBox">
+  <span id="scoreText"></span>
+  <button type="button" id="finishBtn">I'm done! Show my final score</button>
+</div>
+</div>
+
+<script src="../../audio/korean/player.js"></script>
+<script>
+var WORDS = [
+ {zh:"아침", jy:"achim", audio:"day8-01-achim-morning.mp3", en:"morning / breakfast",
+  ex_zh:"아침을 먹어요.", ex_jy:"Achimeul meogeoyo.", ex_en:"I eat breakfast."},
+ {zh:"점심", jy:"jeomsim", audio:"day8-02-jeomsim-lunch.mp3", en:"lunch / midday",
+  ex_zh:"점심에 김밥을 먹어요.", ex_jy:"Jeomsime gimbabeul meogeoyo.", ex_en:"I eat gimbap at lunch."},
+ {zh:"저녁", jy:"jeonyeok", audio:"day8-03-jeonyeok-evening.mp3", en:"evening / dinner",
+  ex_zh:"저녁에 가족하고 밥을 먹어요.", ex_jy:"Jeonyeoge gajokhago babeul meogeoyo.", ex_en:"In the evening I eat dinner with my family."},
+ {zh:"일어나요", jy:"ireonayo", audio:"day8-04-ireonayo-get-up.mp3", en:"to get up / wake up",
+  ex_zh:"일곱 시에 일어나요.", ex_jy:"Ilgop sie ireonayo.", ex_en:"I get up at seven o'clock."},
+ {zh:"자요", jy:"jayo", audio:"day8-05-jayo-sleep.mp3", en:"to sleep / go to bed",
+  ex_zh:"열 시에 자요.", ex_jy:"Yeol sie jayo.", ex_en:"I go to bed at ten o'clock."},
+ {zh:"시간", jy:"sigan", audio:"day8-06-sigan-time.mp3", en:"time / hour(s)",
+  ex_zh:"시간이 없어요!", ex_jy:"Sigani eopseoyo!", ex_en:"I don't have time! (I'm in a hurry!)"},
+ {zh:"시", jy:"si", audio:"day8-07-si-oclock.mp3", en:"o'clock",
+  ex_zh:"세 시예요.", ex_jy:"Se siyeyo.", ex_en:"It's three o'clock."},
+ {zh:"분", jy:"bun", audio:"day8-08-bun-minute.mp3", en:"minute(s)",
+  ex_zh:"십 분 기다려요.", ex_jy:"Sip bun gidaryeoyo.", ex_en:"I wait ten minutes."},
+ {zh:"매일", jy:"maeil", audio:"day8-09-maeil-every-day.mp3", en:"every day",
+  ex_zh:"매일 한국어를 공부해요.", ex_jy:"Maeil hangugeoreul gongbuhaeyo.", ex_en:"I study Korean every day."},
+ {zh:"몇 시예요?", jy:"myeot siyeyo?", audio:"day8-10-myeot-siyeyo-what-time.mp3", en:"what time is it?",
+  ex_zh:"지금 몇 시예요?", ex_jy:"Jigeum myeot siyeyo?", ex_en:"What time is it now?"}
+];
+
+var PRAISE=["Nice work!","정확해요! Correct!","Yes! Your Korean is sharp!","Excellent!","Right!"];
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function shuffled(arr,seed){var a=arr.slice(),s=seed;for(var i=a.length-1;i>0;i--){s=(s*9301+49297)%233280;var j=Math.floor(s/233280*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+function buildCards(){
+  var box=document.getElementById("cards");
+  WORDS.forEach(function(w,i){
+    var d=document.createElement("div"); d.className="box";
+    if(w.audio){ d.setAttribute("data-audio", w.audio); d.setAttribute("data-audio-label", w.zh+" "+w.jy); }
+    d.innerHTML='<div class="card">'+
+      '<div class="char">'+(i+1)+'. '+w.zh+'</div>'+
+      '<div class="meta"><div><span class="rom">'+w.jy+'</span> <span class="tone">← Hear model, then Record</span></div>'+
+      '<div><strong>'+w.en+'</strong></div></div></div>'+
+      '<div class="ex"><strong>Example:</strong> '+w.ex_zh+'<br><span class="rom">'+w.ex_jy+'</span><br><em>'+w.ex_en+'</em></div>'+
+      '<div class="practice"></div>';
+    box.appendChild(d);
+  });
+}
+
+var matchScore=0, matchChecked=false;
+function buildMatch(){
+  var m=document.getElementById("vmatch");
+  var order=shuffled(WORDS.map(function(w){return w.jy;}),12);
+  WORDS.forEach(function(w,i){
+    var row=document.createElement("div"); row.className="vrow"; row.id="vm"+i;
+    var sel='<select id="vsel'+i+'" aria-label="Meaning of '+w.zh+'"><option value="">- choose English -</option>';
+    order.forEach(function(jy){
+      var en=WORDS.find(function(x){return x.jy===jy;}).en;
+      sel+='<option value="'+jy+'">'+en+'</option>';
+    });
+    sel+='</select>';
+    row.innerHTML='<span class="mark" id="vmk'+i+'"></span><span class="w">'+w.zh+'</span><span class="rom">'+w.jy+'</span>'+sel;
+    m.appendChild(row);
+  });
+}
+function checkMatch(){
+  var score=0, blank=0;
+  WORDS.forEach(function(w,i){
+    var v=document.getElementById("vsel"+i).value, ok=(v===w.jy);
+    if(!v) blank++;
+    if(ok) score++;
+    document.getElementById("vm"+i).className="vrow "+(ok?"right":"wrong");
+    document.getElementById("vmk"+i).textContent=ok?"✅":"❌";
+  });
+  matchScore=score; matchChecked=true;
+  var fb=document.getElementById("matchFb");
+  if(score===WORDS.length){ fb.className="fb good"; fb.textContent="🌟 "+score+" / "+WORDS.length+". Perfect matching!"; }
+  else { fb.className="fb bad"; fb.textContent=score+" / "+WORDS.length+" correct"+(blank?" ("+blank+" blank)":"")+". Fix the ❌ ones and check again."; }
+  updateScore();
+}
+
+var MC = [
+ {q:"Your alarm rings and you jump out of bed. Which word means <strong>get up / wake up</strong>?",
+  o:["일어나요 ireonayo","자요 jayo","가요 gayo","사요 sayo"], a:0,
+  e:"일어나요 (ireonayo) = get up. 일곱 시에 일어나요 = I get up at seven."},
+ {q:"You want to ask a stranger the time politely. What do you say?",
+  o:["얼마예요?","어디예요?","몇 시예요?","괜찮아요?"], a:2,
+  e:"몇 시예요? (myeot siyeyo?) = What time is it? 얼마예요 asks the price and 어디예요 asks where."},
+ {q:"It's 12:30 and your stomach is rumbling at school. Which meal is it?",
+  o:["아침 achim","점심 jeomsim","저녁 jeonyeok","매일 maeil"], a:1,
+  e:"점심 (jeomsim) = lunch / midday. 점심에 김밥을 먹어요 = I eat gimbap at lunch."},
+ {q:"What does <strong>열 시에 자요</strong> mean?",
+  o:["I wake up at ten.","I go to bed at ten.","I eat at ten.","I wait ten minutes."], a:1,
+  e:"자요 (jayo) = sleep / go to bed. 열 시 = ten o'clock, 에 = at."},
+ {q:"Your bus leaves in 2 minutes and you're still eating. What do you shout?",
+  o:["시간이 없어요!","맛있어요!","사랑해요!","추워요!"], a:0,
+  e:"시간 (sigan) = time. 시간이 없어요! = I don't have time! (I'm in a hurry!)"},
+ {q:"Which word means <strong>every day</strong>?",
+  o:["아침 achim","시간 sigan","매일 maeil","저녁 jeonyeok"], a:2,
+  e:"매일 (maeil) = every day. 매일 한국어를 공부해요 = I study Korean every day."},
+ {q:"Korean uses <strong>native Korean numbers</strong> for hours. How do you say <strong>3 o'clock</strong>?",
+  o:["삼 시 sam si","세 시 se si","셋 분 set bun","삼 분 sam bun"], a:1,
+  e:"Hours use native numbers: 한 시 (1), 두 시 (2), 세 시 (3), 네 시 (4)… Minutes use Sino-Korean numbers: 삼 분 = 3 minutes."},
+ {q:"In <strong>십 분 기다려요</strong>, what does 분 (bun) mean?",
+  o:["hour","o'clock","minute(s)","morning"], a:2,
+  e:"분 (bun) = minute(s). 십 분 = ten minutes, 기다려요 = I wait."},
+ {q:"The sun is setting and your family sits down to eat together. Which word fits?",
+  o:["아침 achim","점심 jeomsim","저녁 jeonyeok","시 si"], a:2,
+  e:"저녁 (jeonyeok) = evening and also dinner, just like 아침 means both morning and breakfast."},
+ {q:"How would you say <strong>I eat breakfast</strong>?",
+  o:["저녁을 먹어요.","아침을 먹어요.","점심에 자요.","아침에 일어나요."], a:1,
+  e:"아침 = morning / breakfast, 을 먹어요 = eat. (아침에 일어나요 means I get up in the morning.)"}
+];
+
+var mcState=MC.map(function(){return{answered:false,firstRight:false,done:false};});
+function buildMC(){
+  var box=document.getElementById("mc");
+  MC.forEach(function(item,i){
+    var d=document.createElement("div"); d.className="box q"; d.id="mc"+i;
+    var html="<div><strong>"+(i+1)+".</strong> "+item.q+"</div>";
+    item.o.forEach(function(opt,j){ html+='<button type="button" class="opt" data-i="'+i+'" data-j="'+j+'">'+String.fromCharCode(65+j)+". "+opt+"</button>"; });
+    html+='<div class="fb" id="mcfb'+i+'"></div>';
+    d.innerHTML=html; box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".opt"):e.target; if(!b||!b.classList.contains("opt"))return;
+    var i=+b.getAttribute("data-i"), j=+b.getAttribute("data-j"), st=mcState[i], item=MC[i];
+    if(st.done) return;
+    var right=(j===item.a);
+    if(!st.answered){ st.answered=true; st.firstRight=right; }
+    var fb=document.getElementById("mcfb"+i), card=document.getElementById("mc"+i);
+    if(right){
+      st.done=true; b.classList.add("sel-right"); card.className="box q right";
+      fb.className="fb good"; fb.innerHTML="✅ "+pick(PRAISE)+' <span class="explain">'+item.e+"</span>";
+    } else {
+      b.classList.add("sel-wrong"); card.className="box q wrong";
+      fb.className="fb bad"; fb.innerHTML="❌ Not quite. Try again.";
+    }
+    updateScore();
+  });
+}
+
+var fillScore=0, fillChecked={};
+function buildFill(){
+  var box=document.getElementById("fill");
+  WORDS.forEach(function(w,i){
+    fillChecked[i]=false;
+    var d=document.createElement("div"); d.className="box q"; d.id="fq"+i;
+    d.innerHTML='<div><strong>'+(i+1)+'.</strong> <span class="char" style="font-size:1.6em">'+w.zh+'</span> → type romanization</div>'+
+      '<div class="row"><input type="text" id="fin'+i+'" autocomplete="off" spellcheck="false" aria-label="Romanization for '+w.zh+'">'+
+      '<button type="button" class="check" data-i="'+i+'">Check</button></div>'+
+      '<div class="fb" id="ffb'+i+'"></div>';
+    box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target; if(b.tagName!=="BUTTON"||!b.classList.contains("check"))return;
+    checkFill(+b.getAttribute("data-i"));
+  });
+  box.addEventListener("keydown",function(e){
+    if(e.key==="Enter"&&e.target.tagName==="INPUT"){ checkFill(+e.target.id.slice(3)); }
+  });
+}
+function checkFill(i){
+  var val=document.getElementById("fin"+i).value.trim().toLowerCase().replace(/[\s?.!]+/g,"");
+  var key=WORDS[i].jy.toLowerCase().replace(/[\s?.!]+/g,"");
+  var fb=document.getElementById("ffb"+i), card=document.getElementById("fq"+i);
+  if(!val){ fb.className="fb bad"; fb.textContent="Type the romanization first."; return; }
+  var ok=(val===key);
+  fillChecked[i]=ok;
+  if(ok){ card.className="box q right"; fb.className="fb good"; fb.textContent="✅ "+pick(PRAISE); }
+  else { card.className="box q wrong"; fb.className="fb bad"; fb.textContent="❌ Not quite. Hint: "+WORDS[i].jy; }
+  fillScore=Object.keys(fillChecked).filter(function(k){return fillChecked[k];}).length;
+  updateScore();
+}
+
+function buildReveals(){
+  var box=document.getElementById("reveals");
+  WORDS.forEach(function(w,i){
+    var d=document.createElement("div"); d.className="reveal-box";
+    d.innerHTML='<button type="button" class="reveal-btn" data-i="'+i+'">Reveal '+(i+1)+': '+w.en+' → ?</button>'+
+      '<div class="reveal-ans" id="rev'+i+'"><span class="char" style="font-size:1.5em">'+w.zh+'</span> · <span class="rom">'+w.jy+'</span> · '+w.en+'</div>';
+    box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".reveal-btn"):null; if(!b)return;
+    var el=document.getElementById("rev"+b.getAttribute("data-i"));
+    el.style.display = el.style.display==="block"?"none":"block";
+  });
+}
+
+function updateScore(){
+  var mc=0; mcState.forEach(function(s){ if(s.firstRight) mc++; });
+  document.getElementById("scoreText").textContent=
+    "Match: "+(matchChecked?matchScore:"-")+" / "+WORDS.length+
+    " · Situations: "+mc+" / "+MC.length+
+    " · Romanization: "+fillScore+" / "+WORDS.length;
+}
+function finish(){
+  if(!matchChecked) checkMatch();
+  var mc=0; mcState.forEach(function(s){ if(s.firstRight) mc++; });
+  var total=WORDS.length+MC.length+WORDS.length;
+  var got=matchScore+mc+fillScore;
+  var pct=Math.round(100*got/total);
+  var msg = pct===100 ? "🏆 Perfect! All 10 daily-routine and time words — listening, matching, and romanization — mastered! 매일 최고예요! (You're the best every day!) ⏰" :
+            pct>=80 ? "🌟 Fantastic work! Keep practising Hear model + Record for every word." :
+            pct>=60 ? "💪 Solid start. Revisit the cards and listen again." :
+                      "🌱 Take your time with Hear model on each word, then retry the quizzes.";
+  var f=document.getElementById("final"); f.style.display="block";
+  f.innerHTML="<h2 style='border:none;margin-top:0'>Final Score: "+got+" / "+total+" ("+pct+"%)</h2>"+
+    "<p>Matching: "+matchScore+" / "+WORDS.length+" · Situations: "+mc+" / "+MC.length+" · Romanization: "+fillScore+" / "+WORDS.length+"</p>"+
+    "<p><strong>Audio coverage:</strong> all "+WORDS.length+" vocabulary words have Hear model + Record / compare.</p>"+
+    "<p>"+msg+"</p>"+
+    "<p style='font-size:.85em;color:#546e7a'>Finished on "+new Date().toLocaleString("en-CA")+"</p>";
+  f.scrollIntoView({behavior:"smooth"});
+}
+
+buildCards();
+buildMatch();
+buildMC();
+buildFill();
+buildReveals();
+updateScore();
+document.getElementById("checkMatch").addEventListener("click",checkMatch);
+document.getElementById("finishBtn").addEventListener("click",finish);
+if(window.JacquelineKoreanAudio){
+  JacquelineKoreanAudio.wireLesson({playAllBtn:"#playAll",stopBtn:"#stopAudio",allFile:"day8-ALL-words.mp3"});
+}
+</script>
+</body>
+</html>

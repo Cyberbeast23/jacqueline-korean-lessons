@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Math Day 8: Time &amp; Schedule Math</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.6;margin:0;background:#fff5f0;color:#1d2a3a}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#c62828}
+  h1{color:#b71c1c;font-size:2em;margin:10px 0}
+  h2{color:#c62828;margin-top:36px;border-bottom:3px solid #ffcdd2;padding-bottom:4px}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .example{border-left:8px solid #ef6c00}
+  .example h3{margin:0 0 6px;color:#bf360c}
+  .step{margin:4px 0 4px 10px}
+  code,.mono{font-family:Consolas,"Courier New",monospace;background:#ffebee;padding:1px 6px;border-radius:5px}
+  .q{border-left:8px solid #90a4ae}
+  .q.right{border-left-color:#43a047;background:#f1f8e9}
+  .q.wrong{border-left-color:#e53935;background:#fff5f5}
+  .qnum{font-weight:bold;color:#b71c1c}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+  input[type=text]{font-size:1.05em;padding:8px 12px;border:2px solid #ef9a9a;border-radius:10px;width:190px}
+  input[type=text]:focus{outline:none;border-color:#c62828;box-shadow:0 0 0 3px #ffcdd2}
+  button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold}
+  .check{background:#c62828;color:#fff} .check:hover{background:#b71c1c}
+  .hint{background:#ffe082;color:#5d4037} .hint:hover{background:#ffd54f}
+  .sol{background:#90caf9;color:#0d47a1}
+  .unit{color:#546e7a}
+  .fb{margin-top:8px;font-weight:bold;min-height:1em}
+  .fb.good{color:#2e7d32} .fb.bad{color:#c62828}
+  .hints{margin-top:8px;color:#5d4037;background:#fff8e1;border-radius:10px;padding:0 12px}
+  .hints p{margin:6px 0;padding:6px 0}
+  .solution{margin-top:8px;background:#e3f2fd;border-radius:10px;padding:8px 12px;display:none}
+  #scoreBox{position:sticky;bottom:0;background:#b71c1c;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #scoreBox button{background:#ffca28;color:#3e2723}
+  #final{display:none;font-size:1.15em;text-align:center;border:4px solid #43a047}
+  .tipbox{background:#fff8e1;border-left:8px solid #ffb300}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>🧮 Math Day 8: Time &amp; Schedule Math</h1>
+<p>안녕하세요, Jacqueline! This week's theme is <strong>a day in the life in Seoul</strong>: waking up, catching the subway, school, 학원, dinner, and bed. Every one of those moments runs on a clock. You'll use <strong>elapsed time, 24-hour time, schedules and timetables, rates, fractions of a day, and the mean</strong> to plan a day like a Seoul commuter.</p>
+
+<h2>Part 1: Learn the Moves</h2>
+
+<div class="box tipbox">
+  <strong>The 4-Step Problem Solver:</strong>
+  <ol>
+    <li><strong>Read</strong>: What is the question actually asking? Underline times and units.</li>
+    <li><strong>Plan</strong>: Which operations, and in what order? Should you work in minutes?</li>
+    <li><strong>Solve</strong>: One step at a time; write each step down.</li>
+    <li><strong>Check</strong>: Is the answer reasonable? Did you answer the question asked (minutes or hours)?</li>
+  </ol>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 1: Elapsed time by "jumping" on a number line</h3>
+  <p>Min-jun leaves home at <strong>7:48 a.m.</strong> and arrives at school at <strong>8:25 a.m.</strong> How long is his trip?</p>
+  <p class="step">Jump to the next full hour: 7:48 → 8:00 is 12 min. Then 8:00 → 8:25 is 25 min. Total = 12 + 25 = <strong>37 minutes</strong>.</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 2: 24-hour time</h3>
+  <p>Korean timetables often use the <strong>24-hour clock</strong>. What is <strong>18:40</strong> in 12-hour time?</p>
+  <p class="step">For times after 12:59, subtract 12 from the hour: 18 − 12 = 6. So 18:40 = <strong>6:40 p.m.</strong> (저녁!).</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 3: Trains that come "every ___ minutes"</h3>
+  <p>A subway train leaves every <strong>6 minutes</strong>, starting at <strong>7:00</strong>. How many trains leave from 7:00 to 7:30, counting both?</p>
+  <p class="step">7:00, 7:06, 7:12, 7:18, 7:24, 7:30. That's 30 ÷ 6 = 5 gaps, so <strong>5 + 1 = 6 trains</strong> (always add one when you count both ends!).</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 4: Working backwards</h3>
+  <p>School starts at <strong>8:40</strong>. Getting ready takes <strong>35 min</strong> and the bus ride takes <strong>25 min</strong>. When is the latest Jacqueline can get up (일어나요)?</p>
+  <p class="step">Total time needed = 35 + 25 = 60 min = 1 hour. 8:40 − 1 hour = <strong>7:40 a.m.</strong></p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 5: Fraction of a day</h3>
+  <p>If you sleep (자요) <strong>9 hours</strong> a night, what fraction of a 24-hour day is that?</p>
+  <p class="step">9/24 = <strong>3/8</strong> (divide top and bottom by 3), which is 0.375 or 37.5% of the day.</p>
+</div>
+
+<h2>Part 2: The Challenge (12 problems)</h2>
+<p>Type your answer and press <strong>Check</strong> (or Enter). Negative numbers like <span class="mono">-6</span>, fractions like <span class="mono">3/4</span>, mixed numbers like <span class="mono">1 3/4</span>, or decimals like <span class="mono">1.75</span> are fine. Don't type the units. Stuck? Press <strong>Hint</strong>. After 2 tries, you can see a full solution.</p>
+
+<div id="questions"></div>
+<div class="box" id="final"></div>
+<div id="scoreBox">
+  <span id="scoreText">Score: 0 / 12 correct</span>
+  <button id="finishBtn" type="button">I'm done! Show my final score</button>
+</div>
+</div>
+
+<script>
+var NAME = "Jacqueline";
+var QUESTIONS = [
+ {t:"Jacqueline wakes up (일어나요) at <strong>6:55 a.m.</strong> and leaves for school at <strong>7:42 a.m.</strong> How many <strong>minutes</strong> does she have to get ready?", a:"47", u:"minutes",
+  h:["Jump to the next full hour first: 6:55 → 7:00.","5 minutes to 7:00, then 42 more minutes."],
+  s:"5 + 42 = 47 minutes."},
+ {t:"In Seoul, a Line 2 subway train arrives every <strong>4 minutes</strong>. The first one Min-jun can catch is at <strong>7:36</strong>. How many trains arrive from <strong>7:36 to 8:00</strong>, counting both?", a:"7", u:"trains",
+  h:["From 7:36 to 8:00 is 24 minutes.","24 ÷ 4 = 6 gaps. How many trains for 6 gaps?"],
+  s:"6 gaps + 1 = 7 trains (7:36, 7:40, 7:44, 7:48, 7:52, 7:56, 8:00)."},
+ {t:"The bus timetable says the bus leaves at <strong>16:25</strong> and arrives at the 학원 (after-school academy) at <strong>17:10</strong>. How many <strong>minutes</strong> is the ride?", a:"45", u:"minutes",
+  h:["16:25 → 17:00 is how many minutes?","35 minutes, then 10 more."],
+  s:"35 + 10 = 45 minutes."},
+ {t:"Write <strong>9:15 p.m.</strong> in 24-hour time, then type it <strong>without the colon</strong> (for example, 3:05 p.m. = 15:05 → type 1505).", a:"2115", u:"",
+  h:["For p.m. times (after noon), add 12 to the hour.","9 + 12 = 21."],
+  s:"9:15 p.m. = 21:15 → 2115."},
+ {t:"Jacqueline goes to bed (자요) at <strong>9:30 p.m.</strong> and gets up at <strong>6:45 a.m.</strong> How many <strong>hours</strong> did she sleep? (Give a decimal.)", a:"9.25", u:"hours",
+  h:["9:30 p.m. → midnight is 2 hours 30 minutes. Midnight → 6:45 a.m. is 6 hours 45 minutes.","2 h 30 min + 6 h 45 min = 9 h 15 min. Change 15 minutes into a fraction of an hour."],
+  s:"9 h 15 min = 9 + 15/60 = 9.25 hours."},
+ {t:"School starts at <strong>8:40 a.m.</strong> The walk to the station takes <strong>8 min</strong>, the subway takes <strong>22 min</strong>, and the walk from the station to school takes <strong>6 min</strong>. She wants to arrive <strong>10 minutes early</strong>. How many <strong>minutes after 7:00 a.m.</strong> is the latest she can leave home?", a:"54", u:"minutes after 7:00",
+  h:["Total travel = 8 + 22 + 6 = 36 min. She wants to arrive at 8:30.","8:30 − 36 min = 7:54. How many minutes after 7:00 is that?"],
+  s:"Arrive by 8:30, minus 36 min = 7:54 a.m. From 7:00 to 7:54 is 54 minutes."},
+ {t:"A 점심 (lunch) break at a Seoul school lasts <strong>50 minutes</strong>. Students spend <strong>2/5</strong> of it eating and the rest playing outside. How many <strong>minutes</strong> do they play?", a:"30", u:"minutes",
+  h:["Eating = 2/5 × 50 = 20 minutes.","Playing = 50 − 20."],
+  s:"50 − 20 = 30 minutes (that's 3/5 of the break)."},
+ {t:"A school day in Seoul has <strong>6 classes of 40 minutes</strong> each, with <strong>10-minute breaks</strong> between classes, plus a <strong>50-minute lunch</strong>. Classes start at <strong>8:40</strong>. How many <strong>minutes</strong> long is the whole school day, from the start of class 1 to the end of class 6?", a:"330", u:"minutes",
+  h:["Class time = 6 × 40 = 240 minutes. With 6 classes there are 5 gaps between them.","One gap is lunch (50 min) and the other 4 are breaks (4 × 10 = 40 min)."],
+  s:"240 + 40 + 50 = 330 minutes (5 h 30 min), so the day runs from 8:40 to 14:10."},
+ {t:"Over one school week, Jacqueline's trip home from 학원 took <strong>32, 28, 35, 30, and 25 minutes</strong>. What was the <strong>mean</strong> trip time?", a:"30", u:"minutes",
+  h:["Add the five times.","32 + 28 + 35 + 30 + 25 = 150. Divide by 5."],
+  s:"150 ÷ 5 = 30 minutes."},
+ {t:"Practising Korean for <strong>15 minutes 매일 (every day)</strong>, how many <strong>hours</strong> will Jacqueline practise in <strong>4 weeks</strong>?", a:"7", u:"hours",
+  h:["4 weeks = 28 days. 28 × 15 = ? minutes.","420 minutes ÷ 60 = ? hours."],
+  s:"28 × 15 = 420 minutes = 7 hours."},
+ {t:"A KTX train from Seoul to Busan leaves at <strong>17:35</strong> and the trip takes <strong>2 hours 38 minutes</strong>. Type the arrival time in 24-hour time <strong>without the colon</strong> (for example, 20:05 → 2005).", a:"2013", u:"",
+  h:["Add the hours first: 17:35 + 2 h = 19:35.","Now add 38 minutes: 19:35 + 25 min = 20:00, then 13 more."],
+  s:"19:35 + 38 min = 20:13 → 2013."},
+ {t:"Jacqueline sleeps <strong>9 hours</strong>, spends <strong>7 hours</strong> at school and 학원, and <strong>2 hours</strong> eating 아침, 점심 and 저녁. What <strong>percent</strong> of the 24-hour day is left for everything else? (Give a decimal if needed.)", a:"25", u:"%",
+  h:["Hours used = 9 + 7 + 2 = 18. Hours left = 24 − 18.","6 out of 24 = ? percent."],
+  s:"6 ÷ 24 = 0.25 = 25% of the day."}
+];
+
+var PRAISE = ["Nice work, Jacqueline!","Correct! 정확해요! ⏰","Yes!","Excellent. That was a solid puzzle!","Right on! 🎯","Brilliant thinking!","Spot on!"];
+var ENCOURAGE = ["Not quite. Check your steps and try again!","Close. Try again — maybe use a hint?","Hmm, not yet. Re-read the question carefully.","Keep going. Mistakes help your brain grow!"];
+
+function parseAnswer(str){
+  if(str===undefined||str===null) return NaN;
+  var s=String(str).trim().toLowerCase();
+  s=s.replace(/[\u2212\u2013]/g,"-");
+  s=s.replace(/(\d),(?=\d{3}(\D|$))/g,"$1");
+  s=s.replace(/[^0-9.\/\- ]/g," ").replace(/\s+/g," ").trim();
+  s=s.replace(/\s*\/\s*/g,"/");
+  var m;
+  if((m=s.match(/^(-?\d+) (\d+)\/(\d+)$/))){ var w=parseFloat(m[1]),n=parseFloat(m[2]),d=parseFloat(m[3]); if(d===0)return NaN; return w<0? w-n/d : w+n/d; }
+  if((m=s.match(/^(-?\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/))){ var d2=parseFloat(m[2]); if(d2===0)return NaN; return parseFloat(m[1])/d2; }
+  s=s.replace(/ /g,"");
+  if(/^-?(\d+\.?\d*|\.\d+)$/.test(s)) return parseFloat(s);
+  return NaN;
+}
+function isCorrect(input,key){
+  var a=parseAnswer(input), k=parseAnswer(key);
+  if(isNaN(a)) return false;
+  var isInt=Math.abs(k-Math.round(k))<1e-12;
+  var tol=isInt?1e-9:0.005;
+  return Math.abs(a-k)<=tol;
+}
+
+var state=[];
+function render(){
+  var box=document.getElementById("questions");
+  QUESTIONS.forEach(function(q,i){
+    state.push({correct:false,tries:0,hints:0});
+    var d=document.createElement("div");
+    d.className="box q"; d.id="q"+i;
+    d.innerHTML='<div><span class="qnum">'+(i+1)+'.</span> '+q.t+'</div>'+
+      '<div class="row"><input type="text" id="in'+i+'" aria-label="Answer to question '+(i+1)+'" autocomplete="off"> <span class="unit">'+q.u+'</span>'+
+      '<button type="button" class="check" data-i="'+i+'">Check</button>'+
+      '<button type="button" class="hint" data-i="'+i+'">Hint 💡</button>'+
+      '<button type="button" class="sol" data-i="'+i+'" style="display:none">Show solution</button></div>'+
+      '<div class="fb" id="fb'+i+'"></div><div class="hints" id="hints'+i+'"></div>'+
+      '<div class="solution" id="sol'+i+'"><strong>Solution:</strong> '+q.s+'</div>';
+    box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target; if(b.tagName!=="BUTTON")return;
+    var i=+b.getAttribute("data-i");
+    if(b.className==="check") check(i);
+    else if(b.className==="hint") hint(i);
+    else if(b.className==="sol") document.getElementById("sol"+i).style.display="block";
+  });
+  box.addEventListener("keydown",function(e){
+    if(e.key==="Enter"&&e.target.tagName==="INPUT"){ check(+e.target.id.slice(2)); }
+  });
+}
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)];}
+function check(i){
+  var val=document.getElementById("in"+i).value;
+  var fb=document.getElementById("fb"+i), card=document.getElementById("q"+i);
+  if(val.trim()===""){fb.className="fb bad";fb.textContent="Type an answer first!";return;}
+  if(isNaN(parseAnswer(val))){fb.className="fb bad";fb.textContent="I can't read that as a number. Try something like 42, 3.5, 3/4 or 1 3/4.";return;}
+  state[i].tries++;
+  if(isCorrect(val,QUESTIONS[i].a)){
+    state[i].correct=true; card.className="box q right"; fb.className="fb good";
+    fb.textContent="✅ "+pick(PRAISE)+(state[i].tries===1?" (first try!)":"");
+  } else {
+    state[i].correct=false; card.className="box q wrong"; fb.className="fb bad";
+    fb.textContent="❌ "+pick(ENCOURAGE);
+    if(state[i].tries>=2) card.querySelector(".sol").style.display="inline-block";
+  }
+  updateScore();
+}
+function hint(i){
+  var q=QUESTIONS[i], s=state[i], hb=document.getElementById("hints"+i);
+  if(s.hints<q.h.length){
+    var p=document.createElement("p"); p.textContent="💡 Hint "+(s.hints+1)+": "+q.h[s.hints]; hb.appendChild(p); s.hints++;
+  }
+  if(s.hints>=q.h.length) document.querySelector("#q"+i+" .hint").disabled=true;
+  updateScore();
+}
+function counts(){
+  var c=0,first=0,h=0;
+  state.forEach(function(s){ if(s.correct){c++; if(s.tries===1)first++;} h+=s.hints; });
+  return {correct:c,first:first,hints:h};
+}
+function updateScore(){
+  var k=counts();
+  document.getElementById("scoreText").textContent="Score: "+k.correct+" / "+QUESTIONS.length+" correct · hints used: "+k.hints;
+}
+function finish(){
+  var k=counts(), n=QUESTIONS.length, pct=Math.round(100*k.correct/n);
+  var msg;
+  if(pct===100) msg="🏆 PERFECT SCORE! You could run the Seoul subway timetable! 매일 최고예요! ⏰";
+  else if(pct>=85) msg="🌟 Outstanding! That's a strong Grade 6–8 performance.";
+  else if(pct>=65) msg="💪 Great effort! Review the ones you missed and try them again.";
+  else if(pct>=40) msg="👍 Good start. These problems are challenging — use the hints and solutions, then retry.";
+  else msg="🌱 Challenge problems take practice. Go through the worked examples and try again!";
+  var f=document.getElementById("final");
+  f.style.display="block";
+  f.innerHTML="<h2 style='border:none;margin-top:0'>Final Score: "+k.correct+" / "+n+" ("+pct+"%)</h2>"+
+    "<p>Correct on the first try: "+k.first+" · Hints used: "+k.hints+"</p><p>"+msg+"</p>"+
+    "<p style='font-size:.85em;color:#546e7a'>Finished on "+new Date().toLocaleString("en-CA")+"</p>";
+  f.scrollIntoView({behavior:"smooth"});
+}
+render();
+updateScore();
+document.getElementById("finishBtn").addEventListener("click",finish);
+</script>
+</body>
+</html>
