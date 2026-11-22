@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Korean Day 9: Animals &amp; the Zoo</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.6;margin:0;background:#fff5f5;color:#1d1a2a}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#c62828}
+  h1{color:#b71c1c;font-size:2em;margin:10px 0}
+  h2{color:#c62828;margin-top:36px;border-bottom:3px solid #ffcdd2;padding-bottom:4px}
+  h3{color:#c62828}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .tipbox{background:#fff8e1;border-left:8px solid #ffb300}
+  .char{font-size:2.2em;font-weight:bold;color:#b71c1c;line-height:1.2}
+  .rom{font-family:Consolas,"Courier New",monospace;background:#ffebee;padding:2px 8px;border-radius:8px;font-size:1.05em}
+  .card{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;align-items:center;border-left:8px solid #e53935;padding-left:14px}
+  .card .meta{grid-column:2}
+  .ex{margin-top:8px;background:#fff8f8;border-radius:10px;padding:8px 12px;font-size:.95em}
+  .q{border-left:8px solid #b0bec5}
+  .q.right{border-left-color:#43a047;background:#f1f8e9}
+  .q.wrong{border-left-color:#e53935;background:#fff5f5}
+  .opt{display:block;width:100%;text-align:left;font-size:.95em;background:#fafafa;border:2px solid #e0e0e0;border-radius:10px;padding:8px 14px;margin:8px 0;cursor:pointer;font-family:inherit}
+  .opt:hover{border-color:#ef9a9a;background:#fff}
+  .opt.sel-right{background:#c8e6c9;border-color:#43a047}
+  .opt.sel-wrong{background:#ffcdd2;border-color:#e53935}
+  .fb{margin-top:6px;font-weight:bold}
+  .fb.good{color:#2e7d32} .fb.bad{color:#c62828}
+  .explain{font-weight:normal;color:#b71c1c}
+  .vrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:8px 6px;border-bottom:1px dashed #eee}
+  .vrow .w{font-weight:bold;min-width:120px;font-size:1.3em}
+  .vrow.right{background:#f1f8e9} .vrow.wrong{background:#fff5f5}
+  select{font-size:.95em;padding:6px 8px;border-radius:8px;border:2px solid #ef9a9a;max-width:100%;font-family:inherit}
+  .mark{font-size:1.2em;min-width:30px}
+  button.main{font-size:1em;padding:10px 20px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#c62828;color:#fff;margin-top:10px}
+  button.main:hover{background:#b71c1c}
+  input[type=text]{font-size:1.05em;padding:8px 12px;border:2px solid #ef9a9a;border-radius:10px;width:240px;font-family:inherit}
+  button.check{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#c62828;color:#fff}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+  #scoreBox{position:sticky;bottom:0;background:#b71c1c;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #scoreBox button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#ffca28;color:#3e2723}
+  #final{display:none;text-align:center;border:4px solid #43a047;font-size:1.1em}
+  .tone{font-size:.85em;color:#c62828}
+  .reveal-box{margin-top:10px}
+  .reveal-btn{font-size:.95em;padding:8px 14px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#0047a0;color:#fff}
+  .reveal-ans{display:none;margin-top:8px;background:#e3f2fd;border-radius:10px;padding:10px 14px}
+
+  .audio-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:12px 0 4px}
+  button.speak,button.record,button.play-mine,button.play-model,button.audio-ctrl{
+    font-size:1.05em;padding:14px 18px;min-height:52px;min-width:52px;
+    border:none;border-radius:14px;cursor:pointer;font-weight:bold;font-family:inherit;
+    touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+  }
+  button.speak,button.play-model,button.audio-ctrl.hear{background:#c62828;color:#fff}
+  button.speak:hover,button.play-model:hover,button.audio-ctrl.hear:hover{background:#b71c1c}
+  button.speak.playing{background:#43a047}
+  button.record{background:#e53935;color:#fff}
+  button.record:hover{background:#c62828}
+  button.record.recording{background:#ffca28;color:#3e2723;animation:pulse 1s infinite}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+  button.play-mine{background:#00897b;color:#fff}
+  button.play-mine:hover{background:#00695c}
+  button.play-mine:disabled{opacity:.45;cursor:not-allowed}
+  button.audio-ctrl.stop{background:#546e7a;color:#fff}
+  button.audio-ctrl.stop:hover{background:#37474f}
+  .practice{margin-top:14px;padding-top:12px;border-top:2px dashed #ffcdd2}
+  .practice-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .rec-status{margin-top:8px;font-weight:bold;color:#c62828;font-size:.95em}
+  .rec-status.rec-on{color:#c62828}
+  .mic-msg{margin-top:8px;background:#fff3e0;border-left:6px solid #ef6c00;border-radius:10px;padding:10px 14px;font-size:.95em;color:#e65100}
+  .box[data-audio]{position:relative}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>🇰🇷 Korean Day 9: Animals &amp; the Zoo</h1>
+<p>Welcome back, Jacqueline! This week is all about <strong>동물 (dongmul, animals)</strong>: pets at home, animals at the 동물원 (zoo), and the famous animals of Korean stories. You'll learn <strong>10 new words</strong> with <strong>Hangul</strong>, <strong>Revised Romanization</strong>, English meaning, and listen-and-say practice for <em>every</em> word. By the end you can name eight animals, say you like animals, tell someone you're going to the zoo, and say 귀여워요! (so cute!). Example sentences reuse earlier words (자요, 아침, 겨울, 가족, 이름) so you keep them fresh.</p>
+
+<div class="box tipbox">
+  <strong>How to read Revised Romanization:</strong>
+  <ul>
+    <li>Letters approximate the sound in English. Korean does not use tone numbers like Cantonese.</li>
+    <li>Example: <span class="rom">gwiyeowoyo</span> — roughly <em>gwee-yuh-wuh-yo</em>. <strong>wi</strong> glides like the "wee" in <em>week</em>, and <strong>eo</strong> is the open "uh" sound you already know from 저녁.</li>
+    <li><strong>ㄲ</strong> in <span class="rom">tokki</span> (토끼) is a <em>tense</em> k: say it tight and sharp, with no puff of air, like the "k" in <em>sky</em>. Compare ㅋ (k with a big puff of air) in 카드.</li>
+    <li>Sound change: in 동물원, the final ㄹ slides into 원, so it is said <span class="rom">dong-mu-rwon</span> and Revised Romanization writes it <span class="rom">dongmurwon</span>. The same thing happens in 동물을 = <span class="rom">dongmureul</span>.</li>
+    <li><strong>Animal sounds are different in Korean!</strong> Dogs say 멍멍 (meongmeong), cats say 야옹 (yaong), and little birds say 짹짹 (jjaekjjaek). To ask what an animal is, say 이게 뭐예요? (ige mwoyeyo? what is this?).</li>
+    <li><strong>Listening tip:</strong> Tap <em>Hear model</em>, say the word out loud three times, then <em>Record</em> and compare.</li>
+  </ul>
+</div>
+
+<h2>Part 1: Learn Today's Words (all 10 have audio)</h2>
+<div class="box tipbox" style="background:#ffebee;border-left-color:#c62828"><strong>Listen &amp; practise:</strong> Tap <em>Hear model</em> to hear Korean (voice: Google TTS Korean). Then tap <em>Record</em>, say it out loud, and compare with <em>Play my try</em> + <em>Play model</em>. Recordings stay on this device only for this visit — nothing is uploaded.</div>
+<div class="audio-bar">
+  <button type="button" class="audio-ctrl hear" id="playAll">🔊 Play all words</button>
+  <button type="button" class="audio-ctrl stop" id="stopAudio">⏹️ Stop</button>
+  <span class="tone">Plays English then Korean for every word.</span>
+</div>
+<div id="cards"></div>
+
+<div class="box tipbox">
+  <strong>Culture tip:</strong> The <strong>호랑이 (tiger)</strong> is everywhere in Korean culture. Old folktales often begin <em>"Long, long ago, when tigers smoked pipes…"</em> (호랑이 담배 피우던 시절), the Korean way of saying "once upon a time," and the 2018 PyeongChang Winter Olympics mascot, <strong>Soohorang</strong>, was a white tiger. Korea is also proud of the <strong>진돗개 (Jindo dog)</strong> from Jindo Island, a national treasure famous for its loyalty (you'll meet one in this week's reading!). And the 곰 (bear) appears in Korea's founding legend of Dangun, in which a bear patiently becomes a woman.
+</div>
+
+<h2>Part 2: Match the Meaning</h2>
+<div class="box">
+  <p>Match each Korean word to its English meaning.</p>
+  <div id="vmatch"></div>
+  <button type="button" class="main" id="checkMatch">Check my matching</button>
+  <div class="fb" id="matchFb"></div>
+</div>
+
+<h2>Part 3: What Would You Say?</h2>
+<p>Click the best Korean phrase for each situation. Only your <strong>first click</strong> counts toward your score.</p>
+<div id="mc"></div>
+
+<h2>Part 4: Type the Romanization</h2>
+<p>Look at the Hangul and type the Revised Romanization (lowercase is fine). Example: <span class="rom">dongmul</span></p>
+<div id="fill"></div>
+
+<h2>Part 5: Click-to-reveal (self-check)</h2>
+<div class="box" id="reveals"></div>
+
+<div class="box" id="final"></div>
+<div id="scoreBox">
+  <span id="scoreText"></span>
+  <button type="button" id="finishBtn">I'm done! Show my final score</button>
+</div>
+</div>
+
+<script src="../../audio/korean/player.js"></script>
+<script>
+var WORDS = [
+ {zh:"동물", jy:"dongmul", audio:"day9-01-dongmul-animal.mp3", en:"animal",
+  ex_zh:"저는 동물을 좋아해요.", ex_jy:"Jeoneun dongmureul joahaeyo.", ex_en:"I like animals."},
+ {zh:"강아지", jy:"gangaji", audio:"day9-02-gangaji-puppy.mp3", en:"puppy / dog",
+  ex_zh:"우리 강아지 이름은 백구예요.", ex_jy:"Uri gangaji ireumeun Baekguyeyo.", ex_en:"Our puppy's name is Baekgu."},
+ {zh:"고양이", jy:"goyangi", audio:"day9-03-goyangi-cat.mp3", en:"cat",
+  ex_zh:"고양이가 소파에서 자요.", ex_jy:"Goyangiga sopaeseo jayo.", ex_en:"The cat is sleeping on the sofa."},
+ {zh:"새", jy:"sae", audio:"day9-04-sae-bird.mp3", en:"bird",
+  ex_zh:"아침에 새가 노래해요.", ex_jy:"Achime saega noraehaeyo.", ex_en:"Birds sing in the morning."},
+ {zh:"물고기", jy:"mulgogi", audio:"day9-05-mulgogi-fish.mp3", en:"fish (living)",
+  ex_zh:"물고기가 물에서 헤엄쳐요.", ex_jy:"Mulgogiga mureseo heeomchyeoyo.", ex_en:"The fish swims in the water."},
+ {zh:"토끼", jy:"tokki", audio:"day9-06-tokki-rabbit.mp3", en:"rabbit",
+  ex_zh:"토끼가 당근을 먹어요.", ex_jy:"Tokkiga danggeuneul meogeoyo.", ex_en:"The rabbit eats a carrot."},
+ {zh:"호랑이", jy:"horangi", audio:"day9-07-horangi-tiger.mp3", en:"tiger",
+  ex_zh:"호랑이는 정말 커요!", ex_jy:"Horangineun jeongmal keoyo!", ex_en:"Tigers are really big!"},
+ {zh:"곰", jy:"gom", audio:"day9-08-gom-bear.mp3", en:"bear",
+  ex_zh:"곰은 겨울에 오래 자요.", ex_jy:"Gomeun gyeoure orae jayo.", ex_en:"Bears sleep a long time in winter."},
+ {zh:"동물원", jy:"dongmurwon", audio:"day9-09-dongmurwon-zoo.mp3", en:"zoo",
+  ex_zh:"주말에 가족하고 동물원에 가요.", ex_jy:"Jumare gajokhago dongmurwone gayo.", ex_en:"On the weekend I go to the zoo with my family."},
+ {zh:"귀여워요", jy:"gwiyeowoyo", audio:"day9-10-gwiyeowoyo-cute.mp3", en:"cute (it's cute)",
+  ex_zh:"토끼가 정말 귀여워요!", ex_jy:"Tokkiga jeongmal gwiyeowoyo!", ex_en:"The rabbit is really cute!"}
+];
+
+var PRAISE=["Nice work!","정확해요! Correct!","Yes! Your Korean is sharp!","Excellent!","Right!"];
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function shuffled(arr,seed){var a=arr.slice(),s=seed;for(var i=a.length-1;i>0;i--){s=(s*9301+49297)%233280;var j=Math.floor(s/233280*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+function buildCards(){
+  var box=document.getElementById("cards");
+  WORDS.forEach(function(w,i){
+    var d=document.createElement("div"); d.className="box";
+    if(w.audio){ d.setAttribute("data-audio", w.audio); d.setAttribute("data-audio-label", w.zh+" "+w.jy); }
+    d.innerHTML='<div class="card">'+
+      '<div class="char">'+(i+1)+'. '+w.zh+'</div>'+
+      '<div class="meta"><div><span class="rom">'+w.jy+'</span> <span class="tone">← Hear model, then Record</span></div>'+
+      '<div><strong>'+w.en+'</strong></div></div></div>'+
+      '<div class="ex"><strong>Example:</strong> '+w.ex_zh+'<br><span class="rom">'+w.ex_jy+'</span><br><em>'+w.ex_en+'</em></div>'+
+      '<div class="practice"></div>';
+    box.appendChild(d);
+  });
+}
+
+var matchScore=0, matchChecked=false;
+function buildMatch(){
+  var m=document.getElementById("vmatch");
+  var order=shuffled(WORDS.map(function(w){return w.jy;}),12);
+  WORDS.forEach(function(w,i){
+    var row=document.createElement("div"); row.className="vrow"; row.id="vm"+i;
+    var sel='<select id="vsel'+i+'" aria-label="Meaning of '+w.zh+'"><option value="">- choose English -</option>';
+    order.forEach(function(jy){
+      var en=WORDS.find(function(x){return x.jy===jy;}).en;
+      sel+='<option value="'+jy+'">'+en+'</option>';
+    });
+    sel+='</select>';
+    row.innerHTML='<span class="mark" id="vmk'+i+'"></span><span class="w">'+w.zh+'</span><span class="rom">'+w.jy+'</span>'+sel;
+    m.appendChild(row);
+  });
+}
+function checkMatch(){
+  var score=0, blank=0;
+  WORDS.forEach(function(w,i){
+    var v=document.getElementById("vsel"+i).value, ok=(v===w.jy);
+    if(!v) blank++;
+    if(ok) score++;
+    document.getElementById("vm"+i).className="vrow "+(ok?"right":"wrong");
+    document.getElementById("vmk"+i).textContent=ok?"✅":"❌";
+  });
+  matchScore=score; matchChecked=true;
+  var fb=document.getElementById("matchFb");
+  if(score===WORDS.length){ fb.className="fb good"; fb.textContent="🌟 "+score+" / "+WORDS.length+". Perfect matching!"; }
+  else { fb.className="fb bad"; fb.textContent=score+" / "+WORDS.length+" correct"+(blank?" ("+blank+" blank)":"")+". Fix the ❌ ones and check again."; }
+  updateScore();
+}
+
+var MC = [
+ {q:"Your family is planning a weekend trip to see lions, penguins and elephants. Where are you going?",
+  o:["병원 byeongwon","동물원 dongmurwon","시장 sijang","학교 hakgyo"], a:1,
+  e:"동물원 (dongmurwon) = zoo. It is 동물 (animal) + 원 (garden/park): an \"animal garden\"!"},
+ {q:"A tiny, fluffy puppy wags its tail at you. What do you say?",
+  o:["너무 비싸요!","귀여워요!","추워요!","아파요!"], a:1,
+  e:"귀여워요 (gwiyeowoyo) = it's cute! 강아지가 정말 귀여워요!"},
+ {q:"Which animal is Korea's favourite in old folktales, and was the mascot of the 2018 PyeongChang Winter Olympics?",
+  o:["토끼 tokki","곰 gom","호랑이 horangi","고양이 goyangi"], a:2,
+  e:"호랑이 (horangi) = tiger. The 2018 mascot Soohorang (수호랑) was a white tiger."},
+ {q:"What does <strong>고양이가 소파에서 자요</strong> mean?",
+  o:["The dog is eating on the sofa.","The cat is sleeping on the sofa.","The bird sings in the morning.","The cat wakes up at seven."], a:1,
+  e:"고양이 (goyangi) = cat, 소파에서 = on the sofa, 자요 = sleeps (from Day 8!)."},
+ {q:"Which word means <strong>bird</strong>?",
+  o:["새 sae","곰 gom","물 mul","배 bae"], a:0,
+  e:"새 (sae) = bird. Careful: 물 is water and 배 is stomach (Day 7)."},
+ {q:"You're at an aquarium looking through the glass. Which word fits what's swimming by?",
+  o:["물고기 mulgogi","불고기 bulgogi","토끼 tokki","강아지 gangaji"], a:0,
+  e:"물고기 (mulgogi) = fish (a living fish): 물 (water) + 고기 (meat), so \"water meat\"! Don't mix it up with 불고기 (fire meat), the BBQ dish from Day 1."},
+ {q:"Which animal eats carrots and has long ears?",
+  o:["호랑이 horangi","새 sae","토끼 tokki","곰 gom"], a:2,
+  e:"토끼 (tokki) = rabbit. 토끼가 당근을 먹어요 = The rabbit eats a carrot."},
+ {q:"Which animal sleeps a long time in winter (곰은 겨울에 오래 자요)?",
+  o:["고양이 goyangi","곰 gom","물고기 mulgogi","새 sae"], a:1,
+  e:"곰 (gom) = bear. Bears hibernate through the 겨울 (winter, Day 6)."},
+ {q:"How would you say <strong>I like animals</strong>?",
+  o:["저는 동물을 좋아해요.","저는 동물원에 가요.","동물이 아파요.","동물 주세요."], a:0,
+  e:"동물 (dongmul) = animal, 을 좋아해요 = like. 동물원에 가요 means I go to the zoo."},
+ {q:"Korean dogs don't say \"woof.\" A Korean 강아지 says…",
+  o:["야옹 (yaong)","멍멍 (meongmeong)","꿀꿀 (kkulkkul)","짹짹 (jjaekjjaek)"], a:1,
+  e:"강아지 says 멍멍! Cats say 야옹, pigs say 꿀꿀, and little birds (새) say 짹짹."}
+];
+
+var mcState=MC.map(function(){return{answered:false,firstRight:false,done:false};});
+function buildMC(){
+  var box=document.getElementById("mc");
+  MC.forEach(function(item,i){
+    var d=document.createElement("div"); d.className="box q"; d.id="mc"+i;
+    var html="<div><strong>"+(i+1)+".</strong> "+item.q+"</div>";
+    item.o.forEach(function(opt,j){ html+='<button type="button" class="opt" data-i="'+i+'" data-j="'+j+'">'+String.fromCharCode(65+j)+". "+opt+"</button>"; });
+    html+='<div class="fb" id="mcfb'+i+'"></div>';
+    d.innerHTML=html; box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".opt"):e.target; if(!b||!b.classList.contains("opt"))return;
+    var i=+b.getAttribute("data-i"), j=+b.getAttribute("data-j"), st=mcState[i], item=MC[i];
+    if(st.done) return;
+    var right=(j===item.a);
+    if(!st.answered){ st.answered=true; st.firstRight=right; }
+    var fb=document.getElementById("mcfb"+i), card=document.getElementById("mc"+i);
+    if(right){
+      st.done=true; b.classList.add("sel-right"); card.className="box q right";
+      fb.className="fb good"; fb.innerHTML="✅ "+pick(PRAISE)+' <span class="explain">'+item.e+"</span>";
+    } else {
+      b.classList.add("sel-wrong"); card.className="box q wrong";
+      fb.className="fb bad"; fb.innerHTML="❌ Not quite. Try again.";
+    }
+    updateScore();
+  });
+}
+
+var fillScore=0, fillChecked={};
+function buildFill(){
+  var box=document.getElementById("fill");
+  WORDS.forEach(function(w,i){
+    fillChecked[i]=false;
+    var d=document.createElement("div"); d.className="box q"; d.id="fq"+i;
+    d.innerHTML='<div><strong>'+(i+1)+'.</strong> <span class="char" style="font-size:1.6em">'+w.zh+'</span> → type romanization</div>'+
+      '<div class="row"><input type="text" id="fin'+i+'" autocomplete="off" spellcheck="false" aria-label="Romanization for '+w.zh+'">'+
+      '<button type="button" class="check" data-i="'+i+'">Check</button></div>'+
+      '<div class="fb" id="ffb'+i+'"></div>';
+    box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target; if(b.tagName!=="BUTTON"||!b.classList.contains("check"))return;
+    checkFill(+b.getAttribute("data-i"));
+  });
+  box.addEventListener("keydown",function(e){
+    if(e.key==="Enter"&&e.target.tagName==="INPUT"){ checkFill(+e.target.id.slice(3)); }
+  });
+}
+function checkFill(i){
+  var val=document.getElementById("fin"+i).value.trim().toLowerCase().replace(/[\s?.!]+/g,"");
+  var key=WORDS[i].jy.toLowerCase().replace(/[\s?.!]+/g,"");
+  var fb=document.getElementById("ffb"+i), card=document.getElementById("fq"+i);
+  if(!val){ fb.className="fb bad"; fb.textContent="Type the romanization first."; return; }
+  var ok=(val===key);
+  fillChecked[i]=ok;
+  if(ok){ card.className="box q right"; fb.className="fb good"; fb.textContent="✅ "+pick(PRAISE); }
+  else { card.className="box q wrong"; fb.className="fb bad"; fb.textContent="❌ Not quite. Hint: "+WORDS[i].jy; }
+  fillScore=Object.keys(fillChecked).filter(function(k){return fillChecked[k];}).length;
+  updateScore();
+}
+
+function buildReveals(){
+  var box=document.getElementById("reveals");
+  WORDS.forEach(function(w,i){
+    var d=document.createElement("div"); d.className="reveal-box";
+    d.innerHTML='<button type="button" class="reveal-btn" data-i="'+i+'">Reveal '+(i+1)+': '+w.en+' → ?</button>'+
+      '<div class="reveal-ans" id="rev'+i+'"><span class="char" style="font-size:1.5em">'+w.zh+'</span> · <span class="rom">'+w.jy+'</span> · '+w.en+'</div>';
+    box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".reveal-btn"):null; if(!b)return;
+    var el=document.getElementById("rev"+b.getAttribute("data-i"));
+    el.style.display = el.style.display==="block"?"none":"block";
+  });
+}
+
+function updateScore(){
+  var mc=0; mcState.forEach(function(s){ if(s.firstRight) mc++; });
+  document.getElementById("scoreText").textContent=
+    "Match: "+(matchChecked?matchScore:"-")+" / "+WORDS.length+
+    " · Situations: "+mc+" / "+MC.length+
+    " · Romanization: "+fillScore+" / "+WORDS.length;
+}
+function finish(){
+  if(!matchChecked) checkMatch();
+  var mc=0; mcState.forEach(function(s){ if(s.firstRight) mc++; });
+  var total=WORDS.length+MC.length+WORDS.length;
+  var got=matchScore+mc+fillScore;
+  var pct=Math.round(100*got/total);
+  var msg = pct===100 ? "🏆 Perfect! All 10 animal words — listening, matching, and romanization — mastered! 정말 귀여워요… and really smart! 🐯" :
+            pct>=80 ? "🌟 Fantastic work! Keep practising Hear model + Record for every word." :
+            pct>=60 ? "💪 Solid start. Revisit the cards and listen again." :
+                      "🌱 Take your time with Hear model on each word, then retry the quizzes.";
+  var f=document.getElementById("final"); f.style.display="block";
+  f.innerHTML="<h2 style='border:none;margin-top:0'>Final Score: "+got+" / "+total+" ("+pct+"%)</h2>"+
+    "<p>Matching: "+matchScore+" / "+WORDS.length+" · Situations: "+mc+" / "+MC.length+" · Romanization: "+fillScore+" / "+WORDS.length+"</p>"+
+    "<p><strong>Audio coverage:</strong> all "+WORDS.length+" vocabulary words have Hear model + Record / compare.</p>"+
+    "<p>"+msg+"</p>"+
+    "<p style='font-size:.85em;color:#546e7a'>Finished on "+new Date().toLocaleString("en-CA")+"</p>";
+  f.scrollIntoView({behavior:"smooth"});
+}
+
+buildCards();
+buildMatch();
+buildMC();
+buildFill();
+buildReveals();
+updateScore();
+document.getElementById("checkMatch").addEventListener("click",checkMatch);
+document.getElementById("finishBtn").addEventListener("click",finish);
+if(window.JacquelineKoreanAudio){
+  JacquelineKoreanAudio.wireLesson({playAllBtn:"#playAll",stopBtn:"#stopAudio",allFile:"day9-ALL-words.mp3"});
+}
+</script>
+</body>
+</html>

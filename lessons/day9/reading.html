@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading Day 9: Baekgu Comes Home</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.65;margin:0;background:#fef6f0;color:#1a2b2e}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#c62828}
+  h1{color:#b71c1c;font-size:2em;margin:10px 0}
+  h2{color:#c62828;margin-top:36px;border-bottom:3px solid #ffcdd2;padding-bottom:4px}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .passage{font-family:Georgia,"Times New Roman",serif;font-size:1.1em;line-height:1.8}
+  .passage h3{text-align:center;font-family:"Segoe UI",Verdana,sans-serif;color:#b71c1c;font-size:1.4em;margin:4px 0 14px}
+  .passage p{text-indent:1.5em;margin:0 0 14px}
+  mark.v{background:#fff59d;padding:0 3px;border-radius:4px;font-weight:bold}
+  .tipbox{background:#fff8e1;border-left:8px solid #ffb300}
+  .q{border-left:8px solid #bcaaa4}
+  .q.right{border-left-color:#43a047;background:#f1f8e9}
+  .q.wrong{border-left-color:#e53935;background:#fff5f5}
+  .tag{display:inline-block;font-size:.7em;background:#c62828;color:#fff;border-radius:8px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+  .opt{display:block;width:100%;text-align:left;font-size:.95em;background:#fafafa;border:2px solid #e0e0e0;border-radius:10px;padding:8px 14px;margin:8px 0;cursor:pointer;font-family:inherit}
+  .opt:hover{border-color:#ef9a9a;background:#fff}
+  .opt.sel-right{background:#c8e6c9;border-color:#43a047}
+  .opt.sel-wrong{background:#ffcdd2;border-color:#e53935}
+  .fb{margin-top:6px;font-weight:bold}
+  .fb.good{color:#2e7d32} .fb.bad{color:#c62828}
+  .explain{color:#3e2723;font-weight:normal}
+  select{font-size:.95em;padding:6px 8px;border-radius:8px;border:2px solid #ef9a9a;max-width:100%;font-family:inherit}
+  .vrow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:8px 6px;border-bottom:1px dashed #eee}
+  .vrow .w{font-weight:bold;min-width:140px}
+  .vrow.right{background:#f1f8e9} .vrow.wrong{background:#fff5f5}
+  .mark{font-size:1.2em;min-width:30px}
+  button.main{font-size:1em;padding:10px 20px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#c62828;color:#fff;margin-top:10px}
+  button.main:hover{background:#b71c1c}
+  button.sec{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#ffe082;color:#5d4037}
+  textarea{width:100%;box-sizing:border-box;font-size:1em;font-family:inherit;padding:10px;border:2px solid #ef9a9a;border-radius:10px;min-height:120px}
+  #model{display:none;background:#ffebee;border-radius:10px;padding:10px 14px;margin-top:10px}
+  #scoreBox{position:sticky;bottom:0;background:#b71c1c;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #scoreBox button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold;background:#ffca28;color:#3e2723}
+  #final{display:none;text-align:center;border:4px solid #43a047;font-size:1.1em}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>📖 Reading Day 9: Baekgu Comes Home</h1>
+
+<div class="box tipbox">
+  <strong>Before you read:</strong> Good readers dig for clues.
+  <ul>
+    <li><strong>Preview:</strong> Read the title. What do you expect the passage to cover?</li>
+    <li><strong>Pause:</strong> After each paragraph, say its main idea in one sentence.</li>
+    <li><strong>Words in <mark class="v">yellow</mark></strong> are vocabulary. Use context to figure out their meaning.</li>
+  </ul>
+</div>
+
+<div class="box passage" id="passage">
+<h3>Baekgu Comes Home</h3>
+<p style="text-indent:0;font-size:.85em;color:#546e7a"><em>Based on a famous true story from South Korea.</em></p>
+<p>Off the southwest tip of Korea lies Jindo Island, a place of green hills, rice fields, and a very special kind of dog. The Jindo dog is medium-sized, with pointed ears, a curled tail, and a thick coat that is often pure white. Koreans love these dogs for their courage and, above all, for being <mark class="v">loyal</mark>. There is an old saying on the island: "Once your master, always your master."</p>
+<p>In the spring of 1993, a white Jindo dog named Baekgu (백구, "white dog") lived with an elderly grandmother in a small village on the island. Baekgu had been born in that house. She knew every path to the fields and every stone wall in the village. But the family needed money, and in March they made a hard decision. Baekgu was sold to a new owner in Daejeon, a busy city about 300 kilometres to the north.</p>
+<p>Daejeon was nothing like Jindo. Instead of sea wind and fields, there were car horns, concrete, and crowds of strangers. Baekgu would not settle. One day, she slipped away from her new home and vanished. Her new owner searched the streets, but she was gone.</p>
+<p>No one knows exactly which way Baekgu travelled. Three hundred kilometres is a long way for a dog: there were mountains to climb, rivers to cross, busy roads to dodge, and towns full of unfamiliar smells. She had no map and no one to guide her. Scientists think dogs like Baekgu may use a powerful homing <mark class="v">instinct</mark>, helped by their amazing sense of smell, to sense the direction of home. Whatever guided her, she kept going, week after week, through the summer heat and the first cool winds of autumn.</p>
+<p>Seven months later, on a night in October, the grandmother heard a faint scratching at her gate. When she opened it, she could hardly believe her eyes. There stood Baekgu, but she looked terrible. Her white fur was matted and grey with dirt, her ribs showed through her skin, and her paws were sore. She was <mark class="v">haggard</mark> and exhausted, yet her tail was wagging.</p>
+<p>The grandmother wrapped her arms around her dog and cried. It was a tearful <mark class="v">reunion</mark>. The family decided right then that Baekgu would stay with them for good. This time, they promised, they would never let her go.</p>
+<p>The story spread across Korea. Newspapers and TV stations told it, and it later became cartoons, a documentary, and a children's book. Baekgu lived happily with her family for about seven more years. Today, a statue of a white dog stands in her village, which people now call the "Village of the Dog Who Came Back."</p>
+<p>When visitors stand in front of the statue, many of them ask the same question: what would make an animal walk 300 kilometres? The villagers have a simple answer. Baekgu wasn't looking for a place. She was looking for her family.</p>
+<p style="text-indent:0;font-size:.8em;color:#546e7a;text-align:right">About 500 words</p>
+</div>
+
+<h2>Part 1: Comprehension</h2>
+<p>Click the best answer. Only your <strong>first click</strong> counts toward your score, but you can keep trying to find the right answer.</p>
+<div id="mc"></div>
+
+<h2>Part 2: Think Deeper (not scored)</h2>
+<div class="box">
+  <p><strong>In 2 to 4 sentences, explain what the villagers mean when they say, "Baekgu wasn't looking for a place. She was looking for her family." Use at least two details from the passage as evidence (for example: <em>Daejeon felt strange, the 300 km journey, the wagging tail, the tearful reunion</em>).</strong></p>
+  <textarea id="openAns" placeholder="Write your answer here..."></textarea>
+  <p><button type="button" class="sec" id="showModel">Compare with a model answer</button></p>
+  <div id="model"><strong>Model answer:</strong> The villagers mean that Baekgu didn't return because she missed Jindo Island itself but because she loved the grandmother and her family. In Daejeon she had a new home, yet she still would not settle and ran away. She then struggled for seven months across mountains and rivers, and even though she arrived haggard and starving, her tail was wagging when she saw the grandmother. Her loyalty to her family, not to a place, is what kept her going.<br><em>Did you explain the meaning AND support it with at least two details? Strong work if so!</em></div>
+</div>
+
+<h2>Part 3: Vocabulary</h2>
+<div class="box">
+  <h3 style="margin-top:0">A. Match each word to its meaning</h3>
+  <p>Choose the meaning that fits how the word is used in the passage.</p>
+  <div id="vmatch"></div>
+  <h3>B. Fill in the blank</h3>
+  <p>Choose the vocabulary word that best completes each sentence.</p>
+  <div id="vfill"></div>
+  <button type="button" class="main" id="checkVocab">Check my vocabulary</button>
+  <div class="fb" id="vocabFb"></div>
+</div>
+
+<div class="box" id="final"></div>
+<div id="scoreBox">
+  <span id="scoreText"></span>
+  <button type="button" id="finishBtn">I'm done! Show my final score</button>
+</div>
+</div>
+
+<script>
+var MC = [
+ {q:"Which sentence best states the <strong>main idea</strong> of the passage?",
+  o:["Daejeon is a busy city with many cars.",
+     "A loyal Jindo dog travelled about 300 km over seven months to return to the family she loved.",
+     "Jindo dogs have curled tails and pointed ears.",
+     "Selling a dog is always a bad idea."],
+  a:1, e:"Only this choice sums up the whole story: who (Baekgu), what (the long journey home), and why (loyalty to her family)."},
+ {q:"Why was Baekgu sold to a new owner?", tag:"Detail",
+  o:["She kept running away","The family needed money","She bit someone","The grandmother moved to Daejeon"],
+  a:1, e:"Paragraph 2: \"the family needed money, and in March they made a hard decision.\""},
+ {q:"In paragraph 3, the author contrasts Daejeon with Jindo. Why?", tag:"Author's craft",
+  o:["To show Daejeon is a better place to live","To explain why Baekgu felt out of place and would not settle","To teach geography","To describe the new owner's house"],
+  a:1, e:"Car horns, concrete and strangers vs. sea wind and fields: the contrast helps us understand why Baekgu wanted to leave."},
+ {q:"In paragraph 5, Baekgu is described as <strong>haggard</strong>. Which details help you understand that word?", tag:"Vocabulary in context",
+  o:["Her tail was wagging","Her fur was matted, her ribs showed, and her paws were sore","She scratched at the gate","She was born in that house"],
+  a:1, e:"Haggard means looking very tired, thin and worn out, which matches the matted fur, showing ribs and sore paws."},
+ {q:"How long did Baekgu's journey take?", tag:"Detail",
+  o:["Seven days","Seven weeks","Seven months","Seven years"],
+  a:2, e:"Paragraph 5: \"Seven months later, on a night in October…\" (She was sold in March.)"},
+ {q:"According to the passage, what might have helped Baekgu find her way?", tag:"Detail",
+  o:["A map her owner drew","Following the bus route","A homing instinct and her powerful sense of smell","Other dogs leading her"],
+  a:2, e:"Paragraph 4: scientists think a homing instinct, helped by smell, may guide dogs like Baekgu."},
+ {q:"Why does the author list \"mountains to climb, rivers to cross, busy roads to dodge\"?", tag:"Author's craft",
+  o:["To show how dangerous and difficult the journey was","To describe Jindo Island","To explain where Daejeon is","To make the story funnier"],
+  a:0, e:"Listing obstacles makes the reader feel how hard 300 km would be for a dog alone."},
+ {q:"Why did the grandmother cry when she opened the gate?", tag:"Inference",
+  o:["She was frightened by a stranger","She was overjoyed to see Baekgu alive, yet sad to see how much she had suffered","She was angry that Baekgu ran away","She had hurt her hand on the gate"],
+  a:1, e:"She \"could hardly believe her eyes\" and hugged her dog: happy tears mixed with sorrow at how thin and sore Baekgu was."},
+ {q:"Which event happened <strong>last</strong>?", tag:"Sequence",
+  o:["Baekgu slipped away from her new home","A statue was built in her village","The grandmother heard scratching at the gate","Baekgu was sold in March"],
+  a:1, e:"The statue came years later, after the story spread across Korea."},
+ {q:"Which saying best matches the <strong>theme</strong> of the story?", tag:"Theme",
+  o:["\"The early bird catches the worm.\"","\"Once your master, always your master.\"","\"Don't count your chickens before they hatch.\"","\"Practice makes perfect.\""],
+  a:1, e:"The island saying from paragraph 1 is the story's message: true loyalty lasts, no matter the distance."}
+];
+
+var VOCAB = ["loyal","instinct","haggard","reunion"];
+var DEFS = {
+ loyal:"faithful; staying true to someone, even when it is hard",
+ instinct:"a natural ability or behaviour an animal is born with, not taught",
+ haggard:"looking very tired, thin, and worn out",
+ reunion:"a meeting of people (or animals) who have been apart for a long time"
+};
+var FILL = [
+ {s:"After three nights without sleep, the hikers looked ____ and pale.", a:"haggard"},
+ {s:"Baby sea turtles crawl toward the ocean by ____; no one teaches them.", a:"instinct"},
+ {s:"Our family ____ at Chuseok brought together cousins from three cities.", a:"reunion"},
+ {s:"A ____ friend sticks with you even when things go wrong.", a:"loyal"}
+];
+var FILL_OPTIONS = ["loyal","instinct","haggard","reunion","punctual","commute"];
+
+var PRAISE=["Nice work!","Correct! Sharp reading!","Yes! You found the evidence!","Excellent thinking!","Right!"];
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function shuffled(arr,seed){var a=arr.slice(),s=seed;for(var i=a.length-1;i>0;i--){s=(s*9301+49297)%233280;var j=Math.floor(s/233280*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+var mcState=MC.map(function(){return {answered:false,firstRight:false,done:false};});
+var vocabScore=0, vocabChecked=false;
+var VOCAB_TOTAL=VOCAB.length+FILL.length;
+
+function buildMC(){
+  var box=document.getElementById("mc");
+  MC.forEach(function(item,i){
+    var d=document.createElement("div"); d.className="box q"; d.id="mc"+i;
+    var html="<div><strong>"+(i+1)+".</strong> "+item.q+(item.tag?'<span class="tag">'+item.tag+'</span>':"")+"</div>";
+    item.o.forEach(function(opt,j){ html+='<button type="button" class="opt" data-i="'+i+'" data-j="'+j+'">'+String.fromCharCode(65+j)+". "+opt+"</button>"; });
+    html+='<div class="fb" id="mcfb'+i+'"></div>';
+    d.innerHTML=html; box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target.closest?e.target.closest(".opt"):e.target; if(!b||!b.classList.contains("opt"))return;
+    answerMC(+b.getAttribute("data-i"),+b.getAttribute("data-j"),b);
+  });
+}
+function answerMC(i,j,btn){
+  var st=mcState[i], item=MC[i], fb=document.getElementById("mcfb"+i), card=document.getElementById("mc"+i);
+  if(st.done) return;
+  var right=(j===item.a);
+  if(!st.answered){ st.answered=true; st.firstRight=right; }
+  if(right){
+    st.done=true; btn.classList.add("sel-right"); card.className="box q right";
+    fb.className="fb good"; fb.innerHTML="✅ "+pick(PRAISE)+' <span class="explain">'+item.e+"</span>";
+  } else {
+    btn.classList.add("sel-wrong"); card.className="box q wrong";
+    fb.className="fb bad"; fb.innerHTML="❌ Not quite. Look back at the passage and try another answer.";
+  }
+  updateScore();
+}
+function buildVocab(){
+  var m=document.getElementById("vmatch");
+  var defOrder=shuffled(VOCAB,22);
+  VOCAB.forEach(function(w,i){
+    var row=document.createElement("div"); row.className="vrow"; row.id="vm"+i;
+    var sel='<select id="vsel'+i+'" aria-label="Meaning of '+w+'"><option value="">- choose a meaning -</option>';
+    defOrder.forEach(function(k){ sel+='<option value="'+k+'">'+DEFS[k]+'</option>'; });
+    sel+="</select>";
+    row.innerHTML='<span class="mark" id="vmk'+i+'"></span><span class="w">'+w+'</span>'+sel;
+    m.appendChild(row);
+  });
+  var f=document.getElementById("vfill");
+  FILL.forEach(function(item,i){
+    var row=document.createElement("div"); row.className="vrow"; row.id="vf"+i;
+    var sel='<select id="fsel'+i+'" aria-label="Blank '+(i+1)+'"><option value="">- choose -</option>';
+    FILL_OPTIONS.forEach(function(w){ sel+='<option value="'+w+'">'+w+'</option>'; });
+    sel+="</select>";
+    var parts=item.s.split("____");
+    row.innerHTML='<span class="mark" id="vfk'+i+'"></span><span>'+(i+1)+'. '+parts[0]+sel+parts[1]+'</span>';
+    f.appendChild(row);
+  });
+}
+function checkVocab(){
+  var score=0, blank=0;
+  VOCAB.forEach(function(w,i){
+    var v=document.getElementById("vsel"+i).value, ok=(v===w);
+    if(!v) blank++;
+    if(ok) score++;
+    document.getElementById("vm"+i).className="vrow "+(ok?"right":"wrong");
+    document.getElementById("vmk"+i).textContent=ok?"✅":"❌";
+  });
+  FILL.forEach(function(item,i){
+    var v=document.getElementById("fsel"+i).value, ok=(v===item.a);
+    if(!v) blank++;
+    if(ok) score++;
+    document.getElementById("vf"+i).className="vrow "+(ok?"right":"wrong");
+    document.getElementById("vfk"+i).textContent=ok?"✅":"❌";
+  });
+  vocabScore=score; vocabChecked=true;
+  var fb=document.getElementById("vocabFb");
+  if(score===VOCAB_TOTAL){ fb.className="fb good"; fb.textContent="🌟 "+score+" / "+VOCAB_TOTAL+". Perfect! Your animal-story vocabulary is as loyal as Baekgu!"; }
+  else { fb.className="fb bad"; fb.textContent=score+" / "+VOCAB_TOTAL+" correct"+(blank?" ("+blank+" left blank)":"")+". Fix the ❌ ones and check again."; }
+  updateScore();
+}
+function scores(){
+  var mc=0,answered=0; mcState.forEach(function(s){ if(s.firstRight) mc++; if(s.answered) answered++; });
+  return {mc:mc,answered:answered,vocab:vocabScore};
+}
+function updateScore(){
+  var s=scores();
+  document.getElementById("scoreText").textContent="Comprehension: "+s.mc+" / "+MC.length+" · Vocabulary: "+(vocabChecked?s.vocab:"-")+" / "+VOCAB_TOTAL;
+}
+function finish(){
+  if(!vocabChecked) checkVocab();
+  var s=scores(), total=MC.length+VOCAB_TOTAL, got=s.mc+s.vocab, pct=Math.round(100*got/total);
+  var msg = pct===100 ? "🏆 A perfect score! Outstanding reading!" :
+            pct>=80 ? "🌟 Fantastic work! You read carefully and used evidence." :
+            pct>=60 ? "💪 Solid effort! Reread the paragraphs for the questions you missed." :
+                      "🌱 Challenging passage. Read it once more, slowly, and try again.";
+  var f=document.getElementById("final"); f.style.display="block";
+  f.innerHTML="<h2 style='border:none;margin-top:0'>Final Score: "+got+" / "+total+" ("+pct+"%)</h2>"+
+    "<p>Comprehension (first tries): "+s.mc+" / "+MC.length+(s.answered<MC.length?" (you skipped "+(MC.length-s.answered)+")":"")+"<br>Vocabulary: "+s.vocab+" / "+VOCAB_TOTAL+"</p><p>"+msg+"</p>"+
+    "<p style='font-size:.85em;color:#546e7a'>Finished on "+new Date().toLocaleString("en-CA")+"</p>";
+  f.scrollIntoView({behavior:"smooth"});
+}
+buildMC(); buildVocab(); updateScore();
+document.getElementById("checkVocab").addEventListener("click",checkVocab);
+document.getElementById("finishBtn").addEventListener("click",finish);
+document.getElementById("showModel").addEventListener("click",function(){document.getElementById("model").style.display="block";});
+</script>
+</body>
+</html>

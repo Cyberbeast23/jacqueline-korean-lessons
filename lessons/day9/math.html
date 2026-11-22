@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Math Day 9: Zookeeper Math</title>
+<style>
+  body{font-family:"Segoe UI",Verdana,Arial,sans-serif;font-size:20px;line-height:1.6;margin:0;background:#fff5f0;color:#1d2a3a}
+  .wrap{max-width:880px;margin:0 auto;padding:20px 18px 80px}
+  a.home{font-size:.9em;color:#c62828}
+  h1{color:#b71c1c;font-size:2em;margin:10px 0}
+  h2{color:#c62828;margin-top:36px;border-bottom:3px solid #ffcdd2;padding-bottom:4px}
+  .box{background:#fff;border-radius:16px;padding:18px 22px;margin:16px 0;box-shadow:0 3px 10px rgba(0,0,0,.07)}
+  .example{border-left:8px solid #ef6c00}
+  .example h3{margin:0 0 6px;color:#bf360c}
+  .step{margin:4px 0 4px 10px}
+  code,.mono{font-family:Consolas,"Courier New",monospace;background:#ffebee;padding:1px 6px;border-radius:5px}
+  .q{border-left:8px solid #90a4ae}
+  .q.right{border-left-color:#43a047;background:#f1f8e9}
+  .q.wrong{border-left-color:#e53935;background:#fff5f5}
+  .qnum{font-weight:bold;color:#b71c1c}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+  input[type=text]{font-size:1.05em;padding:8px 12px;border:2px solid #ef9a9a;border-radius:10px;width:190px}
+  input[type=text]:focus{outline:none;border-color:#c62828;box-shadow:0 0 0 3px #ffcdd2}
+  button{font-size:.95em;padding:8px 16px;border:none;border-radius:10px;cursor:pointer;font-weight:bold}
+  .check{background:#c62828;color:#fff} .check:hover{background:#b71c1c}
+  .hint{background:#ffe082;color:#5d4037} .hint:hover{background:#ffd54f}
+  .sol{background:#90caf9;color:#0d47a1}
+  .unit{color:#546e7a}
+  .fb{margin-top:8px;font-weight:bold;min-height:1em}
+  .fb.good{color:#2e7d32} .fb.bad{color:#c62828}
+  .hints{margin-top:8px;color:#5d4037;background:#fff8e1;border-radius:10px;padding:0 12px}
+  .hints p{margin:6px 0;padding:6px 0}
+  .solution{margin-top:8px;background:#e3f2fd;border-radius:10px;padding:8px 12px;display:none}
+  #scoreBox{position:sticky;bottom:0;background:#b71c1c;color:#fff;border-radius:16px 16px 0 0;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+  #scoreBox button{background:#ffca28;color:#3e2723}
+  #final{display:none;font-size:1.15em;text-align:center;border:4px solid #43a047}
+  .tipbox{background:#fff8e1;border-left:8px solid #ffb300}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="home" href="../../index.html">&larr; Back to all lessons</a>
+<h1>🧮 Math Day 9: Zookeeper Math</h1>
+<p>안녕하세요, Jacqueline! This week's theme is <strong>동물 (animals)</strong>. Today you're an assistant zookeeper at a 동물원 (zoo) in Seoul: feeding the 호랑이, measuring the 토끼 pen, filling the 물고기 tank, and tracking a famous Jindo dog's journey. You'll use <strong>rates, unit conversion, perimeter and area, volume, ratios, percent, and the mean</strong>, just like real zookeepers do every day.</p>
+
+<h2>Part 1: Learn the Moves</h2>
+
+<div class="box tipbox">
+  <strong>The 4-Step Problem Solver:</strong>
+  <ol>
+    <li><strong>Read</strong>: What is the question actually asking? Underline the numbers and the units.</li>
+    <li><strong>Plan</strong>: Which operations, and in what order? Do the units match (kg or g, cm or m)?</li>
+    <li><strong>Solve</strong>: One step at a time; write each step down.</li>
+    <li><strong>Check</strong>: Is the answer reasonable? A rabbit doesn't eat 40 kg a day!</li>
+  </ol>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 1: Rates (per day → per week)</h3>
+  <p>A 곰 (bear) eats <strong>12 kg</strong> of food a day. How much does it eat in <strong>one week</strong>?</p>
+  <p class="step">Rate × time: 12 kg/day × 7 days = <strong>84 kg</strong> per week.</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 2: Perimeter vs. area</h3>
+  <p>A 토끼 (rabbit) pen is a rectangle <strong>6 m</strong> long and <strong>4 m</strong> wide. How much fence goes around it, and how much ground is inside?</p>
+  <p class="step">Perimeter (fence) = 2 × (6 + 4) = <strong>20 m</strong>. Area (ground) = 6 × 4 = <strong>24 m²</strong>. Fence = around the edge; area = the space inside.</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 3: Volume and litres</h3>
+  <p>A 물고기 (fish) tank is <strong>50 cm × 30 cm × 40 cm</strong>. How many litres of water does it hold when full?</p>
+  <p class="step">Volume = 50 × 30 × 40 = 60 000 cm³. Since <strong>1 L = 1000 cm³</strong>, that's 60 000 ÷ 1000 = <strong>60 L</strong>.</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 4: Ratios</h3>
+  <p>The zoo's birdhouse has 새 (birds) in a ratio of <strong>parrots : finches = 2 : 5</strong>. There are <strong>35</strong> birds in all. How many are parrots?</p>
+  <p class="step">2 + 5 = 7 parts. 35 ÷ 7 = 5 birds per part. Parrots = 2 × 5 = <strong>10</strong>.</p>
+</div>
+
+<div class="box example">
+  <h3>Worked Example 5: Percent of a number</h3>
+  <p>A 호랑이 (tiger) weighs <strong>200 kg</strong>. It eats about <strong>4%</strong> of its body weight in meat on a feeding day. How much is that?</p>
+  <p class="step">4% = 0.04. 0.04 × 200 = <strong>8 kg</strong> of meat.</p>
+</div>
+
+<h2>Part 2: The Challenge (12 problems)</h2>
+<p>Type your answer and press <strong>Check</strong> (or Enter). Negative numbers like <span class="mono">-6</span>, fractions like <span class="mono">3/4</span>, mixed numbers like <span class="mono">1 3/4</span>, or decimals like <span class="mono">1.75</span> are fine. Don't type the units. Stuck? Press <strong>Hint</strong>. After 2 tries, you can see a full solution.</p>
+
+<div id="questions"></div>
+<div class="box" id="final"></div>
+<div id="scoreBox">
+  <span id="scoreText">Score: 0 / 12 correct</span>
+  <button id="finishBtn" type="button">I'm done! Show my final score</button>
+</div>
+</div>
+
+<script>
+var NAME = "Jacqueline";
+var QUESTIONS = [
+ {t:"The zoo's Siberian 호랑이 (tiger) eats <strong>9 kg</strong> of meat on each feeding day. Tigers at this zoo are fed <strong>5 days a week</strong> and fast for 2. How many <strong>kg</strong> does the tiger eat in <strong>4 weeks</strong>?", a:"180", u:"kg",
+  h:["First find one week: 9 kg × 5 feeding days.","45 kg per week × 4 weeks."],
+  s:"9 × 5 = 45 kg per week; 45 × 4 = 180 kg."},
+ {t:"A pet 토끼 (rabbit) eats <strong>150 g</strong> of fresh vegetables a day. How many <strong>kilograms</strong> is that in <strong>30 days</strong>? (Give a decimal.)", a:"4.5", u:"kg",
+  h:["150 g × 30 days = ? grams.","1 kg = 1000 g, so divide by 1000."],
+  s:"150 × 30 = 4500 g = 4.5 kg."},
+ {t:"A rectangular 토끼 pen is <strong>8.5 m</strong> long and <strong>6 m</strong> wide. How many <strong>metres of fence</strong> are needed to go all the way around it?", a:"29", u:"m",
+  h:["Perimeter of a rectangle = 2 × (length + width).","2 × (8.5 + 6) = 2 × 14.5."],
+  s:"2 × 14.5 = 29 m of fence."},
+ {t:"The zookeepers double the length of the 8.5 m × 6 m pen from the last question but keep the width the same. How many <strong>square metres</strong> of ground do the rabbits have now?", a:"102", u:"m²",
+  h:["New length = 2 × 8.5 = 17 m.","Area = length × width = 17 × 6."],
+  s:"17 × 6 = 102 m² (double the old area of 51 m²)."},
+ {t:"A 물고기 (fish) tank is <strong>120 cm</strong> long, <strong>50 cm</strong> wide and <strong>60 cm</strong> tall. It is filled to <strong>5 cm below the top</strong>. How many <strong>litres</strong> of water are in it? (1 L = 1000 cm³)", a:"330", u:"L",
+  h:["The water is only 60 − 5 = 55 cm deep.","120 × 50 × 55 = ? cm³, then divide by 1000."],
+  s:"120 × 50 × 55 = 330 000 cm³ = 330 L."},
+ {t:"In the zoo's petting barn, the ratio of 강아지 (puppies) to 토끼 (rabbits) to 고양이 (cats) is <strong>3 : 4 : 2</strong>. There are <strong>27</strong> animals in all. How many are <strong>rabbits</strong>?", a:"12", u:"rabbits",
+  h:["3 + 4 + 2 = 9 parts in total.","27 ÷ 9 = 3 animals per part. Rabbits have 4 parts."],
+  s:"4 × 3 = 12 rabbits (9 puppies, 6 cats)."},
+ {t:"Last year <strong>1 250 000</strong> people visited the 동물원. This year attendance went up by <strong>8%</strong>. How many people visited <strong>this year</strong>?", a:"1350000", u:"visitors",
+  h:["8% of 1 250 000 = 0.08 × 1 250 000.","That's the increase. Add it to last year's number."],
+  s:"0.08 × 1 250 000 = 100 000; 1 250 000 + 100 000 = 1 350 000 visitors."},
+ {t:"Over five days, a mother 곰 (bear) ate <strong>14, 11, 16, 9 and 15 kg</strong> of fish and fruit. What was the <strong>mean</strong> amount per day?", a:"13", u:"kg",
+  h:["Add the five amounts.","14 + 11 + 16 + 9 + 15 = 65. Divide by 5."],
+  s:"65 ÷ 5 = 13 kg per day."},
+ {t:"In 1993, a Jindo dog named Baekgu walked home about <strong>300 km</strong> from Daejeon to Jindo Island. Suppose the trip took <strong>7 months</strong> (about <strong>210 days</strong>). On average, how many <strong>kilometres per day</strong> is that? (Round to the nearest tenth.)", a:"1.4", u:"km per day",
+  h:["Average rate = distance ÷ time.","300 ÷ 210 = 1.428… Round to one decimal place."],
+  s:"300 ÷ 210 ≈ 1.43, which rounds to 1.4 km per day: a slow, careful journey with lots of searching!"},
+ {t:"A cheetah can sprint at about <strong>108 km/h</strong>. How many <strong>metres per second</strong> is that?", a:"30", u:"m/s",
+  h:["108 km = 108 000 m, and 1 hour = 3600 seconds.","108 000 ÷ 3600 = ?"],
+  s:"108 000 ÷ 3600 = 30 m/s (a shortcut: divide km/h by 3.6)."},
+ {t:"A zoo 새 (bird) show has <strong>48</strong> seats. On Saturday, <strong>3/4</strong> of the seats are filled for the first show, and <strong>5/6</strong> for the second. How many people watched <strong>in total</strong>?", a:"76", u:"people",
+  h:["3/4 of 48 = 36. 5/6 of 48 = ?","48 ÷ 6 × 5 = 40. Add the two shows."],
+  s:"36 + 40 = 76 people."},
+ {t:"A family pass to the 동물원 costs <strong>₩48 000</strong> for 4 people. Single tickets cost <strong>₩15 000</strong> each. What <strong>percent</strong> does a family of 4 save by buying the pass? (Give a decimal if needed.)", a:"20", u:"%",
+  h:["4 single tickets = 4 × ₩15 000 = ₩60 000. Savings = ₩60 000 − ₩48 000.","₩12 000 out of ₩60 000 = ? percent."],
+  s:"12 000 ÷ 60 000 = 0.2 = 20% saved."}
+];
+
+var PRAISE = ["Nice work, Jacqueline!","Correct! 정확해요! 🐯","Yes!","Excellent. That was a solid puzzle!","Right on! 🎯","Brilliant thinking!","Spot on!"];
+var ENCOURAGE = ["Not quite. Check your steps and try again!","Close. Try again — maybe use a hint?","Hmm, not yet. Re-read the question carefully.","Keep going. Mistakes help your brain grow!"];
+
+function parseAnswer(str){
+  if(str===undefined||str===null) return NaN;
+  var s=String(str).trim().toLowerCase();
+  s=s.replace(/[\u2212\u2013]/g,"-");
+  s=s.replace(/(\d),(?=\d{3}(\D|$))/g,"$1");
+  s=s.replace(/[^0-9.\/\- ]/g," ").replace(/\s+/g," ").trim();
+  s=s.replace(/\s*\/\s*/g,"/");
+  var m;
+  if((m=s.match(/^(-?\d+) (\d+)\/(\d+)$/))){ var w=parseFloat(m[1]),n=parseFloat(m[2]),d=parseFloat(m[3]); if(d===0)return NaN; return w<0? w-n/d : w+n/d; }
+  if((m=s.match(/^(-?\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/))){ var d2=parseFloat(m[2]); if(d2===0)return NaN; return parseFloat(m[1])/d2; }
+  s=s.replace(/ /g,"");
+  if(/^-?(\d+\.?\d*|\.\d+)$/.test(s)) return parseFloat(s);
+  return NaN;
+}
+function isCorrect(input,key){
+  var a=parseAnswer(input), k=parseAnswer(key);
+  if(isNaN(a)) return false;
+  var isInt=Math.abs(k-Math.round(k))<1e-12;
+  var tol=isInt?1e-9:0.005;
+  return Math.abs(a-k)<=tol;
+}
+
+var state=[];
+function render(){
+  var box=document.getElementById("questions");
+  QUESTIONS.forEach(function(q,i){
+    state.push({correct:false,tries:0,hints:0});
+    var d=document.createElement("div");
+    d.className="box q"; d.id="q"+i;
+    d.innerHTML='<div><span class="qnum">'+(i+1)+'.</span> '+q.t+'</div>'+
+      '<div class="row"><input type="text" id="in'+i+'" aria-label="Answer to question '+(i+1)+'" autocomplete="off"> <span class="unit">'+q.u+'</span>'+
+      '<button type="button" class="check" data-i="'+i+'">Check</button>'+
+      '<button type="button" class="hint" data-i="'+i+'">Hint 💡</button>'+
+      '<button type="button" class="sol" data-i="'+i+'" style="display:none">Show solution</button></div>'+
+      '<div class="fb" id="fb'+i+'"></div><div class="hints" id="hints'+i+'"></div>'+
+      '<div class="solution" id="sol'+i+'"><strong>Solution:</strong> '+q.s+'</div>';
+    box.appendChild(d);
+  });
+  box.addEventListener("click",function(e){
+    var b=e.target; if(b.tagName!=="BUTTON")return;
+    var i=+b.getAttribute("data-i");
+    if(b.className==="check") check(i);
+    else if(b.className==="hint") hint(i);
+    else if(b.className==="sol") document.getElementById("sol"+i).style.display="block";
+  });
+  box.addEventListener("keydown",function(e){
+    if(e.key==="Enter"&&e.target.tagName==="INPUT"){ check(+e.target.id.slice(2)); }
+  });
+}
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)];}
+function check(i){
+  var val=document.getElementById("in"+i).value;
+  var fb=document.getElementById("fb"+i), card=document.getElementById("q"+i);
+  if(val.trim()===""){fb.className="fb bad";fb.textContent="Type an answer first!";return;}
+  if(isNaN(parseAnswer(val))){fb.className="fb bad";fb.textContent="I can't read that as a number. Try something like 42, 3.5, 3/4 or 1 3/4.";return;}
+  state[i].tries++;
+  if(isCorrect(val,QUESTIONS[i].a)){
+    state[i].correct=true; card.className="box q right"; fb.className="fb good";
+    fb.textContent="✅ "+pick(PRAISE)+(state[i].tries===1?" (first try!)":"");
+  } else {
+    state[i].correct=false; card.className="box q wrong"; fb.className="fb bad";
+    fb.textContent="❌ "+pick(ENCOURAGE);
+    if(state[i].tries>=2) card.querySelector(".sol").style.display="inline-block";
+  }
+  updateScore();
+}
+function hint(i){
+  var q=QUESTIONS[i], s=state[i], hb=document.getElementById("hints"+i);
+  if(s.hints<q.h.length){
+    var p=document.createElement("p"); p.textContent="💡 Hint "+(s.hints+1)+": "+q.h[s.hints]; hb.appendChild(p); s.hints++;
+  }
+  if(s.hints>=q.h.length) document.querySelector("#q"+i+" .hint").disabled=true;
+  updateScore();
+}
+function counts(){
+  var c=0,first=0,h=0;
+  state.forEach(function(s){ if(s.correct){c++; if(s.tries===1)first++;} h+=s.hints; });
+  return {correct:c,first:first,hints:h};
+}
+function updateScore(){
+  var k=counts();
+  document.getElementById("scoreText").textContent="Score: "+k.correct+" / "+QUESTIONS.length+" correct · hints used: "+k.hints;
+}
+function finish(){
+  var k=counts(), n=QUESTIONS.length, pct=Math.round(100*k.correct/n);
+  var msg;
+  if(pct===100) msg="🏆 PERFECT SCORE! The 동물원 would hire you as head zookeeper! 최고예요! 🐯";
+  else if(pct>=85) msg="🌟 Outstanding! That's a strong Grade 6–8 performance.";
+  else if(pct>=65) msg="💪 Great effort! Review the ones you missed and try them again.";
+  else if(pct>=40) msg="👍 Good start. These problems are challenging — use the hints and solutions, then retry.";
+  else msg="🌱 Challenge problems take practice. Go through the worked examples and try again!";
+  var f=document.getElementById("final");
+  f.style.display="block";
+  f.innerHTML="<h2 style='border:none;margin-top:0'>Final Score: "+k.correct+" / "+n+" ("+pct+"%)</h2>"+
+    "<p>Correct on the first try: "+k.first+" · Hints used: "+k.hints+"</p><p>"+msg+"</p>"+
+    "<p style='font-size:.85em;color:#546e7a'>Finished on "+new Date().toLocaleString("en-CA")+"</p>";
+  f.scrollIntoView({behavior:"smooth"});
+}
+render();
+updateScore();
+document.getElementById("finishBtn").addEventListener("click",finish);
+</script>
+</body>
+</html>

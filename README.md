@@ -17,3 +17,6 @@ Korean words: 여행, 지하철, 버스, 기차, 비행기, 역, 표, 어디예�
 
 ## Day 8 (2026-11-15): Daily Routines & Telling Time
 Korean words: 아침, 점심, 저녁, 일어나요, 자요, 시간, 시, 분, 매일, 몇 시예요? (audio `audio/korean/day8-*.mp3`, gTTS Korean voice). Writing: problem-solution (The Rushed Morning: choosing the best solution).
+
+## Day 9 (2026-11-22): Animals & the Zoo
+Korean words: 동물, 강아지, 고양이, 새, 물고기, 토끼, 호랑이, 곰, 동물원, 귀여워요 (audio `audio/korean/day9-*.mp3`, gTTS Korean voice). Writing: descriptive (Bring an Animal to Life: strong verbs, precise nouns, personification).
